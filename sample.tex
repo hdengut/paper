@@ -5,7 +5,6 @@
 \usepackage{hyperref}
 \usepackage[letterpaper,margin=0.75in]{geometry}
 \usepackage{setspace}
-
 \title{Developments of a Simple Model to Elucidate the Shape of Enveloped Viruses: Motivated by Monkeypox and SARS-CoV-2}
 \author{Student: Hua Deng \\ Mentor: Dr. Chwen-Yang Shew}
 \date{February 21, 2025}
@@ -39,11 +38,11 @@ In our previous study, we developed a simple yet insightful model to understand 
 
 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=0.8\textwidth,height=4.4cm]{spike.trimer.png}
   \caption{Left image: Simulation of the SARS-CoV-2 spike protein on a spherical surface, illustrating the progression from randomly distributed monomers (left) to trimer (center) and tetramer (right) formations. Right image: SARS-CoV-2 for Covid-19 schematic image ( CDC Public
-Health Image Library)}
+Health Image Library) \cite{cdc-covid}}
 \end{figure}
 
 Beyond virus-related modeling, we also explored how rod-like molecules behave inside confined spaces, such as droplets or cavities, under molecular crowding. These simulations revealed that shorter rods tend to accumulate near the boundary, while longer rods align in the interior—behaviors that closely match experimental observations. Altogether, our work provides a foundation for understanding how structure and organization emerge in complex systems.
@@ -59,7 +58,7 @@ Beyond virus-related modeling, we also explored how rod-like molecules behave in
         The images were captured under the conditions of 120~$\mu$M $\lambda$ DNA, 10~$\mu$M actin, and 4.0~mM KCl. 
         F-actins were observed to be in a nematic liquid-crystal state at the center of DEX-rich CAMDs, while DNA molecules appeared segregated from the center. 
         In other words, long DNA strands are compressed by the aligned F-actin region, as schematically illustrated in the right panel. 
-        Scale bar: 100~$\mu$m.}
+        Scale bar: 100~$\mu$m.\cite {nakatani2018specific}}
 \end{figure}
 
 \section*{Background} 
@@ -129,7 +128,7 @@ This makes DNA and RNA behave like polymers—long, repeating chains that can tw
 \subsection*{IV. Protein/Amino Acid chain}
 Proteins are natural polymers made up of amino acids, which are like the individual links in a chain. Each amino acid has the same basic structure: a central carbon atom (called the alpha carbon) bonded to a hydrogen, an amino group (–NH$_2$), a carboxyl group (–COOH), and a unique side chain, known as the R group. These amino acids connect through peptide bonds, forming a 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
    \fbox{\includegraphics[width=0.5\textwidth,height=4cm]{protein.png}}
   
@@ -150,7 +149,7 @@ These viral particles can display spherical and oval shapes, indicating differen
 
 The shape of viral particles, like those seen in the Monkeypox virus, can reveal a lot about what stage they’re at in their life cycle. In the early phases, the virus forms immature virions that are usually spherical. This round shape isn’t random—it helps the virus begin assembling its genetic material and proteins in a flexible, efficient way. At this point, the virus is just starting to come together, packaging its core components. As it matures, the virus goes through structural 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=0.5\textwidth,height=4cm]{monkeypox.png}  % Adjust width or height as needed
   \caption{Preliminary 2D model studies to
@@ -180,6 +179,15 @@ circular genome leads to a circular shape.}
 	
 	Finally, coarse-grain models are essential for designing new materials. When scientists are developing new types of polymers—whether for drug delivery, biodegradable plastics, or high-performance materials—these models help predict how the polymer will behave in different environments. This helps researchers optimize the materials for real-world uses without needing to simulate every tiny detail.
 	In the end, coarse-grain models are incredibly useful in polymer science because they simplify complex systems, making it easier to study their behavior. They save time and computational power while still allowing scientists to focus on the big picture—like how polymers stretch, bend, and interact—helping to design better materials and understand how polymers work in the real world.
+	
+	\subsection*{Bead-spring model}
+	\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.3\textwidth,height=4cm]{beadspring.png} }
+  \caption{Bead-spring model }
+\end{figure}
+	
+	
 
 
 \subsection*{1.1.2 Assumption of Coarse grain model}
@@ -254,7 +262,7 @@ Viral genomes (like those in Monkeypox and SARS-CoV-2) behave similarly to a pol
 
 
 \begin{equation}
-E = -\Gamma \frac{\exp(-\kappa_1 r)}{r} + \int \left( \frac{\kappa_2}{2} (C_1 + C_2 - C_0)^2 + \sigma \right) dA 
+E = -\Gamma \frac{\exp(-\kappa_1 r)}{r} + \int \left( \frac{\kappa_2}{2} (C_1 + C_2 - C_0)^2 + \sigma \right) dA \cite{yukawa1935}
 \end{equation}
 
 \(\Gamma\) is the interaction strength,\\
@@ -271,7 +279,8 @@ E = -\Gamma \frac{\exp(-\kappa_1 r)}{r} + \int \left( \frac{\kappa_2}{2} (C_1 + 
 
 \end{flushleft}
 
-
+\bibliographystyle {plain}  
+\bibliography {references}  
 
 \end{document}
 
