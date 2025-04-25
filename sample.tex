@@ -1,5 +1,11 @@
 
-\documentclass{article}
+\documentclass[12pt]{article}
+
+\usepackage{indentfirst}
+%\usepackage[font=small]{caption}10
+\usepackage[font=footnotesize]{caption}%9
+%\usepackage[font=scriptsize]{caption}%8
+
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{hyperref}
@@ -12,7 +18,18 @@
 \begin{document}
 
 \doublespacing
-\maketitle
+%\maketitle
+
+\begin{center}
+{\Large \textbf{Developments of a Simple Model to Elucidate the Shape of Enveloped Viruses: Motivated by Monkeypox and SARS-CoV-2}}\\[1.5ex]
+{\normalsize \textbf {Student: Hua Deng}}\\
+{\normalsize Mentor: Dr. Chwen-Yang Shew}\\
+{\normalsize February 21, 2025}
+\end{center}
+
+
+
+
 
 \begin{flushleft}
 \setlength{\parindent}{45pt}
@@ -34,10 +51,7 @@ Viruses often have highly symmetrical structures, such as icosahedrons (20-sided
 When a virus infects a host, it deliberately breaks this symmetry. Doing so creates weaker areas on the surface of the capsid, which then open up to allow the virus to inject its genetic material (RNA or DNA) into the host cell. In this way, breaking symmetry is an essential part of the infection mechanism.\\
 
 
-In our previous study, we developed a simple yet insightful model to understand how monomers can self-organize into trimers and tetramers on spherical surfaces. Our findings show that trimers are easier to form and more stable than dimers, and in many conditions, they are as stable—or even more stable—than tetramers. Tetramers require stronger attractive forces to form and are more prone to aggregation when these forces become too strong. These results highlight the importance of both energetic and entropic contributions to self-organization, particularly how interaction geometry and asymmetry influence the outcome.
-
-
-
+In our previous study, we developed a simple yet insightful model to understand how monomers can 
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.8\textwidth,height=4cm]{spike.trimer.png}
@@ -45,9 +59,13 @@ In our previous study, we developed a simple yet insightful model to understand 
 Health Image Library) \cite{cdc-covid}}
 \end{figure}
 
-Beyond virus-related modeling, we also explored how rod-like molecules behave inside confined spaces, such as droplets or cavities, under molecular crowding. These simulations revealed that shorter rods tend to accumulate near the boundary, while longer rods align in the interior—behaviors that closely match experimental observations. Altogether, our work provides a foundation for understanding how structure and organization emerge in complex systems.
+\noindent self-organize into trimers and tetramers on spherical surfaces. Our findings show that trimers are easier to form and more stable than dimers, and in many conditions, they are as stable—or even more stable—than tetramers. Tetramers require stronger attractive forces to form and are more prone to aggregation when these forces become too strong. These results highlight the importance of both energetic and entropic contributions to self-organization, particularly how interaction geometry and asymmetry influence the outcome.
 
 
+
+
+
+Beyond virus-related modeling, we also explored how rod-like molecules behave inside confined spaces, such as droplets or cavities, under molecular crowding. These simulations revealed that shorter rods tend to accumulate near the boundary, while longer rods align in the 
 \begin{figure}[!ht]
   \centering
    \includegraphics[width=0.8\textwidth,height=5.5cm]{F-actin.png}
@@ -58,8 +76,18 @@ Beyond virus-related modeling, we also explored how rod-like molecules behave in
         The images were captured under the conditions of 120~$\mu$M $\lambda$ DNA, 10~$\mu$M actin, and 4.0~mM KCl. 
         F-actins were observed to be in a nematic liquid-crystal state at the center of DEX-rich CAMDs, while DNA molecules appeared segregated from the center. 
         In other words, long DNA strands are compressed by the aligned F-actin region, as schematically illustrated in the right panel. 
-        Scale bar: 100~$\mu$m.\cite {nakatani2018specific}}
+        Scale bar: 100~$\mu$m.\cite {nakatani2018}}
 \end{figure}
+
+
+
+
+
+
+
+\noindent interior—behaviors that closely match experimental observations. Altogether, our work provides a foundation for understanding how structure and organization emerge in complex systems.
+
+
 
 \section*{Background} 
 The genomic material of SARS-CoV-2 (single-stranded RNA) and Monkeypox (double-stranded DNA) behaves like a polymer. 
@@ -80,22 +108,13 @@ The polymer is a large molecule composed of identical monomers or different type
 
 
 \subsection*{II. Membrane/Phospholipids}
-Phospholipids are the main ingredients of cell and viral membranes, and their structure is actually a lot like a simple polymer. Each one has a head that loves water and two tails that hate it. The head is connected to the tails through a small backbone, so the whole molecule looks kind of like a
-
+Phospholipids are the main ingredients of cell and viral membranes, and their structure is actually a lot like a simple polymer. Each one has a head that loves water and two tails that hate it. The head is connected to the tails through a small backbone, so the whole molecule looks kind of like a matchstick or a two-tailed kite. Because one part of the molecule wants to be near water and the other part wants to avoid it, phospholipids naturally arrange themselves into layers when they’re in water. These layers form flexible membranes that act a lot like soft polymer sheets—they can bend, move, and even stretch a little. In fact, scientists often use ideas from polymer physics to study how these membranes behave, especially when trying to understand things like how viruses wrap themselves up or how they enter cells.
 
 \begin{figure}[!ht]
   \centering
   \fbox{\includegraphics[width=0.35\textwidth,height=7cm]{membrane.png}}
   \caption{membrane subunit}
 \end{figure}
-
-
-
-
-
-
-\noindent matchstick or a two-tailed kite. Because one part of the molecule wants to be near water and the other part wants to avoid it, phospholipids naturally arrange themselves into layers when they’re in water. These layers form flexible membranes that act a lot like soft polymer sheets—they can bend, move, and even stretch a little. In fact, scientists often use ideas from polymer physics to study how these membranes behave, especially when trying to understand things like how viruses wrap themselves up or how they enter cells.
-
 
 
 
@@ -156,14 +175,14 @@ The shape of viral particles, like those seen in the Monkeypox virus, can reveal
 investigate the effect of the geometry of a
 genome on the shape of a virus. A rod-like
 genome induces an elliptic shape whereas a
-circular genome leads to a circular shape.}
+circular genome leads to a circular shape.\cite{harish2021}}
 \end{figure}
 
 \noindent changes that shift its shape from spherical to oval. This transformation involves the rearrangement of viral proteins, which makes the particle more stable. The oval shape not only helps the mature virion survive better outside the host but also improves its ability to attach to and enter host cells. This increased stability and better interaction with host cell receptors make the mature, oval-shaped virus more infectious and better equipped to replicate once inside a host.
 
 \section*{Method} 
 \subsection*{1 Models}
-\subsection*{1.1 Coase-grain model}
+\subsection*{1.1 Coase-grain models}
 
 \subsection*{1.1.1 Adveantage of Coase-grain model}
 	Using a coarse-grain model in polymer science is really helpful because it makes things simpler and more efficient, especially when dealing with large and complex systems. One of the biggest reasons to use coarse-graining is that it saves a lot of computational power. Polymers are often made up of thousands or even millions of atoms, so simulating each individual atom takes a huge amount of time and resources. Instead of modeling each atom, a coarse-grain model groups several atoms or monomers into a "bead," which reduces the number of particles in the simulation. This allows researchers to study bigger systems and longer timescales without overwhelming their computers.
@@ -180,14 +199,7 @@ circular genome leads to a circular shape.}
 	Finally, coarse-grain models are essential for designing new materials. When scientists are developing new types of polymers—whether for drug delivery, biodegradable plastics, or high-performance materials—these models help predict how the polymer will behave in different environments. This helps researchers optimize the materials for real-world uses without needing to simulate every tiny detail.
 	In the end, coarse-grain models are incredibly useful in polymer science because they simplify complex systems, making it easier to study their behavior. They save time and computational power while still allowing scientists to focus on the big picture—like how polymers stretch, bend, and interact—helping to design better materials and understand how polymers work in the real world.
 	
-	\subsection*{Bead-spring model}
-	\begin{figure}[!ht]
-  \centering
-  \fbox{\includegraphics[width=0.25\textwidth,height=4cm]{beadspring.png} }
-  \caption{Bead-spring model }
-\end{figure}
-	
-	
+
 
 
 \subsection*{1.1.2 Assumption of Coarse grain model}
@@ -203,7 +215,33 @@ Coarse-grained models come with several assumptions that are critical for their 
     5. Fixed Connectivity:\\
         In polymer applications, it usually assumes fixed connectivity between beads, which may not fully account for the flexibility in the actual polymer chains. \\ 
 
-\subsection*{1.2 Simple liquid Models}
+
+\subsection*{1.2 Kremer-Grest Model for representing the DNA chain}
+	
+The Kremer-Grest (KG) model is a popular way to simulate polymers in computer-based molecular dynamics. It is a specific, well-defined bead-spring model that includes Lennard-Jones (LJ) potential for excluded volume (non-bonded interactions) and FENE (Finitely Extensible Nonlinear Elastic) potential for the bonds between adjacent beads.	
+
+Instead of tracking every atom, it simplifies the system by representing each polymer chain as a string of connected beads. These beads interact with each other in two main ways: non-bonded beads repel each other using something called the Lennard-Jones (LJ) potential, which helps prevent them from overlapping, and bonded beads (those directly connected in the chain) are held together by a FENE spring, which stretches like a real polymer bond but can't break or stretch too far. To keep the system at a steady temperature—like it would be in a real fluid—a Langevin thermostat is often used, adding both friction and random kicks to the beads. The model is simple, efficient, and captures the large-scale behavior of polymers really well, which is why it's used so widely in polymer research.	
+	
+
+
+Kresmer$-$grest Model more physically realistic for polymers than a basic harmonic model and bead$-$spring model.
+It prevents bond crossing (thanks to FENE + LJ) and it has been extensively validated and used in thousands of studies.
+
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.25\textwidth,height=4cm]{beadspring.png} }
+  \caption{Bead-spring model }
+\end{figure}
+
+
+\begin{itemize}
+  \item \textbf{FENE spring:} \( k = 30 \), \( R_0 = 1.5 \)
+  \item \textbf{Lennard-Jones (LJ) potential:} \( \varepsilon = 1 \), \( \sigma = 1 \), cutoff \( r_c = 2^{1/6} \sigma \)
+  \item \textbf{Time integration (Langevin thermostat):} friction \( \gamma = 0.5 \), temperature \( T = 1.0 \)
+\end{itemize}
+
+
+\subsection*{1.3 Simple liquid Models for representing the DNA chain with the surrounding}
 
 Simple liquid models that help understand the structure and behavior of polymer fluids in crowded environments. Specifically, the simple liquid models referenced include Hard Sphere Model and Lennard-Jones Model. 
 
@@ -212,7 +250,27 @@ Hard sphere model is used to understand the behavior of particles in crowded env
 
 
 The Lennard-Jones model accounts for both attractive and repulsive forces between particles, which is important in understanding the interactions within fluids and condensed matter. It helps model the behavior of molecules, especially in non-ideal conditions like those found in crowded environments. 
-\subsection*{1.3 Summary of the models}
+
+\subsection*{1.4 Fibonacci Model for the membrane representing }
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.18\textwidth,height=3.3cm]{fibonacci.png} }
+  \caption{Fiboncci model }
+\end{figure}
+
+
+\subsection*{1.5 Gaussian Network Model (GNM) for the membrane representing }
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.2\textwidth,height=3.5cm]{fibonacci.png} }
+  \caption{Gaussian Network Model}
+\end{figure}
+
+
+
+
+
+\subsection*{1.6 Summary of the models}
 Coarse-grain model and simple liquid models are valuable tools in understanding how particles interact in condensed matter systems, such as polymer fluids, from both an energetic (energy of interactions) and entropic (disorder and randomness) perspective.
 
 
@@ -253,12 +311,18 @@ The simulation assumes that the underlying process or system doesn’t change ov
 
 The simulation is only as good as the model it's based on. It assumes the mathematical or logical structure you build reflects the real-world process correctly.
 
+
+We simplify the genome$-$membrane system using a coarse-grained model,and use Monte Carlo simulation to explore its behavior of the system. Monte Carlo can help fit the parameters of a coarse-grained model.Coarse-grained models and Monto carlo simulate large, complex systems (like polymers, membranes) efficiently and with reasonable accuracy.
+
+
+
+
 \subsection*{III. Summary}
 Viral genomes (like those in Monkeypox and SARS-CoV-2) behave similarly to a polymer chain packed inside a small, crowded space (the viral capsid/membrane). The project aims to extend existing models and Monto Carlo simulation to study how the genome's architecture (shape, length, and flexibility) affects the overall shape of a virus. This will help us understand how viral genomes and membranes interact, which is crucial for predicting viral structures and behavior.
 
 
 
-
+\subsection*{Formular}
 
 
 \begin{equation}
@@ -274,6 +338,29 @@ E = -\Gamma \frac{\exp(-\kappa_1 r)}{r} + \int \left( \frac{\kappa_2}{2} (C_1 + 
 \(\sigma\) is the surface tension(accounts for the energy cost of increasing the membrane area)\\
 \(dA\) is the differential area element(integrates energy over the entire membrane surface)\\
 
+
+
+Simulating realistic physical conditions, since many experiments happen at constant pressure (example:1 atm) and temperature  (example: 298 K).
+
+\noindent NPT Ensemble (Isothermal–Isobaric Ensemble)
+
+NPT stands for:
+
+    N = Number of particles (constant)
+
+    P = Pressure (constant)
+
+    T = Temperature (constant)
+
+\noindent NVT Ensemble (Canonical Ensemble)
+
+NVT stands for:
+
+    N = Number of particles (constant)
+
+    V = Volume (constant)
+
+    T = Temperature (constant)
 
 
 
