@@ -360,7 +360,9 @@ NPT stands for:
 
     T = Temperature (constant)
     
-    Under NPT conditions, the pressure of the system is controlled, allowing the volume to change naturally. The membrane can expand, shrink, or reshape in response to the dynamics of the genome inside. This flexibility enables realistic interactions between the genome and the membrane, such as the genome pressing against and deforming the membrane or membrane fluctuations influencing the arrangement of the genome. Studying the system under NPT provides a more accurate representation of how membranes and genomes behave together in biological environments.
+    Under NPT conditions, the system’s pressure is controlled, allowing the volume to change naturally over time. In one approach, the membrane is initialized with a fixed oval or ellipsoidal shape, defined by the input parameters aaaaaaaa, bbbbbbbb, and cccccccc, which represent the lengths along its three principal axes. These parameters remain constant during the simulation, so the membrane maintains its overall shape while still allowing local fluctuations and interactions with the genome inside.
+
+In another approach, the parameters a, b, and c are allowed to fluctuate during the simulation. This means the membrane can expand, shrink, or reshape dynamically in response to internal forces exerted by the genome. Such flexibility promotes more realistic interactions between the genome and the membrane — for example, the genome may push outward and deform the membrane, while changes in membrane tension or curvature can influence how the genome is organized. Using NPT conditions in this way provides a natural and dynamic view of the interplay between membranes and genomes in biological systems.
 
 \noindent NVT Ensemble (Canonical Ensemble)
 
@@ -372,12 +374,9 @@ NVT stands for:
 
     T = Temperature (constant)
 
+Under NVT conditions, the volume of the system is fixed, meaning the membrane is constrained and cannot expand or contract. In one approach, the membrane is initialized with an oval or ellipsoidal shape, defined by input parameters a, b, and c, representing the lengths along its three principal axes. These parameters remain constant throughout the simulation, so the membrane keeps its shape even as the genome inside moves or grows. Because the membrane cannot adapt naturally to changes, any pressure exerted by the genome builds up inside, sometimes leading to artificial forces that would not normally appear in a flexible system.
 
-
-
-
-Under NVT conditions, the volume of the system is fixed, meaning the membrane is constrained and cannot expand or contract. As a result, if the genome inside moves, grows, or exerts pressure, the membrane cannot adapt naturally to these changes. This often leads to the creation of artificial pressures or forces between the genome and the membrane, which can affect the system’s dynamics. Studying the membrane–genome relationship under NVT is useful for early-stage stabilization of the system or when specifically investigating confined genome behavior within a rigid environment of fixed size.
-
+In another approach, even though the overall volume remains fixed under NVT, small local fluctuations in the shape of the membrane are allowed while still keeping a, b, and c centered around their initial values. In this case, the membrane can slightly deform in response to internal forces from the genome without changing its total volume. While the confinement effect is still strong, allowing limited local fluctuations provides a somewhat more realistic interaction between the genome and the membrane. Studying the membrane–genome relationship in either method under NVT is useful for early-stage stabilization or when specifically exploring how genomes behave in confined, rigid environments.
 
 \end{flushleft}
 
