@@ -326,8 +326,16 @@ Viral genomes (like those in Monkeypox and SARS-CoV-2) behave similarly to a pol
 
 
 \begin{equation}
-E = -\Gamma \frac{\exp(-\kappa_1 r)}{r} + \int \left( \frac{\kappa_2}{2} (C_1 + C_2 - C_0)^2 + \sigma \right) dA \cite{yukawa1935}
+E = -\Gamma \frac{\exp(-\kappa_1 r)}{r} +V
 \end{equation}
+
+
+\begin{equation}
+V= \int \left( \frac{\kappa_2}{2} (C_1 + C_2 - C_0)^2 + \sigma \right) dA
+\end{equation}
+
+
+
 
 \(\Gamma\) is the interaction strength,\\
 \(\kappa_1\) is the screening parameter \\
@@ -351,6 +359,8 @@ NPT stands for:
     P = Pressure (constant)
 
     T = Temperature (constant)
+    
+    Under NPT conditions, the pressure of the system is controlled, allowing the volume to change naturally. The membrane can expand, shrink, or reshape in response to the dynamics of the genome inside. This flexibility enables realistic interactions between the genome and the membrane, such as the genome pressing against and deforming the membrane or membrane fluctuations influencing the arrangement of the genome. Studying the system under NPT provides a more accurate representation of how membranes and genomes behave together in biological environments.
 
 \noindent NVT Ensemble (Canonical Ensemble)
 
@@ -362,6 +372,11 @@ NVT stands for:
 
     T = Temperature (constant)
 
+
+
+
+
+Under NVT conditions, the volume of the system is fixed, meaning the membrane is constrained and cannot expand or contract. As a result, if the genome inside moves, grows, or exerts pressure, the membrane cannot adapt naturally to these changes. This often leads to the creation of artificial pressures or forces between the genome and the membrane, which can affect the system’s dynamics. Studying the membrane–genome relationship under NVT is useful for early-stage stabilization of the system or when specifically investigating confined genome behavior within a rigid environment of fixed size.
 
 
 \end{flushleft}
