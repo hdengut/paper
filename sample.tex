@@ -1,5 +1,6 @@
 
 \documentclass[12pt]{article}
+\usepackage{amsmath}
 
 \usepackage{indentfirst}
 %\usepackage[font=small]{caption}10
@@ -41,6 +42,13 @@ To develop new models and simulations to study how the viral genome architecture
 
 Viral infections have a critical impact on global health, emphasizing their role in pandemics and outbreaks. These infections pose significant risks to public health and encompass a wide range of diseases, from seasonal influenza to more severe infectious diseases such as Monkeypox and COVID-19. Both Monkeypox and COVID-19 viruses are classified as enveloped viruses, which are distinguished by their lipid membranes that surround and protect their genetic material (genomes). These membranes serve several crucial functions: they provide protection by shielding the viral genome from environmental factors and potential damage, and they facilitate transmission by enabling the virus to enter host cells. The membrane proteins and polysaccharides play a key role in this process by interacting with specific receptors on host cells, thereby promoting viral infection and the delivery of the genome into the host. We need to further understand these mechanisms to develop effective prevention and treatment strategies.
 
+Virions are acellular, meaning they are not made up of cells and therefore lack cellular components like organelles, ribosomes, or a plasma membrane. Instead, a virion consists primarily of a nucleic acid genome encased within a protein coat called a capsid. 
+
+
+
+
+
+
 SARS-CoV-2, the virus responsible for COVID-19, enters a host cell by first using its spike (S) protein to bind to a specific receptor on the surface of human cells called ACE2 (angiotensin-converting enzyme 2). This spike protein acts like a key, allowing the virus to attach tightly to the host cell. After attachment, the virus enters the cell either through direct fusion with the cell membrane or via endocytosis. Once inside, the viral envelope is removed (a process called uncoating), releasing its positive-sense single-stranded RNA genome into the host cell’s cytoplasm. This viral RNA acts directly as messenger RNA (mRNA) and is translated by the host's ribosomes to produce viral proteins, including more spike proteins, structural proteins, and enzymes necessary for viral replication. The viral genome is also copied to make more RNA strands. These components are then assembled into new viral particles. Finally, the new viruses are released from the cell by budding, often taking a piece of the host’s membrane with embedded spike proteins, allowing them to infect new cells. The spike protein is essential for both the entry of the virus and for determining which cells it can infect.
 
 Viruses often have highly symmetrical structures, such as icosahedrons (20-sided shapes). This symmetry helps distribute internal pressure evenly across the viral capsid, preventing weak spots and making the virus stable and protective of its genetic material.
@@ -48,15 +56,30 @@ Viruses often have highly symmetrical structures, such as icosahedrons (20-sided
 When a virus infects a host, it deliberately breaks this symmetry. Doing so creates weaker areas on the surface of the capsid, which then open up to allow the virus to inject its genetic material (RNA or DNA) into the host cell. In this way, breaking symmetry is an essential part of the infection mechanism.\\
 
 
-In our previous study, we developed a simple yet insightful model to understand how monomers can 
+
+
+Viruses pack their genetic material DNA or RNA into tiny protein shells called capsids under extremely high pressure, often reaching tens of atmospheres, far greater than the pressure inside a champagne bottle. During the assembly of a virus, a specialized motor protein powered by ATP works to push the viral genome into the small, enclosed space of the capsid. This step requires a significant amount of energy because the DNA or RNA has to be crammed into a space much smaller than its relaxed form. As a result, the genetic material becomes tightly packed, creating considerable internal pressure. This pressure mainly arises from two factors: the repulsion between the negatively charged parts of the nucleic acid strands and the physical strain of bending a rigid, long molecule into such a confined area.\cite{BrandarizNunez2019}
+
+
+
+
+This pressurization plays a crucial role in the infection process. When a virus encounters a host cell, the built-up pressure inside the capsid acts like a compressed spring, forcefully ejecting the genome into the host cell. This mechanism ensures that the viral genetic material enters the cell rapidly and efficiently, allowing the virus to take over the host’s cellular machinery almost immediately. This strategy is not limited to a single type of virus; it is conserved across many viral families, including those that infect humans, bacteria, and archaea. For instance, studies have shown that herpes simplex virus type 1 (HSV-1) can exert internal pressures of up to 20 atmospheres, which is essential for successfully delivering its DNA into the host.
+
+Understanding this mechanism at a deeper level has important implications for medicine. By targeting the molecular motor or the structural features that allow such high pressure to build up and be maintained, scientists are exploring ways to develop antiviral drugs that could block the genome ejection step. If successful, these treatments could prevent a virus from completing its infection cycle, offering a new class of antiviral therapies that stop viruses before they gain a foothold in the body. 
+
+
+
+
+
+
+In our previous study, we developed a simple yet insightful model to understand how monomers can self-organize into trimers and tetramers on spherical surfaces. Our findings show that trimers are easier to form and more stable than dimers, and in many conditions, they are as stable—or even more stable—than tetramers. Tetramers require stronger attractive forces to form and are more prone to aggregation when these forces become too strong. These results highlight the importance of both energetic and entropic contributions to self-organization, particularly how interaction geometry and asymmetry influence the outcome.
+
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.8\textwidth,height=4cm]{spike.trimer.png}
   \caption{Left image: Simulation of the SARS-CoV-2 spike protein on a spherical surface, illustrating the progression from randomly distributed monomers (left) to trimer (center) and tetramer (right) formations. Right image: SARS-CoV-2 for Covid-19 schematic image ( CDC Public
 Health Image Library) \cite{cdc-covid}}
 \end{figure}
-
-\noindent self-organize into trimers and tetramers on spherical surfaces. Our findings show that trimers are easier to form and more stable than dimers, and in many conditions, they are as stable—or even more stable—than tetramers. Tetramers require stronger attractive forces to form and are more prone to aggregation when these forces become too strong. These results highlight the importance of both energetic and entropic contributions to self-organization, particularly how interaction geometry and asymmetry influence the outcome.
 
 
 
@@ -163,22 +186,7 @@ After a protein folds into its final shape, it still technically is a polymer—
 
 
 
-The genome of the Monkeypox virus is a double-stranded DNA, approximately 190 kb (kilobases) in length, which equals about 95 kbp (kilobase pairs). This genomic length corresponds to a substantial contour length of approximately 3000 nm. This indicates that the genetic material is significantly longer than the physical dimensions of the virus itself, which measures around 250 nm long. 
-These viral particles can display spherical and oval shapes, indicating different developmental stages: immature virions tend to be spherical, while mature virions adopt an oval shape. This morphological differentiation can be important for recognizing stages in the virus life cycle and understanding how these changes may affect infectivity. The transition from spherical to oval shapes may be linked to the maturation process, influencing the virus's ability to enter host cells and replicate effectively.\\
 
-The shape of viral particles, like those seen in the Monkeypox virus, can reveal a lot about what stage they’re at in their life cycle. In the early phases, the virus forms immature virions that are usually spherical. This round shape isn’t random—it helps the virus begin assembling its genetic material and proteins in a flexible, efficient way. At this point, the virus is just starting to come together, packaging its core components. As it matures, the virus goes through structural 
-
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=0.5\textwidth,height=4cm]{monkeypox.png}  % Adjust width or height as needed
-  \caption{Preliminary 2D model studies to
-investigate the effect of the geometry of a
-genome on the shape of a virus. A rod-like
-genome induces an elliptic shape whereas a
-circular genome leads to a circular shape.\cite{harish2021}}
-\end{figure}
-
-\noindent changes that shift its shape from spherical to oval. This transformation involves the rearrangement of viral proteins, which makes the particle more stable. The oval shape not only helps the mature virion survive better outside the host but also improves its ability to attach to and enter host cells. This increased stability and better interaction with host cell receptors make the mature, oval-shaped virus more infectious and better equipped to replicate once inside a host.
 
 \section*{Method} 
 \subsection*{1 Models}
@@ -216,15 +224,16 @@ Coarse-grained models come with several assumptions that are critical for their 
         In polymer applications, it usually assumes fixed connectivity between beads, which may not fully account for the flexibility in the actual polymer chains. \\ 
 
 
-\subsection*{1.2 Kremer-Grest Model for representing the DNA chain}
+\subsection*{1.2 Kremer-Grest Model for DNA chain}
 	
-The Kremer-Grest (KG) model is a popular way to simulate polymers in computer-based molecular dynamics. It is a specific, well-defined bead-spring model that includes Lennard-Jones (LJ) potential for excluded volume (non-bonded interactions) and FENE (Finitely Extensible Nonlinear Elastic) potential for the bonds between adjacent beads.	
+The Kremer-Grest (KG) model is a type of coarse-grained model, specifically for polymers,and a popular way to simulate polymers in computer-based molecular dynamics. It is a specific, well-defined bead-spring model that includes Lennard-Jones (LJ) potential for excluded volume (non-bonded interactions) and FENE (Finitely Extensible Nonlinear Elastic) potential for the bonds between adjacent beads.	
+
 
 Instead of tracking every atom, it simplifies the system by representing each polymer chain as a string of connected beads. These beads interact with each other in two main ways: non-bonded beads repel each other using something called the Lennard-Jones (LJ) potential, which helps prevent them from overlapping, and bonded beads (those directly connected in the chain) are held together by a FENE spring, which stretches like a real polymer bond but can't break or stretch too far. To keep the system at a steady temperature—like it would be in a real fluid—a Langevin thermostat is often used, adding both friction and random kicks to the beads. The model is simple, efficient, and captures the large-scale behavior of polymers really well, which is why it's used so widely in polymer research.	
 	
 
 
-Kresmer$-$grest Model more physically realistic for polymers than a basic harmonic model and bead$-$spring model.
+Kresmer$-$grest Model is more physically realistic for polymers than a basic harmonic model and bead$-$spring model.
 It prevents bond crossing (thanks to FENE + LJ) and it has been extensively validated and used in thousands of studies.
 
 \begin{figure}[!ht]
@@ -241,7 +250,7 @@ It prevents bond crossing (thanks to FENE + LJ) and it has been extensively vali
 \end{itemize}
 
 
-\subsection*{1.3 Simple liquid Models for representing the DNA chain with the surrounding}
+\subsection*{1.3 Simple liquid Models for the organelles surrounding DNA}
 
 Simple liquid models that help understand the structure and behavior of polymer fluids in crowded environments. Specifically, the simple liquid models referenced include Hard Sphere Model and Lennard-Jones Model. 
 
@@ -251,20 +260,62 @@ Hard sphere model is used to understand the behavior of particles in crowded env
 
 The Lennard-Jones model accounts for both attractive and repulsive forces between particles, which is important in understanding the interactions within fluids and condensed matter. It helps model the behavior of molecules, especially in non-ideal conditions like those found in crowded environments. 
 
-\subsection*{1.4 Fibonacci Model for the membrane representing }
+\subsection*{1.4 Helfrich Model with Fibonacci for the membrane}
 \begin{figure}[!ht]
   \centering
-  \fbox{\includegraphics[width=0.18\textwidth,height=3.3cm]{fibonacci.png} }
-  \caption{Fiboncci model }
+  \includegraphics[width=0.45\textwidth,height=4cm]{fobinacci.network.png} 
+  \caption{Left image: Fiboncci model  Right image: }
 \end{figure}
 
+Continuum models are a powerful framework used to describe and simulate the large-scale, smooth behavior of biological membranes (and other materials) without tracking individual atoms or molecules. Instead of focusing on discrete particles like in molecular dynamics, continuum models treat the membrane as a continuous surface or material with defined physical properties.
 
-\subsection*{1.5 Gaussian Network Model (GNM) for the membrane representing }
-\begin{figure}[!ht]
-  \centering
-  \fbox{\includegraphics[width=0.2\textwidth,height=3.5cm]{fibonacci.png} }
-  \caption{Gaussian Network Model}
-\end{figure}
+
+
+To create beads on a spherical surface using the Gaussian Network Model (GNM), the first step is to place the beads evenly across the sphere.The way we use is Fibonacci lattice, which helps distribute the points uniformly without crowding near the poles.
+Each bead is assigned a 3D position on the surface of the unit sphere. This means each bead's coordinates satisfy:
+
+\(x^2 + y^2 +z^2 = r^2\)\\
+\noindent where \(x\), \(y\), and \(z\) are the coordinates of a point on the sphere, and \(r\) is the radius of the sphere.
+ 
+ 
+ 
+ 
+ 
+  After that, we define a cutoff distance—a threshold that determines whether two beads are close enough to be connected. For each pair of beads, we calculate the distance between them, and if it’s less than or equal to the cutoff, we connect them with a virtual spring. These springs represent interactions or flexibility between the nodes. 
+  
+	Once all the connections are made, we construct what's called the Kirchhoff matrix (or the GNM matrix). In this matrix, a value of -1 is placed at the off-diagonal positions where two beads are connected, and 0 where they're not. The diagonal entries are set so that each row adds up to zero, which simply reflects how many connections each bead has. This matrix is the core of the GNM approach—it captures the structure of the network and can be used to study how the system might flex, shift, or vibrate as a whole. By following these steps, you turn a static arrangement of beads on a sphere into a dynamic network model that can simulate real-world molecular or physical behaviors.
+
+
+
+
+
+
+
+Bead 1 is connected to beads 2 and 3\\
+
+Bead 2 is connected to beads 1 and 3\\
+
+Bead 3 is connected to beads 1, 2, and 4\\
+
+Bead 4 is connected to bead 3\\
+
+Bead 5 is not connected to any bead\\
+
+The Kirchhoff matrix \( \Gamma \) for a simple Gaussian Network Model with 5 beads is:
+
+\[
+\Gamma =
+\begin{bmatrix}
+  2 & -1 & -1 & 0 & 0 \\
+ -1 &  2 & -1 & 0 & 0 \\
+ -1 & -1 & 3 & -1 & 0 \\
+  0 &  0 & -1 & 1 & 0 \\
+  0 &  0 &  0 & 0 & 0 \\
+\end{bmatrix}
+\]
+
+
+
 
 
 
@@ -324,27 +375,46 @@ Viral genomes (like those in Monkeypox and SARS-CoV-2) behave similarly to a pol
 
 \subsection*{Formular}
 
-
+%\frac{V(r)}{k_B T} = -\Gamma \frac{\exp(-\kappa_1 r)}{r} +V
 \begin{equation}
-E = -\Gamma \frac{\exp(-\kappa_1 r)}{r} +V
+E(r) = -\Gamma \frac{\exp(-\kappa_1 r)}{r} K_B T\cite{yukawa1935} +V
 \end{equation}
+
+The Yukawa potential V(r) describes how two particles interact when their force has a finite range
+
+E(r) potential energy as a function of distance r\\
+\(\Gamma\) is the interaction strength,\\
+\(\kappa_1\) is the screening parameter \\
+\(r\) is the distance, \\
+Negative sign (-) indicates the interaction is attractive.\\
+The left-hand side \( \frac{V(r)}{k_B T} \) indicates how strong the interaction is compared to the typical thermal energy \( k_B T \).\\
+
+The potential is negative (\( -\Gamma \)), meaning it is attractive — it tends to pull particles together.
+
+\noindent The form \( \frac{e^{-\kappa_1 r}}{r} \) means:
+
+\begin{itemize}
+    \item At short distances (\( r \to 0 \)), the potential behaves like \( \sim \frac{1}{r} \) — like a Coulomb (electrostatic) potential.
+    \item At large distances (\( r \to \infty \)), the potential decays exponentially because of the \( e^{-\kappa_1 r} \) — it becomes very small quickly.
+    \item \( \kappa_1 \) controls how short-ranged the potential is: larger \( \kappa_1 \) means the force dies off quicker.
+\end{itemize}
+
 
 
 \begin{equation}
 V= \int \left( \frac{\kappa_2}{2} (C_1 + C_2 - C_0)^2 + \sigma \right) dA
 \end{equation}
 
+The Helfrich–Canham equation describes the total energy of a membrane by combining two main contributions: bending energy and surface tension energy. The bending energy reflects how much the membrane curves away from its preferred, or spontaneous, shape. Meanwhile, the surface tension energy accounts for the cost of stretching the membrane — it increases when the membrane's surface area grows. Together, these terms help explain how membranes bend, stretch, and maintain their shape in different environments.
 
 
 
-\(\Gamma\) is the interaction strength,\\
-\(\kappa_1\) is the screening parameter \\
-\(\kappa_2\) is bending rigidity (determines how resistant the membrane is to bending) \\
-\(r\) is the distance, \\
-\(C_1\), \(C_2\) are the principal curvatures, of the membraneat each point\\
-\(C_0\) is the spontaneous curvature, which represents the preferred cuvaturea due to asymmetry in the membrane
+\(\kappa_2\) is bending rigidity — it quantifies the stiffness of the membrane.\\
+
+\(C_1\), \(C_2\) are the principal curvatures of the membraneat surface\\
+\(C_0\) is the spontaneous curvature, which represents the preferred cuvaturea due to asymmetry in the membrane.\\
 \(\sigma\) is the surface tension(accounts for the energy cost of increasing the membrane area)\\
-\(dA\) is the differential area element(integrates energy over the entire membrane surface)\\
+\(dA\) is integration over the entire membrane surface area. \\
 
 
 
@@ -360,7 +430,7 @@ NPT stands for:
 
     T = Temperature (constant)
     
-    Under NPT conditions, the system’s pressure is controlled, allowing the volume to change naturally over time. In one approach, the membrane is initialized with a fixed oval or ellipsoidal shape, defined by the input parameters aaaaaaaa, bbbbbbbb, and cccccccc, which represent the lengths along its three principal axes. These parameters remain constant during the simulation, so the membrane maintains its overall shape while still allowing local fluctuations and interactions with the genome inside.
+    Under NPT conditions, the system’s pressure is controlled, allowing the volume to change naturally over time. In one approach, the membrane is initialized with a fixed oval or ellipsoidal shape, defined by the input parameters a, b, and c, which represent the lengths along its three principal axes. These parameters remain constant during the simulation, so the membrane maintains its overall shape while still allowing local fluctuations and interactions with the genome inside.
 
 In another approach, the parameters a, b, and c are allowed to fluctuate during the simulation. This means the membrane can expand, shrink, or reshape dynamically in response to internal forces exerted by the genome. Such flexibility promotes more realistic interactions between the genome and the membrane — for example, the genome may push outward and deform the membrane, while changes in membrane tension or curvature can influence how the genome is organized. Using NPT conditions in this way provides a natural and dynamic view of the interplay between membranes and genomes in biological systems.
 
@@ -377,6 +447,26 @@ NVT stands for:
 Under NVT conditions, the volume of the system is fixed, meaning the membrane is constrained and cannot expand or contract. In one approach, the membrane is initialized with an oval or ellipsoidal shape, defined by input parameters a, b, and c, representing the lengths along its three principal axes. These parameters remain constant throughout the simulation, so the membrane keeps its shape even as the genome inside moves or grows. Because the membrane cannot adapt naturally to changes, any pressure exerted by the genome builds up inside, sometimes leading to artificial forces that would not normally appear in a flexible system.
 
 In another approach, even though the overall volume remains fixed under NVT, small local fluctuations in the shape of the membrane are allowed while still keeping a, b, and c centered around their initial values. In this case, the membrane can slightly deform in response to internal forces from the genome without changing its total volume. While the confinement effect is still strong, allowing limited local fluctuations provides a somewhat more realistic interaction between the genome and the membrane. Studying the membrane–genome relationship in either method under NVT is useful for early-stage stabilization or when specifically exploring how genomes behave in confined, rigid environments.
+
+
+
+The genome of the Monkeypox virus is a double-stranded DNA, approximately 190 kb (kilobases) in length, which equals about 95 kbp (kilobase pairs). This genomic length corresponds to a substantial contour length of approximately 3000 nm. This indicates that the genetic material is significantly longer than the physical dimensions of the virus itself, which measures around 250 nm long. 
+These viral particles can display spherical and oval shapes, indicating different developmental stages: immature virions tend to be spherical, while mature virions adopt an oval shape. This morphological differentiation can be important for recognizing stages in the virus life cycle and understanding how these changes may affect infectivity. The transition from spherical to oval shapes may be linked to the maturation process, influencing the virus's ability to enter host cells and replicate effectively.\\
+
+The shape of viral particles, like those seen in the Monkeypox virus, can reveal a lot about what stage they’re at in their life cycle. In the early phases, the virus forms immature virions that are usually spherical. This round shape isn’t random—it helps the virus begin assembling its genetic material and proteins in a flexible, efficient way. At this point, the virus is just starting to come together, packaging its core components. As it matures, the virus goes through structural 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.5\textwidth,height=4cm]{monkeypox.png}  % Adjust width or height as needed
+  \caption{Preliminary 2D model studies to
+investigate the effect of the geometry of a
+genome on the shape of a virus. A rod-like
+genome induces an elliptic shape whereas a
+circular genome leads to a circular shape.}
+\end{figure}
+
+\noindent changes that shift its shape from spherical to oval. This transformation involves the rearrangement of viral proteins, which makes the particle more stable. The oval shape not only helps the mature virion survive better outside the host but also improves its ability to attach to and enter host cells. This increased stability and better interaction with host cell receptors make the mature, oval-shaped virus more infectious and better equipped to replicate once inside a host.
+
 
 \end{flushleft}
 
