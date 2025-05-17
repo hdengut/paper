@@ -48,8 +48,6 @@ Virions are acellular, meaning they are not made up of cells and therefore lack 
 
 
 
-
-
 SARS-CoV-2, the virus responsible for COVID-19, enters a host cell by first using its spike (S) protein to bind to a specific receptor on the surface of human cells called ACE2 (angiotensin-converting enzyme 2). This spike protein acts like a key, allowing the virus to attach tightly to the host cell. After attachment, the virus enters the cell either through direct fusion with the cell membrane or via endocytosis. Once inside, the viral envelope is removed (a process called uncoating), releasing its positive-sense single-stranded RNA genome into the host cell’s cytoplasm. This viral RNA acts directly as messenger RNA (mRNA) and is translated by the host's ribosomes to produce viral proteins, including more spike proteins, structural proteins, and enzymes necessary for viral replication. The viral genome is also copied to make more RNA strands. These components are then assembled into new viral particles. Finally, the new viruses are released from the cell by budding, often taking a piece of the host’s membrane with embedded spike proteins, allowing them to infect new cells. The spike protein is essential for both the entry of the virus and for determining which cells it can infect.
 
 Viruses often have highly symmetrical structures, such as icosahedrons (20-sided shapes). This symmetry helps distribute internal pressure evenly across the viral capsid, preventing weak spots and making the virus stable and protective of its genetic material.
@@ -166,6 +164,18 @@ Nucleotides, the building blocks of RNA and DNA, act as repeating units  that fo
 
 This makes DNA and RNA behave like polymers—long, repeating chains that can twist, bend, and fold. DNA usually forms a double helix, with two strands held together by base pairing (A with T, and G with C), while RNA is usually single-stranded and folds into all kinds of shapes. In science, especially in physics, we can think of DNA and RNA as flexible polymers, which helps us understand how they fold up inside tiny spaces—like the inside of a virus.
 
+\begin{figure}[!ht]
+  \centering
+   \fbox{\includegraphics[width=0.45\textwidth,height=4cm]{chromatin.png}}
+  
+  %\includegraphics[width=0.3\textwidth,height=4cm]{protein.png}  % Adjust width or height as needed
+  \caption{DNA, Chromatin and Chromosome\cite{byjus_chromatin}}
+\end{figure}
+
+
+
+
+
 
 
 \subsection*{IV. Protein/Amino Acid chain}
@@ -179,22 +189,52 @@ Proteins are natural polymers made up of amino acids, which are like the individ
   \caption{Amino acid chain}
 \end{figure}
 
-\noindent backbone that repeats along the entire length of the chain—just like a synthetic polymer has repeating units. But proteins don’t stay as simple straight chains. They start folding right away into more complex shapes. First, they form local patterns like alpha helices (coils) and beta sheets (pleated folds), which are stabilized by hydrogen bonds. Then the entire chain folds into a specific 3D structure, known as the tertiary structure, shaped by interactions between the R groups—like hydrogen bonding, hydrophobic packing, or ionic attractions. Sometimes multiple folded chains come together to form a quaternary structure. This whole folding process is what makes a protein functional. So while a protein is a polymer at its core, its complexity and flexibility come from the variety in its amino acids and the way they interact in space. 
 
 
 
-After a protein folds into its final shape, it still technically is a polymer—it’s just a much more complex and organized one. Instead of looking like a simple chain or string, a folded protein looks more like a tangled but purposeful knot or a compact 3D sculpture. The backbone of the chain is still there, repeating like in any polymer, but now it's been twisted, looped, and packed in a specific way to create a functional structure. Some parts form spirals (alpha helices), others form sheets (beta sheets), and the rest bends and loops to connect them all together. Even though it’s not as uniform-looking as a plastic polymer, it still behaves like a polymer chain in the sense that it’s made from repeating units (amino acids), it has flexibility, and it responds to its environment. So a folded protein is like a smart, dynamic polymer—one that’s shaped by chemistry, and whose final form is directly tied to its job inside the body.\\
+A protein is a polymer — a long chain of amino acids linked together. When this chain is unfolded, it behaves much like any other polymer: flexible, floppy, and unstructured. But as it folds into its functional shape, it becomes something much more complex. First, parts of the chain form regular structures like alpha helices and beta sheets (secondary structure), then the entire chain folds into a specific 3D shape (tertiary structure). Sometimes, multiple folded chains come together to form a larger protein complex (quaternary structure). Even though the final result looks nothing like a simple chain, the backbone — the polymer itself — is still there, just shaped into a highly organized structure.
+
+Once a protein has folded, it doesn’t look or behave like the kind of polymer you might find in plastic or rubber. Instead, it’s more like a carefully crafted molecular machine. It’s still made of repeating amino acid units, but now those units are twisted, looped, and packed together in a way that gives the protein its specific function. Some regions spiral into helices, others flatten into sheets, and the rest connect them with turns and loops. So even though it looks more like a compact sculpture than a string, the protein still has many traits of a polymer — it’s flexible, it can move and adapt, and it responds to its environment.
+
+That’s why coarse-grained modeling still works, even for folded proteins. These models don’t try to simulate every atom; instead, they simplify things by grouping atoms into larger “beads,” making it easier to study the big-picture behavior of proteins — like how they fold, move, or interact with other molecules. Since the basic polymer structure is still there, coarse-graining gives us a practical way to understand proteins at scale, without getting lost in atomic-level detail.
 
 \begin{figure}[!ht]
   \centering
-   \fbox{\includegraphics[width=0.45\textwidth,height=4cm]{chromatin.png}}
+   \fbox{\includegraphics[width=0.5\textwidth,height=7cm]{complex.protein.png}}
   
-  %\includegraphics[width=0.3\textwidth,height=4cm]{protein.png}  % Adjust width or height as needed
-  \caption{DNA, Chromatin and Chromosome}
+  %\includegraphics[width=0.5\textwidth,height=4cm]{protein.png}  % Adjust width or height as needed
+  \caption{Fong Amino acid }
 \end{figure}
 
 
+
+
+
+
+
+
+
 A coarse-grained model simplifies the structure of chromatin  (DNA and proteins) and membrane for computational simulations, focusing on larger-scale organization rather than individual atoms or base pairs.
+
+
+\section*{History of Coase grained models }
+
+Back in the 1960s and 70s—long before computational biology became mainstream—polymer scientists were already coming up with clever ways to simplify and understand how long-chain molecules behave. They built theoretical models like the freely-jointed chain, worm-like chain, and Gaussian chain, each designed to capture how flexible or stiff a polymer might be, and how it moves in space. These early ideas laid the foundation for what we now call coarse-grained simulations. Around the same time, the bead-spring model came into play — a simple but powerful way to represent a polymer as a series of connected beads linked by springs. It turned out to be incredibly useful for studying how polymers move, tangle, and interact in bulk materials — and remarkably, this same basic idea is still widely used today in modern polymer simulations.\\
+
+Coarse-grained modeling started making an impact in protein science back in the 1970s, when researchers like Michael Levitt, Ariel Warshel, and Martin Karplus began simplifying protein structures to make them easier to study. Instead of modeling every single atom, they used a more abstract approach—sometimes representing entire amino acids as single "beads." This allowed scientists to simulate complex processes like protein folding and movement, which would have been far too computationally demanding with full atomic detail at the time. As the field evolved, so did the models. The Go model, for example, focused on capturing the folded shape of proteins in a minimalistic way, while more advanced structure-based models helped researchers understand folding pathways, domain motion, and protein aggregation. In the 2000s, the MARTINI force field took things even further, allowing proteins to be simulated in realistic environments like cell membranes and solvents. Thanks to these developments, scientists can now explore protein dynamics and interactions on scales that were once unimaginable.\\
+
+Coarse-grained models found a natural fit in the study of lipid membranes in the early 2000s, when researchers began adapting these techniques to simulate the complex behavior of biological membranes. A major breakthrough came with the development of the MARTINI model, which represented lipids and solvents using just a few beads per molecule—typically three to four. This simplification made it possible to simulate large-scale membrane systems, including lipid bilayers, fusion events, and phase separation, all over timescales far beyond what atomistic models could handle. Scientists could now study how membrane proteins insert, move, and interact within lipid environments, as well as dynamic processes like vesicle formation, pore opening, and even viral fusion with host cells. Coarse-grained modeling also enabled the simulation of entire organelles or membrane-associated complexes that would be computationally unmanageable in full atomic detail, opening up new possibilities for understanding the structure and function of cellular membranes.\\
+
+Coarse-grained modeling has become a vital tool for understanding how our genomes are organized and function at a large scale. Instead of trying to simulate every atom in a DNA molecule — an impossible task given that chromosomes span millions or even billions of base pairs — researchers started simplifying the problem in smart ways. Since the mid-2000s, with advances in computational power and experimental methods, researchers began modeling DNA and chromatin using coarse-grained approaches that strip away unnecessary atomic detail while keeping the essential features.
+
+One popular method is the “bead-on-a-string” model, where each bead represents a segment of DNA or a nucleosome. These models, rooted in polymer physics, let researchers explore how DNA folds, forms loops, and compacts into the crowded space of the nucleus. Over the past decade, such models have helped understand the the folding of genome inside interpahse nulcei \cite{Lizana2024}.\\
+
+
+
+answer important questions: How is the genome packed so densely without getting tangled? How does its 3D shape influence which genes are active? How does the structure shift during processes like gene expression or cell division?
+
+By focusing on the big picture, coarse-grained modeling gives us a way to study the genome not just as a long string of genetic code, but as a dynamic and functional 3D structure — one that plays a critical role in how cells behave and how genes are regulated.
+
 
 
 \section*{Method} 
@@ -207,12 +247,12 @@ A coarse-grained model simplifies the structure of chromatin  (DNA and proteins)
 
 	Using a coarse-grain model in polymer science is really helpful because it makes things simpler and more efficient, especially when dealing with large and complex systems. One of the biggest reasons to use coarse-graining is that it saves a lot of computational power. Polymers are often made up of thousands or even millions of atoms, so simulating each individual atom takes a huge amount of time and resources. Instead of modeling each atom, a coarse-grain model groups several atoms or monomers into a "bead," which reduces the number of particles in the simulation. This allows researchers to study bigger systems and longer timescales without overwhelming their computers.
 
-	Another advantage is that coarse-graining allows scientists to focus on the big picture of polymer behavior. At the atomic level, polymers have tons of detailed interactions, but often what we care about are the overall properties, like how the polymer stretches, bends, or reacts to forces. Coarse-graining simplifies this by letting researchers study these larger-scale behaviors without getting caught up in the tiny atomic details, which are often less important for understanding real-world polymer behavior.
+	Another advantage is that coarse-graining allows us to focus on the big picture of polymer behavior. At the atomic level, polymers have tons of detailed interactions, but often what we care about are the overall properties, like how the polymer stretches, bends, or reacts to forces. Coarse-graining simplifies this by letting researchers study these larger-scale behaviors without getting caught up in the tiny atomic details, which are often less important for understanding real-world polymer behavior.
 	
 	Coarse-grain models also make it easier to model interactions between polymers. Instead of focusing on each individual monomer, coarse-graining represents groups of monomers as beads. This makes the interactions between polymer chains less complex and easier to study. This is really useful for studying complicated systems like polymer networks, gels, or blends, which would be too difficult to model atom by atom.\\
 	
 	
-	Another reason coarse-grain models are so valuable is that they help researchers simulate larger systems over longer periods of time. By reducing the number of particles in the model, simulations can run much faster and allow for studies over longer timescales. Instead of simulating each tiny atom’s movement, which can take a long time, coarse-graining lets researchers study the overall behavior of the polymer chain over much longer periods. This is really useful for looking at things like polymerization processes or phase transitions that occur over time.
+	Another reason coarse-grain models are so valuable is that they help rus simulate larger systems over longer periods of time. By reducing the number of particles in the model, simulations can run much faster and allow for studies over longer timescales. Instead of simulating each tiny atom’s movement, which can take a long time, coarse-graining lets researchers study the overall behavior of the polymer chain over much longer periods. This is really useful for looking at things like polymerization processes or phase transitions that occur over time.
 	
 	Coarse-grain models also focuses on the important polymer properties that matter most, like flexibility, shape changes, and how polymers self-assemble. These properties are often determined by the overall structure of the polymer, not by the exact positions of every single atom. So by simplifying the model, researchers can study how polymers fold, how they form membranes, or how they interact with other molecules, without having to get into the atomic-level details.\\
 	
@@ -240,7 +280,7 @@ Coarse-grained models come with several assumptions that are critical for their 
 
 
 	
-The Kremer-Grest (KG) model is a bead-spring type of coarse-grained model.KG model is specifically for polymers,including those relevant to chromosome structure and genome organization, and a popular way to simulate polymers in computer-based molecular dynamics. It is a specific, well-defined bead-spring model that includes Lennard-Jones (LJ) potential for excluded volume (non-bonded interactions) and FENE (Finitely Extensible Nonlinear Elastic) potential for the bonds between adjacent beads.	
+The Kremer-Grest (KG) model is a bead-spring type of coarse-grained model. KG model is specifically for polymers,including those relevant to chromosome structure and genome organization, and a popular way to simulate polymers in computer-based molecular dynamics. It is a specific, well-defined bead-spring model that includes Lennard-Jones (LJ) potential for excluded volume (non-bonded interactions) and FENE (Finitely Extensible Nonlinear Elastic) potential for the bonds between adjacent beads.	
 
 
 Instead of tracking every atom, it simplifies the system by representing each polymer chain as a string of connected beads. These beads interact with each other in two main ways: non-bonded beads repel each other using something called the Lennard-Jones (LJ) potential, which helps prevent them from overlapping, and bonded beads (those directly connected in the chain) are held together by a FENE spring, which stretches like a real polymer bond but can't break or stretch too far. To keep the system at a steady temperature—like it would be in a real fluid—a Langevin thermostat is often used, adding both friction and random kicks to the beads. The model is simple, efficient, and captures the large-scale behavior of polymers really well, which is why it's used so widely in polymer research.	
