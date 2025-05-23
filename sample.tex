@@ -107,10 +107,6 @@ Beyond virus-related modeling, we also explored how rod-like molecules behave in
 
 
 
-
-
-
-
 \noindent interior—behaviors that closely match experimental observations. Altogether, our work provides a foundation for understanding how structure and organization emerge in complex systems.
 
 
@@ -130,10 +126,8 @@ The polymer is a large molecule composed of identical monomers or different type
 
 
 
-
-
 \subsection*{II. Membrane/Phospholipids}
-Phospholipids are the main ingredients of cell and viral membranes, and their structure is actually a lot like a simple polymer. Each one has a head that loves water and two tails that hate 
+Phospholipids are the main ingredients of cell and viral membranes, and their structure is actually a lot like a simple polymer. 
 
 \begin{figure}[!ht]
   \centering
@@ -181,9 +175,6 @@ This makes DNA and RNA behave like polymers—long, repeating chains that can tw
 
 
 
-
-
-
 \subsection*{IV. Protein/Amino Acid chain}
 Proteins are natural polymers made up of amino acids, which are like the individual links in a chain. Each amino acid has the same basic structure: a central carbon atom (called the alpha carbon) bonded to a hydrogen, an amino group (–NH$_2$), a carboxyl group (–COOH), and a unique side chain, known as the R group. These amino acids connect through peptide bonds, forming a 
 
@@ -195,14 +186,12 @@ Proteins are natural polymers made up of amino acids, which are like the individ
   \caption{Amino acid chain}
 \end{figure}
 
+A protein is fundamentally a polymer—a long chain of amino acids linked together. In its unfolded state, this chain behaves like a typical polymer: flexible, disordered, and dynamic. As it folds, however, it transforms into a highly organized and functional structure. The folding process begins with the formation of local secondary structures, such as alpha helices and beta sheets, followed by the overall folding of the chain into a specific three-dimensional shape (tertiary structure). In some cases, multiple folded chains assemble into a larger complex, forming a quaternary structure. Despite this transformation, the polymer backbone remains; it’s simply arranged in a compact and functional form.
 
+Once folded, a protein may not resemble a simple polymer visually or functionally. Though still composed of repeating amino acid units, these units are now intricately arranged—spiraling into helices, flattening into sheets, and looping into turns that define the protein's function. It no longer appears as a linear chain, but it retains key polymer-like properties: flexibility, responsiveness, and dynamic movement in response to its environment.
 
+This underlying polymer nature is why coarse-grained (CG) modeling remains effective, even for folded proteins. Rather than representing every atom, CG models group atoms into larger units or “beads,” allowing us to study large-scale behaviors—such as folding, conformational changes, or molecular interactions—without the computational cost of atomic detail. Because proteins are still polymers at their core, coarse-graining offers a powerful way to explore their structure and function at a broader scale.
 
-A protein is a polymer — a long chain of amino acids linked together. When this chain is unfolded, it behaves much like any other polymer: flexible, floppy, and unstructured. But as it folds into its functional shape, it becomes something much more complex. First, parts of the chain form regular structures like alpha helices and beta sheets (secondary structure), then the entire chain folds into a specific 3D shape (tertiary structure). Sometimes, multiple folded chains come together to form a larger protein complex (quaternary structure). Even though the final result looks nothing like a simple chain, the backbone — the polymer itself — is still there, just shaped into a highly organized structure.
-
-Once a protein has folded, it doesn’t look or behave like the kind of polymer you might find in plastic or rubber. Instead, it’s more like a carefully crafted molecular machine. It’s still made of repeating amino acid units, but now those units are twisted, looped, and packed together in a way that gives the protein its specific function. Some regions spiral into helices, others flatten into sheets, and the rest connect them with turns and loops. So even though it looks more like a compact sculpture than a string, the protein still has many traits of a polymer — it’s flexible, it can move and adapt, and it responds to its environment.
-
-That’s why coarse-grained modeling still works, even for folded proteins. These models don’t try to simulate every atom; instead, they simplify things by grouping atoms into larger “beads,” making it easier to study the big-picture behavior of proteins — like how they fold, move, or interact with other molecules. Since the basic polymer structure is still there, coarse-graining gives us a practical way to understand proteins at scale, without getting lost in atomic-level detail.
 
 \begin{figure}[!ht]
   \centering
@@ -215,12 +204,6 @@ That’s why coarse-grained modeling still works, even for folded proteins. Thes
 
 
 
-
-
-
-
-
-A coarse-grained model simplifies the structure of chromatin  (DNA and proteins) and membrane for computational simulations, focusing on larger-scale organization rather than individual atoms or base pairs.
 
 
 \section*{History of Coase grained models }
@@ -324,7 +307,9 @@ Hard sphere model is used to understand the behavior of particles in crowded env
 
 The Lennard-Jones model accounts for both attractive and repulsive forces between particles, which is important in understanding the interactions within fluids and condensed matter. It helps model the behavior of molecules, especially in non-ideal conditions like those found in crowded environments. 
 
-\subsection*{1.5 Helfrich Model with Fibonacci for the membrane}
+\subsection*{1.5 Helfrich-Canham Model for the membrane}
+
+The Helfrich-Canham model, a specific type of continuum model, focuses on the membrane's curvature elasticity and bending energy\cite{Bassereau2014}.
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.45\textwidth,height=4cm]{fobinacci.network.png} 
@@ -333,14 +318,21 @@ The Lennard-Jones model accounts for both attractive and repulsive forces betwee
 
 Continuum models are a powerful framework used to describe and simulate the large-scale, smooth behavior of biological membranes (and other materials) without tracking individual atoms or molecules. Instead of focusing on discrete particles like in molecular dynamics, continuum models treat the membrane as a continuous surface or material with defined physical properties.
 
+To model the membrane, we start by creating a triangular mesh, which breaks the curved surface into flat triangles. This mesh should form a closed shape, like a sphere, to represent structures such as vesicles. Each triangle has corners called vertices, and each vertex has a position in 3D space. This setup makes it possible to calculate important properties like curvature and surface area, which are needed to compute the membrane’s bending energy. You can build this mesh using Python tools like trimesh or vedo, or by writing your own code to create an icosphere—a sphere made by dividing an icosahedron into smaller triangles. This mesh gives you the base needed to apply the Helfrich-Canham model in your simulations.
+
+To model the genome, make a chain of beads, each one representing a segment of the genome. Each bead has a 3D position, and the list looks like: beads = [b1, b2, ..., bn]. Connect each bead to its neighbor with a spring, which keeps the distance between them close to a set value. You can use a harmonic potential or FENE potential to describe the spring force. The spring energy is:
 
 
-To create beads on a spherical surface using the Gaussian Network Model (GNM), the first step is to place the beads evenly across the sphere.The way we use is Fibonacci lattice, which helps distribute the points uniformly without crowding near the poles.
-Each bead is assigned a 3D position on the surface of the unit sphere. This means each bead's coordinates satisfy:
 
-\(x^2 + y^2 +z^2 = r^2\)\\
-\noindent where \(x\), \(y\), and \(z\) are the coordinates of a point on the sphere, and \(r\) is the radius of the sphere.
- 
+
+
+
+Also, include excluded volume so beads don’t overlap. You can do this using a soft repulsive force, like a Lennard-Jones potential.
+
+
+To simulate a genome inside a lipid membrane, we need to make sure the genome stays inside and doesn’t leave the membrane. This is done by adding a boundary constraint. One simple method is a hard-wall constraint, which blocks any genome bead from moving outside the membrane by rejecting such moves. Another method is to use a soft repulsive potential, like the Lennard-Jones force, which gently pushes beads back when they get too close to the membrane boundary. These methods keep the genome inside the membrane while still letting it move and fluctuate naturally.
+
+
  
  
  
@@ -352,31 +344,6 @@ Each bead is assigned a 3D position on the surface of the unit sphere. This mean
 
 
 
-
-
-
-Bead 1 is connected to beads 2 and 3\\
-
-Bead 2 is connected to beads 1 and 3\\
-
-Bead 3 is connected to beads 1, 2, and 4\\
-
-Bead 4 is connected to bead 3\\
-
-Bead 5 is not connected to any bead\\
-
-The Kirchhoff matrix \( \Gamma \) for a simple Gaussian Network Model with 5 beads is:
-
-\[
-\Gamma =
-\begin{bmatrix}
-  2 & -1 & -1 & 0 & 0 \\
- -1 &  2 & -1 & 0 & 0 \\
- -1 & -1 & 3 & -1 & 0 \\
-  0 &  0 & -1 & 1 & 0 \\
-  0 &  0 &  0 & 0 & 0 \\
-\end{bmatrix}
-\]
 
 
 
@@ -469,18 +436,119 @@ The potential is negative (\( -\Gamma \)), meaning it is attractive — it tends
 V= \int \left( \frac{\kappa_2}{2} (C_1 + C_2 - C_0)^2 + \sigma \right) dA
 \end{equation}
 
-The Helfrich–Canham equation describes the total energy of a membrane by combining two main contributions: bending energy and surface tension energy. The bending energy reflects how much the membrane curves away from its preferred, or spontaneous, shape. Meanwhile, the surface tension energy accounts for the cost of stretching the membrane — it increases when the membrane's surface area grows. Together, these terms help explain how membranes bend, stretch, and maintain their shape in different environments.
+
+Total Energy of the Bead-Spring Genome:
+
+\begin{equation}
+E_{\text{total}} = E_{\text{spring}} + E_{\text{LJ}}
+\end{equation}
+
+
+\begin{equation}
+E_{\text{spring}} = \sum_{i=1}^{N-1} \frac{k}{2} \left( \left| \vec{r}_{i+1} - \vec{r}_i \right| - l_0 \right)^2
+\end{equation}
+
+
+\begin{equation}
+E_{\text{LJ}} = \sum_{i=1}^{N} \sum_{j=i+2}^{N} 4\varepsilon \left[ \left( \frac{\sigma}{r_{ij}} \right)^{12} - \left( \frac{\sigma}{r_{ij}} \right)^6 \right]
+\end{equation}
+
+A coarse-grained model simplifies molecules by grouping atoms into beads but still retains discrete particles and molecular interactions.
+
+A continuum membrane model goes further—it treats the membrane as a continuous, deformable surface, governed by elasticity theory rather than particle-based forces.
+
+while continuum models are not considered the classical coarse-grained, they are part of the same multiscale modeling, but just at a larger, more abstract scale.
+
+Most notably the Helfrich-Canham model, which defines the bending energy of the membrane as:
+\begin{equation}
+E = \int \left( 2\kappa (2H - C_0)^2 + \bar{\kappa} K \right) \, dA
+\end{equation}
 
 
 
-\(\kappa_2\) is bending rigidity — it quantifies the stiffness of the membrane.\\
-
-\(C_1\), \(C_2\) are the principal curvatures of the membraneat surface\\
-\(C_0\) is the spontaneous curvature, which represents the preferred cuvaturea due to asymmetry in the membrane.\\
-\(\sigma\) is the surface tension(accounts for the energy cost of increasing the membrane area)\\
-\(dA\) is integration over the entire membrane surface area. \\
 
 
+The Helfrich–Canham model, a specific type of continuum models, focuses mainly on bending energy and curvature-driven deformations, It describes the total energy of a membrane by combining two main contributions: bending energy and surface tension energy. The bending energy reflects how much the membrane curves away from its preferred, or spontaneous, shape. Meanwhile, the surface tension energy accounts for the cost of stretching the membrane — it increases when the membrane's surface area grows. Together, these terms help explain how membranes bend, stretch, and maintain their shape in different environments.
+
+
+The total free energy of a closed lipid bilayer:
+Continuum Form (Analytical Model):
+
+\begin{equation}
+E = \int_{\text{membrane}} \left[ 2\kappa (2H - C_0)^2 + \bar{\kappa} K \right] \, dA + \lambda A + PV
+\end{equation}
+\begin{align*}
+\kappa &:\ \text{bending rigidity} \\
+\bar{\kappa} &:\ \text{Gaussian modulus} \\
+H &:\ \text{mean curvature} \\
+K &:\ \text{Gaussian curvature} \\
+C_0 &:\ \text{spontaneous curvature} \\
+A &:\ \text{total surface area} \\
+\lambda &:\ \text{Lagrange multiplier for area constraint (surface tension)} \\
+P &:\ \text{Lagrange multiplier for volume constraint (pressure)}\\
+V &:\ \text{enclosed volume} 
+\end{align*}
+
+It models the elastic energy of a smooth, flexible surface (like a lipid bilayer vesicle) as a function of curvature. This model alone does not specify how lipids or proteins are distributed on the surface — it just tells you what shapes minimize bending energy.
+
+
+
+
+
+
+\begin{equation}
+\begin{split}
+F_b^{\text{discrete}} &= \frac{1}{2} \tilde{\kappa} \sum_{\langle \alpha, \beta \rangle} \left| \mathbf{n}_\alpha - \mathbf{n}_\beta \right|^2 \\
+&= \tilde{\kappa} \sum_{\langle \alpha, \beta \rangle} \left( 1 - \mathbf{n}_\alpha \cdot \mathbf{n}_\beta \right) 
+\end{split}
+\end{equation}
+
+
+
+
+
+
+
+The form sums over pairs of adjacent faces \(\langle \alpha, \beta \rangle\).
+
+\begin{itemize}
+    \item \(\mathbf{n}_\alpha\) and \(\mathbf{n}_\beta\) are unit normals to the faces.
+    \item \(\mathbf{n}_\alpha \cdot \mathbf{n}_\beta = \cos \theta\), where \(\theta\) is the angle between adjacent normals.
+    \item \(\tilde{\kappa}\) is an effective bending modulus (often different from \(\kappa\)).
+\end{itemize}
+
+
+The Discrete Bending Energy (Angle-based Form)
+\begin{equation}
+E_{\text{mem}} = \kappa \sum_{\text{edges } e} \left(1 - \cos \theta_e \right)\cite{gompper1997triangulated}
+\end{equation}
+
+This is a discretized approximation of the bending energy, suitable for numerical simulations Monte Carlo or molecular dynamics. It captures curvature using local triangle normals instead of differential geometry.
+
+Area constraint
+\begin{equation}
+E_{\text{area}} = \lambda(A - A_0)^2
+\end{equation}
+
+Volume constraint:
+\begin{equation}
+E_{\text{Volume}} = \lambda(V - V_0)^2
+\end{equation}
+
+
+
+\begin{equation}
+\Delta E = (E_{\text{membrane}}^{\text{new}} + E_{\text{polymer}}^{\text{new}}) - (E_{\text{membrane}}^{\text{old}} + E_{\text{polymer}}^{\text{old}})
+\end{equation}
+
+
+Metropolis rule:
+
+\begin{equation}
+P = \min\left(1, \exp\left(-\frac{\Delta E}{k_B T}\right)\right)
+\end{equation}
+
+If move is accepted then positions will be updated. If rejected then the move will be reverted.
 
 Simulating realistic physical conditions, since many experiments happen at constant pressure (example:1 atm) and temperature  (example: 298 K).
 
@@ -535,7 +603,7 @@ circular genome leads to a circular shape.}
 
 
 We begin by modeling the phage DNA as a fine-grained polymer, such as a worm-like chain, which accurately represents the stiffness and bending behavior of real double-stranded DNA. This model is placed within a confined volume that mimics the $60\,\text{nm} \times 150\,\text{nm}$ prolate icosahedral capsid of phage $\lambda$.
-
+ 
 
 
 Next, we simulate stepwise DNA packaging by applying a force from a virtual packaging motor that mimics the biological motor’s function. At each step, a small segment of DNA is inserted into the capsid, and we calculate the energy required to overcome internal forces such as electrostatic repulsion and bending stress. This allows us to track the buildup of internal pressure as the capsid fills, which can then be directly compared to experimentally measured force-extension (packing) curves from optical tweezer studies.
