@@ -32,19 +32,14 @@
 
 \begin{flushleft}
 \setlength{\parindent}{45pt}
-
 \section*{Objective}
-
-
-
-
 First, to develop new models and simulations to study how the viral genome architecture(its shape, length and flexibility) influences the membrane. By combining polymer physics and liquid-state physics, such as crowding effects, we hope to gain a deeper understanding of viral assembly. By simulating how viral genomes behave in confined environments, we can uncover key principles behind virus formation and stability. It could contribute to more effective strategies for preventing and treating viral infections, especially for viruses like Monkeypox and SARS-CoV-2.
 
 Second, we into the pressure inside viruses helps us better understand how these tiny organisms infect cells and spread disease. When a virus packages its genetic material into its protein shell, it builds up a lot of internal pressure. This pressure is key to how viruses inject their DNA or RNA into host cells quickly and efficiently. By studying this process, we can uncover new ways to block viruses from replicating, such as targeting the proteins that help pack the genetic material or weakening the capsid so the virus can’t survive. It can inspire new drug delivery systems that work like viruses, help design better and more stable vaccines, and teach us more about the physical limits of DNA and RNA in extreme conditions. In short, understanding viral pressure gives us both the tools to fight disease and ideas to build new technologies.
 
 \section*{Introduction}
 
-Viral infections have a critical impact on global health, emphasizing their role in pandemics and outbreaks. These infections pose significant risks to public health and encompass a wide range of diseases, from seasonal influenza to more severe infectious diseases such as Monkeypox and COVID-19. Both Monkeypox and COVID-19 viruses are classified as enveloped viruses, which are distinguished by their lipid membranes that surround and protect their genetic material (genomes). These membranes serve several crucial functions: they provide protection by shielding the viral genome from environmental factors and potential damage, and they facilitate transmission by enabling the virus to enter host cells. The membrane proteins and polysaccharides play a key role in this process by interacting with specific receptors on host cells, thereby promoting viral infection and the delivery of the genome into the host. We need to further understand these mechanisms to develop effective prevention and treatment strategies.
+Viral infections have a critical impact on global health, emphasizing their role in pandemics and outbreaks. These infections pose significant risks to public health and encompass a wide range of diseases, from seasonal influenza to more severe infectious diseases such as Monkeypox and COVID-19. Both Monkeypox and COVID-19 viruses are classified as enveloped viruses, which are distinguished by their lipid membranes that surround and protect their genetic material (genomes). These membranes serve several crucial functions: they provide protection by shielding the viral genome from environmental factors and potential damage, and they facilitate transmission by enabling the virus to enter host cells. The membrane plays a key role in this process by interacting with specific receptors on host cells, thereby promoting viral infection and the delivery of the genome into the host. We need to further understand these mechanisms to develop effective prevention and treatment strategies.
 
 Virions are acellular, meaning they are not made up of cells and therefore lack cellular components like organelles, ribosomes, or a plasma membrane. Instead, a virion consists primarily of a nucleic acid genome encased within a protein coat called a capsid. 
 
@@ -251,7 +246,7 @@ By focusing on the big picture, coarse-grained modeling gives us a way to study 
 
 
 \subsection*{1.1.2 Assumption of Coarse grain model}
-Coarse-grained models come with several assumptions that are critical for their application:\\
+Coarse grained models come with several assumptions that are critical for their application:\\
     1. Homogeneity:\\
     It is often assumed that the system is uniform, meaning properties do not vary significantly across space. \\
     2. Bead Representation:\\
@@ -265,9 +260,9 @@ Coarse-grained models come with several assumptions that are critical for their 
 
 \subsection*{1.2 Excluded volume}
 
-Excluded volume is an essential aspect of coarse$-$grained (CG) modeling, ensuring that two particles do not occupy the same space. Without it, particles in a simulation may overlap or penetrate each other, leading to unphysical results. To account for excluded volume, repulsive interaction potentials—such as the Lennard-Jones potential or its softer variants used in models like MARTINI or DPD—are applied. These potentials create a repulsive force that prevents particles from getting too close. Key parameters like bead size ($\sigma$) and interaction strength ($\varepsilon$) must be carefully tuned to reflect the physical size and behavior of the particles.
+Excluded volume is an essential aspect of Coarse rained (CG) modeling, ensuring that two particles do not occupy the same space. Without it, particles in a simulation may overlap or penetrate each other, leading to unphysical results. To account for excluded volume, repulsive interaction potentials—such as the Lennard-Jones potential or its softer variants used in models like MARTINI or DPD—are applied. These potentials create a repulsive force that prevents particles from getting too close. Key parameters like bead size ($\sigma$) and interaction strength ($\varepsilon$) must be carefully tuned to reflect the physical size and behavior of the particles.
 
-Before running a simulation, energy minimization and equilibration steps are typically used to eliminate any initial overlaps and ensure a stable starting configuration. Additionally, the mapping of atoms to CG beads should be realistic; inaccurate mappings can distort how particles pack and interact. Properly enforcing excluded volume is particularly important in biomolecular and polymer systems, where structural integrity and thermodynamic behavior depend on realistic spatial constraints. Ignoring or mishandling excluded volume can compromise the accuracy and reliability of the simulation.
+Before running a simulation, energy minimization and equilibration steps are typically used to eliminate any initial overlaps and ensure a stable starting configuration. Properly enforcing excluded volume is particularly important in biomolecular and polymer systems, where structural integrity and thermodynamic behavior depend on particles keeping natural distances and not overlapping unrealistically. Ignoring or mishandling excluded volume can compromise the accuracy and reliability of the simulation.
 
 
 
@@ -277,12 +272,6 @@ Before running a simulation, energy minimization and equilibration steps are typ
 The Kremer-Grest (KG) model is a bead-spring type of coarse-grained model. KG model is specifically for polymers,including those relevant to chromosome structure and genome organization, and a popular way to simulate polymers in computer-based molecular dynamics. It is a specific, well-defined bead-spring model that includes Lennard-Jones (LJ) potential for excluded volume (non-bonded interactions) and FENE (Finitely Extensible Nonlinear Elastic) potential for the bonds between adjacent beads.	
 
 
-Instead of tracking every atom, it simplifies the system by representing each polymer chain as a string of connected beads. These beads interact with each other in two main ways: non-bonded beads repel each other using something called the Lennard-Jones (LJ) potential, which helps prevent them from overlapping, and bonded beads (those directly connected in the chain) are held together by a FENE spring, which stretches like a real polymer bond but can't break or stretch too far. To keep the system at a steady temperature—like it would be in a real fluid—a Langevin thermostat is often used, adding both friction and random kicks to the beads. The model is simple, efficient, and captures the large-scale behavior of polymers really well, which is why it's used so widely in polymer research.	
-	
-
-Kresmer$-$grest Model is more physically realistic for polymers than a basic harmonic model and bead$-$spring model.
-It prevents bond crossing (thanks to FENE + LJ) and it has been extensively validated and used in thousands of studies.
-
 \begin{figure}[!ht]
   \centering
   \fbox{\includegraphics[width=0.25\textwidth,height=4cm]{beadspring.png} }
@@ -290,11 +279,116 @@ It prevents bond crossing (thanks to FENE + LJ) and it has been extensively vali
 \end{figure}
 
 
-\begin{itemize}
-  \item \textbf{FENE spring:} \( k = 30 \), \( R_0 = 1.5 \)
-  \item \textbf{Lennard-Jones (LJ) potential:} \( \varepsilon = 1 \), \( \sigma = 1 \), cutoff \( r_c = 2^{1/6} \sigma \)
-  \item \textbf{Time integration (Langevin thermostat):} friction \( \gamma = 0.5 \), temperature \( T = 1.0 \)
-\end{itemize}
+Instead of tracking every atom, it simplifies the system by representing each polymer chain as a string of connected beads. These beads interact with each other in two main ways: non-bonded beads repel each other using something called the Lennard-Jones (LJ) potential, which helps prevent them from overlapping, and bonded beads (those directly connected in the chain) are held together by a FENE spring, which stretches like a real polymer bond but can't break or stretch too far. To keep the system at a steady temperature—like it would be in a real fluid—a Langevin thermostat is often used, adding both friction and random kicks to the beads. The model is simple, efficient, and captures the large-scale behavior of polymers really well, which is why it's used so widely in polymer research.	
+
+
+
+The Kremer-Grest model incorporates built-in excluded volume through the WCA potential, a modified form of the Lennard-Jones (LJ) potential that retains only the repulsive portion and removes the attractive part. This potential strongly repels beads when they come too close, preventing them from overlapping. This ensures that genome strands cannot pass through each other, similar to real physical strands that can bend and twist but cannot pass through themselves in crowded environments.
+
+The FENE (Finitely Extensible Nonlinear Elastic) spring keeps beads connected but prevents them from stretching too far or breaking — making simulations stable even under tension or confinement.
+	
+
+Kresmer$-$grest Model is more physically realistic for polymers than a basic harmonic model and bead$-$spring model.
+It prevents bond crossing by FENE and WCA and it has been extensively validated and used in thousands of studies.
+
+\noindent Procedure:\\
+\noindent 1. System Initialization:
+
+\setlength{\parindent}{6em} (1)Represent the genome as a chain of NN beads.
+
+(2)Each bead has a position $\vec{r}_i = (x_i, y_i, z_i)$.
+
+(3)Initialize positions with a non-overlapping random walk or a stretched chain.\\
+
+\setlength{\parindent}{0pt}
+
+
+
+
+2. Interaction Potential - Two energy terms used in the Coarse grain simulation:\\
+
+\setlength{\parindent}{6em}(1)Non-Bonded Interaction-WCA potential:\\
+\setlength{\parindent}{0pt}
+\setlength{\parindent}{7em}For all non-bonded pairs $(i, j)$, with $|i - j| > 1$:
+\setlength{\parindent}{0pt}
+
+\[
+U_{\text{WCA}}(r) = 
+\begin{cases}
+4\varepsilon \left[ \left( \dfrac{\sigma}{r} \right)^{12} - \left( \dfrac{\sigma}{r} \right)^6 \right] + \varepsilon, & \text{if } r \leq 2^{1/6} \sigma \\
+0, & \text{if } r > 2^{1/6} \sigma
+\end{cases}
+\]
+
+
+\setlength{\parindent}{6em}(2)Bonded Interaction-FENE:\\
+\setlength{\parindent}{0pt}
+\setlength{\parindent}{8em}For each bonded pair (i,i+1)(i,i+1):
+
+\[
+U_{\text{FENE}}(r) = -\frac{1}{2} k R_0^2 \ln \left[ 1 - \left( \frac{r}{R_0} \right)^2 \right]
+\]
+
+\setlength{\parindent}{45pt}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Meaning} & \textbf{Typical Value (KG model)} \\ \hline
+$k$ & FENE spring constant & 30 \\ \hline
+$R_0$ & Max bond length & 1.5 \\ \hline
+$\epsilon$ & WCA strength & 1.0 \\ \hline
+$\sigma$ & Bead diameter & 1.0 \\ \hline
+$\delta$ & Move size & $\sim$0.1 \\ \hline
+\end{tabular}
+\caption{Parameters for the KG model.}
+\label{tab:kg_parameters}
+\end{table}
+
+
+
+\[
+\Delta E = \Delta U_{\text{FENE}} + \Delta U_{\text{WCA}}
+\]
+
+
+\textbf{$\beta$}: This is defined as $\beta = \frac{1}{k_B T}$, where $k_B$ is the Boltzmann constant and $T$ is the temperature of the system. $\beta$ essentially measures how sensitive the system is to energy changes at a given temperature.
+
+\textbf{$\Delta E$}: This is the change in energy of the system due to the proposed move, calculated as $E_{\text{new}} - E_{\text{old}}$, where $E_{\text{new}}$ is the energy of the system after the proposed change, and $E_{\text{old}}$ is the energy before the change.
+
+
+\noindent Procedure of Monte Carlo Move Algorithm\\
+
+
+\begin{enumerate}
+    \item Choose a bead at random.
+    \item Propose a small displacement:
+    \[
+    \vec{r}_i' = \vec{r}_i + \Delta \vec{r}, \quad \Delta \vec{r} \in [-\delta, \delta]
+    \]
+    \item Compute energy change $\Delta E$:
+    \begin{itemize}
+        \item Recalculate FENE bonds for affected neighbors.
+        \item Recalculate WCA interactions for all non-bonded beads within cutoff.
+    \end{itemize}
+    \item Accept or reject using the Metropolis criterion:
+    \[
+    P_{\text{accept}} = \min \left(1, e^{-\beta \Delta E}\right)
+    \]
+    where $\beta = \frac{1}{k_B T}$.
+\end{enumerate}
+
+
+
+This is a key expression in the Metropolis-Hastings algorithm, often used in Monte Carlo simulations, particularly in statistical physics and computational chemistry, to determine the acceptance probability of a proposed move in a system.
+
+
+
+
+If $\Delta E \leq 0$ (i.e., the new state has lower or equal energy), then $e^{-\beta \Delta E} \geq 1$. The $\min$ function sets $P = 1$, meaning the move is always accepted. This makes sense because a lower-energy state is more favorable according to the Boltzmann distribution.
+
+If $\Delta E > 0$ (i.e., the new state has higher energy), then $e^{-\beta \Delta E} < 1$, and $P = e^{-\beta \Delta E}$. The move is accepted with a probability that decreases exponentially as the energy difference $\Delta E$ increases or as the temperature $T$ decreases (since $\beta$ is inversely proportional to $T$). At low temperatures, the system is less likely to accept moves that increase energy, favoring lower-energy states.
 
 
 \subsection*{1.4 Simple liquid Models for the organelles surrounding DNA}
@@ -529,6 +623,13 @@ Area constraint
 \begin{equation}
 E_{\text{area}} = \lambda(A - A_0)^2
 \end{equation}
+
+$E_{\text{area}}$ is the area energy\\
+$\lambda$ is a parameter/coefficient\\
+$A$ is the current area\\
+$A_0$ is the reference/target area.
+
+
 
 Volume constraint:
 \begin{equation}
