@@ -221,10 +221,10 @@ By focusing on the big picture, coarse-grained modeling gives us a way to study 
 
 
 \section*{Method} 
-\subsection*{1 Models}
+
 \subsection*{1.1 Coase-grain models}
 
-\subsection*{1.1.1 Adveantage of Coase-grain model}
+\subsection*{Adveantage of Coase-grain model}
 
 
 
@@ -242,31 +242,7 @@ By focusing on the big picture, coarse-grained modeling gives us a way to study 
 	Finally, coarse-grain models are essential for designing new materials. When researchers are developing new types of polymers—whether for drug delivery, biodegradable plastics, or high-performance materials, these models help predict how the polymer will behave in different environments. This helps researchers optimize the materials for real-world uses without needing to simulate every tiny detail.
 	In the end, coarse-grain models are incredibly useful in polymer science because they simplify complex systems, making it easier to study their behavior. They save time and computational power while still allowing scientists to focus on the big picture—like how polymers stretch, bend, and interact—helping to design better materials and understand how polymers work in the real world.
 	
-
-
-
-\subsection*{1.1.2 Assumption of Coarse grain model}
-Coarse grained models come with several assumptions that are critical for their application:\\
-    1. Homogeneity:\\
-    It is often assumed that the system is uniform, meaning properties do not vary significantly across space. \\
-    2. Bead Representation:\\
-        Each bead represents a group of atoms, assuming they behave as a single entity in terms of interactions, which may not always reflect the nuances of molecular behavior. \\
-    3. Simplified Interactions:\\
-        The models typically ignore specific interactions at the atomic level, such as hydrogen bonding or van der Waals forces, unless they are effective at the coarse-grained level. \\
-    4. Mean-Field Approximations:\\
-        Coarse-grained models often use mean-field approximations, averaging the effects of all other particles on any given particle, simplifying the interactions that can be complex in real systems. \\
-    5. Fixed Connectivity:\\
-        In polymer applications, it usually assumes fixed connectivity between beads, which may not fully account for the flexibility in the actual polymer chains. \\ 
-
-\subsection*{1.2 Excluded volume}
-
-Excluded volume is an essential aspect of Coarse rained (CG) modeling, ensuring that two particles do not occupy the same space. Without it, particles in a simulation may overlap or penetrate each other, leading to unphysical results. To account for excluded volume, repulsive interaction potentials—such as the Lennard-Jones potential or its softer variants used in models like MARTINI or DPD—are applied. These potentials create a repulsive force that prevents particles from getting too close. Key parameters like bead size ($\sigma$) and interaction strength ($\varepsilon$) must be carefully tuned to reflect the physical size and behavior of the particles.
-
-Before running a simulation, energy minimization and equilibration steps are typically used to eliminate any initial overlaps and ensure a stable starting configuration. Properly enforcing excluded volume is particularly important in biomolecular and polymer systems, where structural integrity and thermodynamic behavior depend on particles keeping natural distances and not overlapping unrealistically. Ignoring or mishandling excluded volume can compromise the accuracy and reliability of the simulation.
-
-
-
-\subsection*{1.3 Kremer-Grest Model for DNA chain}
+\subsection*{Kremer-Grest Model for DNA chain}
 
 	
 The Kremer-Grest (KG) model is a bead-spring type of coarse-grained model. KG model is specifically for polymers,including those relevant to chromosome structure and genome organization, and a popular way to simulate polymers in computer-based molecular dynamics. It is a specific, well-defined bead-spring model that includes Lennard-Jones (LJ) potential for excluded volume (non-bonded interactions) and FENE (Finitely Extensible Nonlinear Elastic) potential for the bonds between adjacent beads.	
@@ -291,7 +267,77 @@ The FENE (Finitely Extensible Nonlinear Elastic) spring keeps beads connected bu
 Kresmer$-$grest Model is more physically realistic for polymers than a basic harmonic model and bead$-$spring model.
 It prevents bond crossing by FENE and WCA and it has been extensively validated and used in thousands of studies.
 
-\noindent Procedure:\\
+
+
+\subsection*{Assumption of Coarse grain model}
+Coarse grained models come with several assumptions that are critical for their application:\\
+    1. Homogeneity:\\
+    It is often assumed that the system is uniform, meaning properties do not vary significantly across space. \\
+    2. Bead Representation:\\
+        Each bead represents a group of atoms, assuming they behave as a single entity in terms of interactions, which may not always reflect the nuances of molecular behavior. \\
+    3. Simplified Interactions:\\
+        The models typically ignore specific interactions at the atomic level, such as hydrogen bonding or van der Waals forces, unless they are effective at the coarse-grained level. \\
+    4. Mean-Field Approximations:\\
+        Coarse-grained models often use mean-field approximations, averaging the effects of all other particles on any given particle, simplifying the interactions that can be complex in real systems. \\
+    5. Fixed Connectivity:\\
+        In polymer applications, it usually assumes fixed connectivity between beads, which may not fully account for the flexibility in the actual polymer chains. \\ 
+
+\subsection*{Excluded volume}
+
+Excluded volume is an essential aspect of Coarse rained (CG) modeling, ensuring that two particles do not occupy the same space. Without it, particles in a simulation may overlap or penetrate each other, leading to unphysical results. To account for excluded volume, repulsive interaction potentials—such as the Lennard-Jones potential or its softer variants used in models like MARTINI or DPD—are applied. These potentials create a repulsive force that prevents particles from getting too close. Key parameters like bead size ($\sigma$) and interaction strength ($\varepsilon$) must be carefully tuned to reflect the physical size and behavior of the particles.
+
+Before running a simulation, energy minimization and equilibration steps are typically used to eliminate any initial overlaps and ensure a stable starting configuration. Properly enforcing excluded volume is particularly important in biomolecular and polymer systems, where structural integrity and thermodynamic behavior depend on particles keeping natural distances and not overlapping unrealistically. Ignoring or mishandling excluded volume can compromise the accuracy and reliability of the simulation.
+
+
+
+
+
+\subsection*{1.2 Monto Carlo simulation}
+
+Monte Carlo (MC) simulation is a technique used to explore different configurations of a system by randomly sampling possible states, based on probability rules that often relate to energy. Instead of following every tiny movement of particles over time—like molecular dynamics does—Monte Carlo takes a different approach. It “jumps” from one possible state to another and decides whether to accept or reject each move depending on how favorable it is, typically using criteria like energy minimization.
+This method becomes especially powerful when combined with coarse-grain (CG) models. Coarse-graining simplifies complex systems by grouping atoms or monomers into larger units, reducing the number of particles and interactions. This makes the system easier and faster to simulate, which is perfect for Monte Carlo techniques. With fewer variables to track, MC simulations can explore a much wider range of configurations in less time.
+Using MC with CG models is particularly useful for studying large-scale behaviors like polymer folding, self-assembly, phase transitions, or how polymers interact with other surfaces or structures. Since you don’t need to worry about every atomic detail, you can focus on understanding the broader behavior of the material. For instance, in a coarse-grain polymer simulation, MC methods might rotate parts of the polymer chain, stretch or shift segments, or rearrange them—checking each time how these changes affect the system’s overall energy or structure.
+In short, Monte Carlo simulations and coarse-grain modeling work hand in hand. Together, they make it possible to study complex polymer systems more efficiently and gain insights that would be hard to reach using more detailed, atomistic approaches.
+
+\subsection*{Assumpations of Monto Carlo simulation}
+
+
+\noindent 1. Randomness is representative
+    
+The simulation assumes that the random inputs it uses (often generated using pseudo-random number generators) adequately represent the variability and uncertainty of real-life scenarios.\\
+
+\noindent 2. Independent trials
+    
+Each simulation run (or trial) is assumed to be independent of the others. The outcome of one run does not affect the outcome of another.
+
+\noindent    3. Known probability distributions
+    
+The input variables must follow known probability distributions (e.g., normal, uniform, triangular, etc.). The accuracy of the results relies heavily on how well these distributions reflect real-world behavior.
+
+\noindent  4. Large number of iterations
+    
+The law of large numbers is a key assumption — with a large enough number of trials, the average of the simulated outcomes should approximate the expected value. More iterations generally improve accuracy.
+
+\noindent5. System/process remains stable
+    
+The simulation assumes that the underlying process or system doesn’t change over time during the simulation (i.e., it's stationary).
+
+\noindent    6. Model structure is correct
+
+The simulation is only as good as the model it's based on. It assumes the mathematical or logical structure you build reflects the real-world process correctly.
+
+
+We simplify the genome$-$membrane system using a coarse-grained model,and use Monte Carlo simulation to explore its behavior of the system. Monte Carlo can help fit the parameters of a coarse-grained model.Coarse-grained models and Monto carlo simulate large, complex systems (like polymers, membranes) efficiently and with reasonable accuracy.
+
+
+
+
+
+
+
+
+
+\subsection*{Procedure of Monte Carlo Simulation for a Bead-Spring Genome}
 \noindent 1. System Initialization:
 
 \setlength{\parindent}{6em} (1)Represent the genome as a chain of NN beads.
@@ -312,22 +358,22 @@ It prevents bond crossing by FENE and WCA and it has been extensively validated 
 \setlength{\parindent}{7em}For all non-bonded pairs $(i, j)$, with $|i - j| > 1$:
 \setlength{\parindent}{0pt}
 
-\[
+\begin{equation}
 U_{\text{WCA}}(r) = 
 \begin{cases}
 4\varepsilon \left[ \left( \dfrac{\sigma}{r} \right)^{12} - \left( \dfrac{\sigma}{r} \right)^6 \right] + \varepsilon, & \text{if } r \leq 2^{1/6} \sigma \\
 0, & \text{if } r > 2^{1/6} \sigma
 \end{cases}
-\]
+\end{equation}
 
 
 \setlength{\parindent}{6em}(2)Bonded Interaction-FENE:\\
 \setlength{\parindent}{0pt}
 \setlength{\parindent}{8em}For each bonded pair (i,i+1)(i,i+1):
 
-\[
+\begin{equation}
 U_{\text{FENE}}(r) = -\frac{1}{2} k R_0^2 \ln \left[ 1 - \left( \frac{r}{R_0} \right)^2 \right]
-\]
+\end{equation}
 
 \setlength{\parindent}{45pt}
 
@@ -348,38 +394,43 @@ $\delta$ & Move size & $\sim$0.1 \\ \hline
 
 
 
-\[
+\begin{equation}
 \Delta E = \Delta U_{\text{FENE}} + \Delta U_{\text{WCA}}
-\]
+\end{equation}
 
 
-\textbf{$\beta$}: This is defined as $\beta = \frac{1}{k_B T}$, where $k_B$ is the Boltzmann constant and $T$ is the temperature of the system. $\beta$ essentially measures how sensitive the system is to energy changes at a given temperature.
+
 
 \textbf{$\Delta E$}: This is the change in energy of the system due to the proposed move, calculated as $E_{\text{new}} - E_{\text{old}}$, where $E_{\text{new}}$ is the energy of the system after the proposed change, and $E_{\text{old}}$ is the energy before the change.
 
 
-\noindent Procedure of Monte Carlo Move Algorithm\\
+\noindent 3. Monte Carlo Move Algorithm:\\ 
+
+\setlength{\parindent}{6em}(1)Choose a bead at random.\\
+(2)Propose a small displacement:
+    
+\begin{equation}
+    \vec{r}_i' = \vec{r}_i + \Delta \vec{r}, \quad \Delta \vec{r} \in [-\delta, \delta] 
+\end{equation}
+
+  
+\setlength{\parindent}{6em}(3)Compute energy change $\Delta E$:
+\setlength{\parindent}{0pt} 
+
+\setlength{\parindent}{100pt}(i)Recalculate FENE bonds for affected neighbors.\\
+(ii)Recalculate WCA interactions for all non-bonded beads within cutoff.\\
+\setlength{\parindent}{0pt}
 
 
-\begin{enumerate}
-    \item Choose a bead at random.
-    \item Propose a small displacement:
-    \[
-    \vec{r}_i' = \vec{r}_i + \Delta \vec{r}, \quad \Delta \vec{r} \in [-\delta, \delta]
-    \]
-    \item Compute energy change $\Delta E$:
-    \begin{itemize}
-        \item Recalculate FENE bonds for affected neighbors.
-        \item Recalculate WCA interactions for all non-bonded beads within cutoff.
-    \end{itemize}
-    \item Accept or reject using the Metropolis criterion:
-    \[
-    P_{\text{accept}} = \min \left(1, e^{-\beta \Delta E}\right)
-    \]
-    where $\beta = \frac{1}{k_B T}$.
-\end{enumerate}
+\setlength{\parindent}{6em}(4)Accept or reject using the Metropolis criterion:
+\setlength{\parindent}{0pt}
+\begin{equation}
+P_{\text{accept}} = \min \left(1, e^{-\beta \Delta E}\right)
+\end{equation}
 
+where $\beta = \frac{1}{k_B T}$. $k_B$ is the Boltzmann constant and $T$ is the temperature of the system. $\beta$ essentially measures how sensitive the system is to energy changes at a given temperature.
 
+\setlength{\parindent}{45pt}
 
 This is a key expression in the Metropolis-Hastings algorithm, often used in Monte Carlo simulations, particularly in statistical physics and computational chemistry, to determine the acceptance probability of a proposed move in a system.
 
@@ -391,7 +442,7 @@ If $\Delta E \leq 0$ (i.e., the new state has lower or equal energy), then $e^{-
 If $\Delta E > 0$ (i.e., the new state has higher energy), then $e^{-\beta \Delta E} < 1$, and $P = e^{-\beta \Delta E}$. The move is accepted with a probability that decreases exponentially as the energy difference $\Delta E$ increases or as the temperature $T$ decreases (since $\beta$ is inversely proportional to $T$). At low temperatures, the system is less likely to accept moves that increase energy, favoring lower-energy states.
 
 
-\subsection*{1.4 Simple liquid Models for the organelles surrounding DNA}
+\subsection*{Simple liquid Models for the organelles surrounding DNA}
 
 Simple liquid models that help understand the structure and behavior of polymer fluids in crowded environments. Specifically, the simple liquid models referenced include Hard Sphere Model and Lennard-Jones Model. 
 
@@ -401,7 +452,7 @@ Hard sphere model is used to understand the behavior of particles in crowded env
 
 The Lennard-Jones model accounts for both attractive and repulsive forces between particles, which is important in understanding the interactions within fluids and condensed matter. It helps model the behavior of molecules, especially in non-ideal conditions like those found in crowded environments. 
 
-\subsection*{1.5 Helfrich-Canham Model for the membrane}
+\subsection*{ 1.3 Helfrich-Canham Model for the membrane}
 
 The Helfrich-Canham model, a specific type of continuum model, focuses on the membrane's curvature elasticity and bending energy\cite{Bassereau2014}.
 \begin{figure}[!ht]
@@ -450,45 +501,7 @@ To simulate a genome inside a lipid membrane, we need to make sure the genome st
 Coarse-grain model and simple liquid models are valuable tools in understanding how particles interact in condensed matter systems, such as polymer fluids, from both an energetic (energy of interactions) and entropic (disorder and randomness) perspective.
 
 
-\subsection*{II.Simulation}
 
-
-\subsection*{1.1 Monto Carlo simulation}
-
-Monte Carlo (MC) simulation is a technique used to explore different configurations of a system by randomly sampling possible states, based on probability rules that often relate to energy. Instead of following every tiny movement of particles over time—like molecular dynamics does—Monte Carlo takes a different approach. It “jumps” from one possible state to another and decides whether to accept or reject each move depending on how favorable it is, typically using criteria like energy minimization.
-This method becomes especially powerful when combined with coarse-grain (CG) models. Coarse-graining simplifies complex systems by grouping atoms or monomers into larger units, reducing the number of particles and interactions. This makes the system easier and faster to simulate, which is perfect for Monte Carlo techniques. With fewer variables to track, MC simulations can explore a much wider range of configurations in less time.
-Using MC with CG models is particularly useful for studying large-scale behaviors like polymer folding, self-assembly, phase transitions, or how polymers interact with other surfaces or structures. Since you don’t need to worry about every atomic detail, you can focus on understanding the broader behavior of the material. For instance, in a coarse-grain polymer simulation, MC methods might rotate parts of the polymer chain, stretch or shift segments, or rearrange them—checking each time how these changes affect the system’s overall energy or structure.
-In short, Monte Carlo simulations and coarse-grain modeling work hand in hand. Together, they make it possible to study complex polymer systems more efficiently and gain insights that would be hard to reach using more detailed, atomistic approaches.
-
-\subsection*{1.2 Assumpations of Monto Carlo simulation}
-
-
-    1. Randomness is representative
-    
-The simulation assumes that the random inputs it uses (often generated using pseudo-random number generators) adequately represent the variability and uncertainty of real-life scenarios.\\
-
-\noindent 2. Independent trials
-    
-Each simulation run (or trial) is assumed to be independent of the others. The outcome of one run does not affect the outcome of another.
-
-\noindent    3. Known probability distributions
-    
-The input variables must follow known probability distributions (e.g., normal, uniform, triangular, etc.). The accuracy of the results relies heavily on how well these distributions reflect real-world behavior.
-
-\noindent  4. Large number of iterations
-    
-The law of large numbers is a key assumption — with a large enough number of trials, the average of the simulated outcomes should approximate the expected value. More iterations generally improve accuracy.
-
-\noindent5. System/process remains stable
-    
-The simulation assumes that the underlying process or system doesn’t change over time during the simulation (i.e., it's stationary).
-
-\noindent    6. Model structure is correct
-
-The simulation is only as good as the model it's based on. It assumes the mathematical or logical structure you build reflects the real-world process correctly.
-
-
-We simplify the genome$-$membrane system using a coarse-grained model,and use Monte Carlo simulation to explore its behavior of the system. Monte Carlo can help fit the parameters of a coarse-grained model.Coarse-grained models and Monto carlo simulate large, complex systems (like polymers, membranes) efficiently and with reasonable accuracy.
 
 
 
