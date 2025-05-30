@@ -452,6 +452,76 @@ Hard sphere model is used to understand the behavior of particles in crowded env
 
 The Lennard-Jones model accounts for both attractive and repulsive forces between particles, which is important in understanding the interactions within fluids and condensed matter. It helps model the behavior of molecules, especially in non-ideal conditions like those found in crowded environments. 
 
+
+
+
+\noindent 3. Interaction Potentials:\\
+DNA–DNA: FENE (bonded) + WCA (nonbonded)\\
+DNA–Crowder: WCA or LJ\\
+Crowder–Crowder: WCA or LJ\\
+
+
+
+\noindent 4. Monte Carlo Simulation Steps:\\
+(1)Initialize:\\
+\setlength{\parindent}{6em} Randomly place the DNA chain in the simulation box.\\
+Add crowding particles around it.\\
+\setlength{\parindent}{0em} 
+
+\setlength{\parindent}{4em} (2)Monte Carlo Loop:\\
+\setlength{\parindent}{6em}   (i)Propose random displacements for DNA beads and crowder particles.\\
+   (ii)Compute total energy:
+\begin{equation}
+E = \sum_{\text{bonds}} U_{\mathrm{FENE}} + \sum_{\text{nonbonded}} U_{\mathrm{WCA}} 
++ \sum_{\text{DNA-crowder}} U_{\mathrm{WCA/LJ}} 
++ \sum_{\text{crowder-crowder}} U_{\mathrm{WCA/LJ}}
+\end{equation}
+
+(iii)Accept or reject moves using Metropolis criterion:
+\begin{equation}
+P_{\text{accept}} = \min \left(1, e^{-\beta \Delta E}\right)
+\end{equation}
+
+\setlength{\parindent}{4em} (3)Equilibration:\\
+
+Pick one particle (DNA bead or crowder).\\
+Propose a small random displacement:\\
+Calculate energy difference:
+\begin{equation}
+\Delta E = E_{\text{new}} - E_{\text{old}}
+\end{equation}
+
+\setlength{\parindent}{6em} Run enough MC steps to reach equilibrium.\\
+\setlength{\parindent}{4em}  (4)Sampling:\\
+\setlength{\parindent}{6em} Collect statistics on DNA configurations, radius of gyration, looping, crowding effects.\\
+
+
+
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|l|}
+\hline
+\textbf{Parameter} & \textbf{Suggested Value} \\
+\hline
+$\sigma$ & Size of bead (DNA + crowder) \\
+\hline
+$\varepsilon$ & LJ/WCA strength (e.g., 1.0) \\
+\hline
+$k, R_0$ & FENE bond strength, limit \\
+\hline
+Number of crowders & Depends on desired volume fraction \\
+\hline
+\end{tabular}
+\caption{Simulation parameters for the DNA-crowder system.}
+\end{table}
+
+
+
+
+
+
+
 \subsection*{ 1.3 Helfrich-Canham Model for the membrane}
 
 The Helfrich-Canham model, a specific type of continuum model, focuses on the membrane's curvature elasticity and bending energy\cite{Bassereau2014}.
