@@ -289,13 +289,6 @@ It prevents bond crossing by FENE and WCA and it has been extensively validated 
 
 
 
-\subsection*{Excluded volume}
-
-Excluded volume is an essential aspect of Coarse rained (CG) modeling, ensuring that two particles do not occupy the same space. Without it, particles in a simulation may overlap or penetrate each other, leading to unphysical results. To account for excluded volume, repulsive interaction potentials—such as the Lennard-Jones potential or its softer variants used in models like MARTINI or DPD—are applied. These potentials create a repulsive force that prevents particles from getting too close. Key parameters like bead size ($\sigma$) and interaction strength ($\varepsilon$) must be carefully tuned to reflect the physical size and behavior of the particles.
-
-Before running a simulation, energy minimization and equilibration steps are typically used to eliminate any initial overlaps and ensure a stable starting configuration. Properly enforcing excluded volume is particularly important in biomolecular and polymer systems, where structural integrity and thermodynamic behavior depend on particles keeping natural distances and not overlapping unrealistically. Ignoring or mishandling excluded volume can compromise the accuracy and reliability of the simulation.
-
-
 
 
 
@@ -334,12 +327,19 @@ The simulation assumes that the underlying process or system doesn’t change ov
 The simulation is only as good as the model it's based on. It assumes the mathematical or logical structure you build reflects the real-world process correctly.
 
 
+
+
+Since we use the Monte Carlo algorithm to simulate realistic physical systems, we need to ensure that our model captures the basic physical principle that two particles cannot occupy the same space simultaneously. If we do not include a repulsive potential between two beads, the simulation might generate unphysical configurations where two beads overlap—something that cannot happen in the real world. Therefore, we incorporate an excluded volume interaction (often modeled as a repulsive potential or hard-sphere constraint) to prevent such overlaps. This ensures that our simulations remain physically meaningful and reflect the correct structural and thermodynamic behavior of the system.
+
+\subsection*{Excluded volume}
+
+Excluded volume is an essential aspect of Coarse rained (CG) modeling, ensuring that two particles do not occupy the same space. Without it, particles in a simulation may overlap or penetrate each other, leading to unphysical results. To account for excluded volume, repulsive interaction potentials—such as the Lennard-Jones potential or its softer variants used in models like MARTINI or DPD—are applied. These potentials create a repulsive force that prevents particles from getting too close. Key parameters like bead size ($\sigma$) and interaction strength ($\varepsilon$) must be carefully tuned to reflect the physical size and behavior of the particles.
+
+Before running a simulation, energy minimization and equilibration steps are typically used to eliminate any initial overlaps and ensure a stable starting configuration. Properly enforcing excluded volume is particularly important in biomolecular and polymer systems, where structural integrity and thermodynamic behavior depend on particles keeping natural distances and not overlapping unrealistically. Ignoring or mishandling excluded volume can compromise the accuracy and reliability of the simulation.
+
+
+
 We simplify the genome$-$membrane system using a coarse-grained model,and use Monte Carlo simulation to explore its behavior of the system. Monte Carlo can help fit the parameters of a coarse-grained model.Coarse-grained models and Monto carlo simulate large, complex systems (like polymers, membranes) efficiently and with reasonable accuracy.
-
-
-
-
-
 
 
 
@@ -478,7 +478,7 @@ Crowder–Crowder: WCA or LJ\\
 
 \setlength{\parindent}{0em} 
 
-\setlength{\parindent}{4em} (2)Monte Carlo Loop:\\
+\setlength{\parindent}{4em}(2)Monte Carlo Loop:\\
 \setlength{\parindent}{6em}   (i)Propose random displacements for DNA beads and crowder particles.\\
 
 (ii)For a large number of steps (e.g., $10^{5}$ or more),\\
@@ -544,6 +544,22 @@ Repeat for many steps to allow the system to reach to a low-energy state with no
 Collect statistics on DNA configurations, radius of gyration, looping, crowding effects.\\
 
 
+\setlength{\parindent}{45pt}
+
+Membranes can be modeled at the coarse-grained level but we don't need to explicitly use a coarse-grained model. Instead, we directly to continuum models like the Helfrich-Canham model. We can focus on big-scale behavior and treat the membrane as a smooth, continuous surface with properties like bending rigidity, spontaneous curvature, and surface tension.
+
+
+Coarse-grained models require tracking many particles, but continuum models replace them with smooth fields, making them more efficient for studying large-scale deformation
+
+
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.75\textwidth,height=5cm]{discrete.png} }
+  \caption{Different computational methods developed to study cellular membranes are valid in different length and time scales. Although some methods have attempted to bridge these scales, no unifying multiscale framework currently exists. This provides an opportunity for future model development.\cite{chabanon2017systems}}
+\end{figure}
+
+
+
 
 
 
@@ -556,6 +572,11 @@ Collect statistics on DNA configurations, radius of gyration, looping, crowding 
 \subsection*{Helfrich-Canham Model for the membrane}
 
 \setlength{\parindent}{4em}The Helfrich-Canham model, a specific type of continuum model, focuses on the membrane's curvature elasticity and bending energy\cite{Bassereau2014}.
+
+
+
+
+
 \begin{figure}[!ht]
   \centering
   \includegraphics[width=0.45\textwidth,height=4cm]{fobinacci.network.png} 
@@ -588,6 +609,10 @@ To simulate a genome inside a lipid membrane, we need to make sure the genome st
 	Once all the connections are made, we construct what's called the Kirchhoff matrix (or the GNM matrix). In this matrix, a value of -1 is placed at the off-diagonal positions where two beads are connected, and 0 where they're not. The diagonal entries are set so that each row adds up to zero, which simply reflects how many connections each bead has. This matrix is the core of the GNM approach—it captures the structure of the network and can be used to study how the system might flex, shift, or vibrate as a whole. By following these steps, you turn a static arrangement of beads on a sphere into a dynamic network model that can simulate real-world molecular or physical behaviors.
 
 
+
+\begin{equation}
+F_{\text{Helfrich}} = \int \left[ \frac{\kappa}{2} (2H - C_0)^2 + \sigma \right] dA
+\end{equation}
 
 
 
@@ -667,12 +692,21 @@ A continuum membrane model goes further—it treats the membrane as a continuous
 
 while continuum models are not considered the classical coarse-grained, they are part of the same multiscale modeling, but just at a larger, more abstract scale.
 
+
+
+
+
+
+
+
+
 Most notably the Helfrich-Canham model, which defines the bending energy of the membrane as:
 \begin{equation}
 E = \int \left( 2\kappa (2H - C_0)^2 + \bar{\kappa} K \right) \, dA
 \end{equation}
 
-
+This Helfrich bending energy functional is the simplest form. It accounts only for bending deformations of the membrane, controlled by the bending rigidity $\kappa$.
+\( H \) is the mean curvature, \( C_0(\vec{r}) \) is the spatially varying spontaneous curvature, and \( dA \) is the surface element.
 
 
 
@@ -681,10 +715,17 @@ The Helfrich–Canham model, a specific type of continuum models, focuses mainly
 
 The total free energy of a closed lipid bilayer:
 Continuum Form (Analytical Model):
-
 \begin{equation}
 E = \int_{\text{membrane}} \left[ 2\kappa (2H - C_0)^2 + \bar{\kappa} K \right] \, dA + \lambda A + PV
 \end{equation}
+
+\noindent This is a more complete energy functional for membranes.
+
+The Gaussian curvature term \( \kappa_G K \) is added, which is important for topological changes such as budding, fission, fusion.
+
+Surface tension (\( \sigma A \)) which enforces a global area constraint or tension.
+
+Volume constraint (\( PV \)) which is pressure term to keep vesicle volume constant.
 \begin{align*}
 \kappa &:\ \text{bending rigidity} \\
 \bar{\kappa} &:\ \text{Gaussian modulus} \\
@@ -693,9 +734,12 @@ K &:\ \text{Gaussian curvature} \\
 C_0 &:\ \text{spontaneous curvature} \\
 A &:\ \text{total surface area} \\
 \lambda &:\ \text{Lagrange multiplier for area constraint (surface tension)} \\
-P &:\ \text{Lagrange multiplier for volume constraint (pressure)}\\
-V &:\ \text{enclosed volume} 
+P &:\ \text{Lagrange multiplier for volume constraint (pressure)} \\
+V &:\ \text{enclosed volume}
 \end{align*}
+
+
+
 
 It models the elastic energy of a smooth, flexible surface (like a lipid bilayer vesicle) as a function of curvature. This model alone does not specify how lipids or proteins are distributed on the surface — it just tells you what shapes minimize bending energy.
 
@@ -726,10 +770,15 @@ The form sums over pairs of adjacent faces \(\langle \alpha, \beta \rangle\).
 \end{itemize}
 
 
-The Discrete Bending Energy (Angle-based Form)
+The Discrete Bending Energy (Angle-based Form):
 \begin{equation}
 E_{\text{mem}} = \kappa \sum_{\text{edges } e} \left(1 - \cos \theta_e \right)\cite{gompper1997triangulated}
 \end{equation}
+
+\noindent is a widely used discrete approximation in simulations of triangulated membranes. While it is not directly derived from the Helfrich energy in a specific textbook, it appears in several foundational papers and review articles on triangulated surface models and coarse-grained simulations.
+
+
+
 
 This is a discretized approximation of the bending energy, suitable for numerical simulations Monte Carlo or molecular dynamics. It captures curvature using local triangle normals instead of differential geometry.
 
