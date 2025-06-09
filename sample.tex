@@ -757,24 +757,72 @@ If $\Delta E \leq 0$ (i.e., the new state has lower or equal energy), then $e^{-
 
 \subsection*{Hypothesis}
 
-\noindent Hypothesis 1. The shape of a virus forms after its genome architecture stabilizes. First, the genome reaches a steady state, and we then examine how it influences the viral membrane shape. 
+\noindent Hypothesis 1:\\
+The shape of a virus forms after its genome architecture stabilizes. First, the genome reaches a steady state, and we then examine how it influences the viral membrane shape. 
 
-\noindent Result:\\
+\noindent Goal:\\
 	(1)If the genome is 1D rod-like, the viral membrane takes an 2D elliptical shape.\\
 	(2)If the genome is circular, the viral membrane forms a 2D circular shape.
 	
-\noindent Hyperthesis 2. Alternatively, the genome architecture may develop after the viral membrane shape stabilizes. In this case, the membrane reaches a steady state first, and we then observe how it affects the genome’s geometry. By adjusting the length of 1D rod or the perimeter of the circle of the genome, we try to match the reference.\\ 
-\noindent Result:\\
-	(1)If the viral membrane takes an elliptical shape, the genome geometry is rod-like.	\\
+\noindent Hyperthesis 2:\\
+The genome architecture may develop after the viral membrane shape stabilizes. In this case, the membrane reaches a steady state first, and we then observe how it affects the genome’s geometry. By adjusting the length of 1D rod or the perimeter of the circle of the genome, we try to match the reference.\\ 
+\noindent Goal:\\
+	(1)If the viral membrane takes an elliptical shape, the genome geometry is rod-like\cite{harish2021entomopathogenic}.	\\
 	(2)If the viral membrane forms a circular shape, the genome geometry is circular.
-	
-	
-	
-	
-	
+		
 
-\vspace{-1em}
-\subsection*{Timeline for major experiments and/or calculations}
+	
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.5\textwidth,height=4cm]{monkeypox.png}}  % Adjust width or height as needed
+  \caption{Preliminary 2D model studies to
+investigate the effect of the geometry of a
+genome on the shape of a virus. A rod-like
+genome induces an elliptic shape whereas a
+circular genome leads to a circular shape.}
+\end{figure}
+	
+	
+\noindent Hypothesis 3:\\
+The internal pressure that builds up inside a virus’s shell during genome packaging is essential for the virus to inject its DNA or RNA into host cells. By changing the structure or mechanical properties(such as, bending rigidity ($k$)) of the capsid/membrane (such as making it weaker, stronger, or more flexible), we can control this pressure and potentially reduce the virus’s ability to infect cells.
+
+\noindent Goal:\\
+\noindent To investigate the role of internal pressure in viral genome injection and infection efficiency by:
+
+\noindent (1) Understanding how changes in the capsid/membrane's shape, thickness, and mechanical properties(bending rigidity ($k$)) affect the amount of pressure that builds up inside the virus and how easily the DNA or RNA gets out.\\
+
+\noindent (2)Understanding which parts of the capsid proteins or structures are most responsible for building up and releasing pressure that helps the virus inject its DNA or RNA into host cells.\\
+
+
+	
+	
+	
+	
+		
+The genome of the Monkeypox virus is a double-stranded DNA, approximately 190 kb (kilobases) in length, which equals about 95 kbp (kilobase pairs). This genomic length corresponds to a substantial contour length of approximately 3000 nm. This indicates that the genetic material is significantly longer than the physical dimensions of the virus itself, which measures around 250 nm long. 
+These viral particles can display spherical and oval shapes, indicating different developmental stages: immature virions tend to be spherical, while mature virions adopt an oval shape. This morphological differentiation can be important for recognizing stages in the virus life cycle and understanding how these changes may affect infectivity. The transition from spherical to oval shapes may be linked to the maturation process, influencing the virus's ability to enter host cells and replicate effectively.\\
+
+The shape of viral particles, like those seen in the Monkeypox virus, can reveal a lot about what stage they’re at in their life cycle. In the early phases, the virus forms immature virions that are usually spherical. This round shape isn’t random—it helps the virus begin assembling its genetic material and proteins in a flexible, efficient way. At this point, the virus is just starting to come together, packaging its core components. As it matures, the virus goes through structural changes that shift its shape from spherical to oval. This transformation involves the rearrangement of viral proteins, which makes the particle more stable. The oval shape not only helps the mature virion survive better outside the host but also improves its ability to attach to and enter host cells. This increased stability and better interaction with host cell receptors make the mature, oval-shaped virus more infectious and better equipped to replicate once inside a host.
+
+
+
+
+We begin by modeling the phage DNA as a fine-grained polymer, such as a worm-like chain, which accurately represents the stiffness and bending behavior of real double-stranded DNA. This model is placed within a confined volume that mimics the $60\,\text{nm} \times 150\,\text{nm}$ prolate icosahedral capsid of phage $\lambda$.
+ 
+
+
+Next, we simulate stepwise DNA packaging by applying a force from a virtual packaging motor that mimics the biological motor’s function. At each step, a small segment of DNA is inserted into the capsid, and we calculate the energy required to overcome internal forces such as electrostatic repulsion and bending stress. This allows us to track the buildup of internal pressure as the capsid fills, which can then be directly compared to experimentally measured force-extension (packing) curves from optical tweezer studies.
+
+Once the genome is fully packaged, we simulate ejection dynamics by triggering a release mechanism, such as opening a virtual portal in the capsid. The DNA is then allowed to eject, and we record the ejection speed, force, and time as the internal pressure drives the genome out. These simulation results can be compared to experimental data from ejection assays and osmotic suppression experiments, where external osmotic agents slow or block ejection and allow researchers to measure the pressure driving it.
+
+
+By tuning simulation parameters (e.g., DNA stiffness, packing force, ionic strength) and validating against high-quality experimental datasets from phage $\lambda$, we ensure that our model reproduces the biological and physical behavior observed in the lab. In bacteriophages, the DNA experiences strong forces—up to around 60 picoNewtons—during the packaging and ejection process. These forces mainly come from the bending stiffness of the DNA and the repulsion between tightly packed strands. Experiments using osmotic suppression have shown that it's possible to stop DNA ejection by applying external PEG solutions that create about 20 to 40 atmospheres of pressure\cite{Grayson2006}.
+
+
+
+
+
+
 
 Simulating realistic physical conditions, since many experiments happen at constant pressure (example:1 atm) and temperature  (example: 298 K).
 
@@ -806,43 +854,14 @@ Under NVT conditions, the volume of the system is fixed, meaning the membrane is
 
 In another approach, even though the overall volume remains fixed under NVT, small local fluctuations in the shape of the membrane are allowed while still keeping a, b, and c centered around their initial values. In this case, the membrane can slightly deform in response to internal forces from the genome without changing its total volume. While the confinement effect is still strong, allowing limited local fluctuations provides a somewhat more realistic interaction between the genome and the membrane. Studying the membrane–genome relationship in either method under NVT is useful for early-stage stabilization or when specifically exploring how genomes behave in confined, rigid environments.
 
-
-
-The genome of the Monkeypox virus is a double-stranded DNA, approximately 190 kb (kilobases) in length, which equals about 95 kbp (kilobase pairs). This genomic length corresponds to a substantial contour length of approximately 3000 nm. This indicates that the genetic material is significantly longer than the physical dimensions of the virus itself, which measures around 250 nm long. 
-These viral particles can display spherical and oval shapes, indicating different developmental stages: immature virions tend to be spherical, while mature virions adopt an oval shape. This morphological differentiation can be important for recognizing stages in the virus life cycle and understanding how these changes may affect infectivity. The transition from spherical to oval shapes may be linked to the maturation process, influencing the virus's ability to enter host cells and replicate effectively.\\
-
-The shape of viral particles, like those seen in the Monkeypox virus, can reveal a lot about what stage they’re at in their life cycle. In the early phases, the virus forms immature virions that are usually spherical. This round shape isn’t random—it helps the virus begin assembling its genetic material and proteins in a flexible, efficient way. At this point, the virus is just starting to come together, packaging its core components. As it matures, the virus goes through structural 
-
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=0.5\textwidth,height=4cm]{monkeypox.png}  % Adjust width or height as needed
-  \caption{Preliminary 2D model studies to
-investigate the effect of the geometry of a
-genome on the shape of a virus. A rod-like
-genome induces an elliptic shape whereas a
-circular genome leads to a circular shape.}
-\end{figure}
-
-\noindent changes that shift its shape from spherical to oval. This transformation involves the rearrangement of viral proteins, which makes the particle more stable. The oval shape not only helps the mature virion survive better outside the host but also improves its ability to attach to and enter host cells. This increased stability and better interaction with host cell receptors make the mature, oval-shaped virus more infectious and better equipped to replicate once inside a host.
-
-
-
-
-We begin by modeling the phage DNA as a fine-grained polymer, such as a worm-like chain, which accurately represents the stiffness and bending behavior of real double-stranded DNA. This model is placed within a confined volume that mimics the $60\,\text{nm} \times 150\,\text{nm}$ prolate icosahedral capsid of phage $\lambda$.
- 
-
-
-Next, we simulate stepwise DNA packaging by applying a force from a virtual packaging motor that mimics the biological motor’s function. At each step, a small segment of DNA is inserted into the capsid, and we calculate the energy required to overcome internal forces such as electrostatic repulsion and bending stress. This allows us to track the buildup of internal pressure as the capsid fills, which can then be directly compared to experimentally measured force-extension (packing) curves from optical tweezer studies.
-
-Once the genome is fully packaged, we simulate ejection dynamics by triggering a release mechanism, such as opening a virtual portal in the capsid. The DNA is then allowed to eject, and we record the ejection speed, force, and time as the internal pressure drives the genome out. These simulation results can be compared to experimental data from ejection assays and osmotic suppression experiments, where external osmotic agents slow or block ejection and allow researchers to measure the pressure driving it.
-
-
-By tuning simulation parameters (e.g., DNA stiffness, packing force, ionic strength) and validating against high-quality experimental datasets from phage $\lambda$, we ensure that our model reproduces the biological and physical behavior observed in the lab. In bacteriophages, the DNA experiences strong forces—up to around 60 picoNewtons—during the packaging and ejection process. These forces mainly come from the bending stiffness of the DNA and the repulsion between tightly packed strands. Experiments using osmotic suppression have shown that it's possible to stop DNA ejection by applying external PEG solutions that create about 20 to 40 atmospheres of pressure\cite{Grayson2006}.
-
-
-
+\subsection*{Timeline}
+Months 0-3: Fine-tune the continuum membrane model.\\
+Months 4-6: Investigate competition among different membrane shapes.\\
+Months 7-9: Study chain model and crowding effect\\
+Months 10-12:Expand the developed models from 2D to 3D.
 
 \end{flushleft}
+\newpage
 \bibliographystyle{unsrt}
 \bibliography {references}  
 
