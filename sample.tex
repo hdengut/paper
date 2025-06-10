@@ -54,6 +54,43 @@ Second, we into the pressure inside viruses helps us better understand how the v
 \vspace{-1em} 
 \section*{Introduction}
 
+In our previous study, inspired by the trimeric spike proteins in coronaviruses, the authors developed a simple liquid model to investigate how monomers self-organize into dimers, trimers, and tetramers on spherical surfaces. The simulations, performed using Monte Carlo methods with Yukawa potentials incorporating both radial and angular dependencies, showed that trimers are easier to form and more stable than dimers, while tetramers require stronger attractive forces and are prone to aggregation. Analyses of energy and entropy contributions revealed that trimers are generally more stable than dimers and, under certain conditions, comparable to tetramers.we developed a simple yet insightful model to understand how monomers can self-organize into trimers and tetramers on spherical surfaces. Our findings show that trimers are easier to form and more stable than dimers, and in many conditions, they are as stable—or even more stable—than tetramers. Tetramers require stronger attractive forces to form and are more prone to aggregation when these forces become too strong. These results highlight the importance of both energetic and entropic contributions to self-organization, particularly how interaction geometry and asymmetry influence the outcome.
+
+
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=0.8\textwidth,height=4cm]{spike.trimer.png}
+  \caption{Left image: Simulation of the SARS-CoV-2 spike protein on a spherical surface, illustrating the progression from randomly distributed monomers (left) to trimer (center) and tetramer (right) formations. Right image: SARS-CoV-2 for Covid-19 schematic image ( CDC Public
+Health Image Library) \cite{cdc-covid}}
+\end{figure}
+
+
+
+
+
+Beyond virus-related modeling, we also explored how rod-like molecules behave inside confined spaces, such as droplets or cavities, under molecular crowding. These simulations revealed that shorter rods tend to accumulate near the boundary, while longer rods align in the 
+\begin{figure}[!ht]
+  \centering
+   \includegraphics[width=0.8\textwidth,height=5.5cm]{F-actin.png}
+ 
+  \caption{\textbf{Left image:} Short DNA rods distribute near wall under molecular crowding. Long F-actin rods distribute in cavity interior and show high orientation ordering. Long F-actin rods distribute in cavity interior and show high orientation ordering.  Specific localization of 
+  long DNA ($\lambda$ DNA) and F-actin in DEX-rich CAMDs.    
+       \textbf{Right image:} Fluorescence microscopic images of DNA (GelGreen), actin (Alexa Fluor 546), and merged views are shown, along with polarization microscopy observations (four panels on the left). 
+        The images were captured under the conditions of 120~$\mu$M $\lambda$ DNA, 10~$\mu$M actin, and 4.0~mM KCl. 
+        F-actins were observed to be in a nematic liquid-crystal state at the center of DEX-rich CAMDs, while DNA molecules appeared segregated from the center. 
+        In other words, long DNA strands are compressed by the aligned F-actin region, as schematically illustrated in the right panel. 
+        Scale bar: 100~$\mu$m.\cite {nakatani2018}}
+        %}
+\end{figure}
+
+
+
+\noindent interior—behaviors that closely match experimental observations. Altogether, our work provides a foundation for understanding how structure and organization emerge in complex systems.
+
+We have successfully simulated the membrane and the spike protein on its outer surface. Now, we are shifting our project focus from the outside of the membrane to the inside, concentrating on the interactions between the membrane and the genome within it.
+
+
 Viral infections have a critical impact on global health, emphasizing their role in pandemics and outbreaks. These infections pose significant risks to public health and encompass a wide range of diseases, from seasonal influenza to more severe infectious diseases such as Monkeypox and COVID-19. Both Monkeypox and COVID-19 viruses are classified as enveloped viruses, which are distinguished by their lipid membranes that surround and protect their genetic material (genomes). These membranes serve several crucial functions: they provide protection by shielding the viral genome from environmental factors and potential damage, and they facilitate transmission by enabling the virus to enter host cells. The membrane plays a key role in this process by interacting with specific receptors on host cells, thereby promoting viral infection and the delivery of the genome into the host. We need to further understand these mechanisms to develop effective prevention and treatment strategies.
 
 Virions are acellular, meaning they are not made up of cells and therefore lack cellular components like organelles, ribosomes, or a plasma membrane. Instead, a virion consists primarily of a nucleic acid genome encased within a protein coat called a capsid. 
@@ -102,44 +139,11 @@ This pressurization plays a crucial role in the infection process. When a virus 
 
 
 
-Understanding this mechanism at a deeper level has important implications for medicine. By targeting the molecular motor or the structural features that allow such high pressure to build up and be maintained, scientists are exploring ways to develop antiviral drugs that could block the genome ejection step. If successful, these treatments could prevent a virus from completing its infection cycle, offering a new class of antiviral therapies that stop viruses before they gain a foothold in the body. 
+Understanding how this pressure builds up and is released is important for developing new medicines. By studying the molecular motor and the structures that hold this pressure, researchers hope to create antiviral drugs that stop the virus from ejecting its genome into the host cell. These drugs could prevent the virus from taking over the cell’s machinery and spreading, offering a new way to stop infections.
 
 
 
 
-In our previous study, we developed a simple yet insightful model to understand how monomers can self-organize into trimers and tetramers on spherical surfaces. Our findings show that trimers are easier to form and more stable than dimers, and in many conditions, they are as stable—or even more stable—than tetramers. Tetramers require stronger attractive forces to form and are more prone to aggregation when these forces become too strong. These results highlight the importance of both energetic and entropic contributions to self-organization, particularly how interaction geometry and asymmetry influence the outcome.
-
-
-
-\begin{figure}[!ht]
-  \centering
-  \includegraphics[width=0.8\textwidth,height=4cm]{spike.trimer.png}
-  \caption{Left image: Simulation of the SARS-CoV-2 spike protein on a spherical surface, illustrating the progression from randomly distributed monomers (left) to trimer (center) and tetramer (right) formations. Right image: SARS-CoV-2 for Covid-19 schematic image ( CDC Public
-Health Image Library) \cite{cdc-covid}}
-\end{figure}
-
-
-
-
-
-Beyond virus-related modeling, we also explored how rod-like molecules behave inside confined spaces, such as droplets or cavities, under molecular crowding. These simulations revealed that shorter rods tend to accumulate near the boundary, while longer rods align in the 
-\begin{figure}[!ht]
-  \centering
-   \includegraphics[width=0.8\textwidth,height=5.5cm]{F-actin.png}
- 
-  \caption{\textbf{Left image:} Short DNA rods distribute near wall under molecular crowding. Long F-actin rods distribute in cavity interior and show high orientation ordering. Long F-actin rods distribute in cavity interior and show high orientation ordering.  Specific localization of 
-  long DNA ($\lambda$ DNA) and F-actin in DEX-rich CAMDs.    
-       \textbf{Right image:} Fluorescence microscopic images of DNA (GelGreen), actin (Alexa Fluor 546), and merged views are shown, along with polarization microscopy observations (four panels on the left). 
-        The images were captured under the conditions of 120~$\mu$M $\lambda$ DNA, 10~$\mu$M actin, and 4.0~mM KCl. 
-        F-actins were observed to be in a nematic liquid-crystal state at the center of DEX-rich CAMDs, while DNA molecules appeared segregated from the center. 
-        In other words, long DNA strands are compressed by the aligned F-actin region, as schematically illustrated in the right panel. 
-        Scale bar: 100~$\mu$m.\cite {nakatani2018}}
-        %}
-\end{figure}
-
-
-
-\noindent interior—behaviors that closely match experimental observations. Altogether, our work provides a foundation for understanding how structure and organization emerge in complex systems.
 
 \vspace{-2em} 
 \section*{Background} 
