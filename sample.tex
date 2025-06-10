@@ -13,12 +13,11 @@
 \usepackage{hyperref}
 \usepackage[letterpaper,margin=0.75in]{geometry}
 \usepackage{setspace}
-
+\usepackage{comment}
 \usepackage{amsmath}
 \usepackage{esint}
 
 % Defining mathematical symbols and constants
-
 
 
 
@@ -47,8 +46,11 @@
 \section*{Objective}
 First, to develop new models and simulations to study how the viral genome architecture(its shape, length and flexibility) influences the membrane. By combining polymer physics and liquid-state physics, such as crowding effects, we hope to gain a deeper understanding of viral assembly. By simulating how viral genomes behave in confined environments, we can uncover key principles behind virus formation and stability. It could contribute to more effective strategies for preventing and treating viral infections, especially for viruses like Monkeypox and SARS-CoV-2.
 
+
 Second, we into the pressure inside viruses helps us better understand how these tiny organisms infect cells and spread disease. When a virus packages its genetic material into its protein shell, it builds up a lot of internal pressure. This pressure is key to how viruses inject their DNA or RNA into host cells quickly and efficiently. By studying this process, we can uncover new ways to block viruses from replicating, such as targeting the proteins that help pack the genetic material or weakening the capsid so the virus can’t survive. It can inspire new drug delivery systems that work like viruses, help design better and more stable vaccines, and teach us more about the physical limits of DNA and RNA in extreme conditions. In short, understanding viral pressure gives us both the tools to fight disease and ideas to build new technologies.
 
+%\begin{comment}
+%\end{comment}
 \vspace{-2em} 
 \section*{Introduction}
 
@@ -147,7 +149,25 @@ Phospholipids are the main ingredients of cell and viral membranes, and their st
 
 \noindent it. The head is connected to the tails through a small backbone, so the whole molecule looks kind of like a matchstick or a two-tailed kite. Because one part of the molecule wants to be near water and the other part wants to avoid it, phospholipids naturally arrange themselves into layers when they’re in water. These layers form flexible membranes that act a lot like soft polymer sheets—they can bend, move, and even stretch a little. In fact, scientists often use ideas from polymer physics to study how these membranes behave, especially when trying to understand things like how viruses wrap themselves up or how they enter cells.
 
-\vspace{-2em} 
+
+
+Membranes share several important similarities with polymers that make them comparable in some ways. Both are soft, flexible materials capable of bending, stretching, and fluctuating, which reflects their shared physical nature as entropic, deformable systems. Like polymers, membranes are composed of repeating units—in this case, lipid molecules arranged in a bilayer rather than monomers linked in a chain—giving rise to a collective, cohesive structure. Additionally, membranes exhibit entropic elasticity, meaning they resist stretching and bending because such deformations reduce the number of accessible configurations, similar to how polymers respond to mechanical forces.
+
+
+Despite their similarities, membranes and polymers also exhibit significant differences. A key distinction lies in their dimensionality: a polymer is typically a long, 1-D chain of monomers, while a membrane is a 2-D sheet of molecules organized in a bilayer structure. This bilayer arrangement features a hydrophobic core formed by lipid tails, sandwiched between hydrophilic surfaces of lipid head groups, giving membranes a unique amphiphilic character essential for their stability and biological function. Moreover, membranes serve a fundamentally different purpose than polymers; while polymers can form single chains that fold into complex three-dimensional structures (such as proteins), membranes create continuous, self-sealing barriers that separate and compartmentalize cellular contents, supporting life’s essential processes.
+
+
+Given these differences, especially the two-dimensional fluid nature of membranes and their role in large-scale processes such as vesicle formation and membrane fusion, a continuum model becomes especially valuable for studying membranes. A continuum model is not exactly an extension of a coarse-grained model, but rather a higher-level, more abstract description of the same system. While coarse-grained models can still capture important molecular details, they often become computationally intensive or overly complex when studying large-scale, collective phenomena. In contrast, continuum models are particularly useful for exploring the large-scale, collective mechanical properties of membranes, including bending rigidity, surface tension, area compressibility, spontaneous curvature, Gaussian modulus, and, in some cases, shear elasticity. These properties describe how membranes deform, flow, and undergo shape transitions — all of which are critical for understanding their biological functions and large-scale dynamics.
+
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.75\textwidth,height=5cm]{discrete.png} }
+  \caption{Different computational methods developed to study cellular membranes are valid in different length and time scales.\cite{chabanon2017systems}}
+\end{figure}
+
+
+
+\vspace{-1em} 
 \subsection*{III. Genome/DNA/RNA}
 DNA and RNA are long chains made up of smaller units called nucleotides. Each nucleotide is like a puzzle piece, made of a sugar, a phosphate group, and a nitrogen base. In DNA, the sugar is called deoxyribose, and in RNA, it’s ribose. The bases are the parts that carry genetic 
 
