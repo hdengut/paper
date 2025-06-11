@@ -16,13 +16,10 @@
 \usepackage{comment}
 \usepackage{amsmath}
 \usepackage{esint}
+\usepackage{wrapfig}
+\usepackage{lipsum}
 
 % Defining mathematical symbols and constants
-
-
-
-
-
 
 
 \begin{document}
@@ -93,21 +90,40 @@ Building on this foundation, we has successfully simulated the membrane and the 
 \vspace{-1em} 
 
 \section*{Introduction}
+
+
+
+
 Viral infections have a critical impact on global health, emphasizing their role in pandemics and outbreaks. These infections pose significant risks to public health and encompass a wide range of diseases, from seasonal influenza to more severe infectious diseases such as Monkeypox and COVID-19. Both Monkeypox and COVID-19 viruses are classified as enveloped viruses, which are distinguished by their lipid membranes that surround and protect their genetic material (genomes). These membranes serve several crucial functions: they provide protection by shielding the viral genome from environmental factors and potential damage, and they facilitate transmission by enabling the virus to enter host cells. The membrane plays a key role in this process by interacting with specific receptors on host cells, thereby promoting viral infection and the delivery of the genome into the host. We need to further understand these mechanisms to develop effective prevention and treatment strategies.
+
+
+
+
+
+
+
+
+
+
+
 
 Virions are acellular, meaning they are not made up of cells and therefore lack cellular components like organelles, ribosomes, or a plasma membrane. Instead, a virion consists primarily of a nucleic acid genome encased within a protein coat called a capsid. 
 
 To elucidate the shape of enveloped viruses, one essential factor is on their genomes. The genome of a Monkeypox virus constitutes of a double stranded DNA of about 190 kb (kilo-bases) or 95 kbp (kilo-base pairs), that is 3000 nm in contour length, compared to the dimension of a virus particle at around 250 nm long\cite{erez2019diagnosis}\cite{parker2007human}. In Figure 3, the virus particles show spherical and oval shape, corresponding to immature and mature viruses, respectively.
 
 \begin{figure}[!ht]
-  \centering
-  
+  \centering  
   \fbox{\includegraphics[width=0.4\textwidth,height=4cm]{electron.monkeypox.png}}
   \caption{Electron microscopic (EM) image for
 Monkeypox virus particles. Oval-shaped
 virus particles are mature, and spherical
 particles are immature virions \cite{goldsmith2003monkeypox}}
 \end{figure}
+
+
+
+
+
 
 
 In contrast to Monkeypox viruses, SARS-CoV-2, the virus responsible for COVID-19, are spherical and their diameter is around 80-120 nm, much smaller than the size of a Monkeypox virion. In terms of
@@ -147,6 +163,12 @@ Understanding how this pressure builds up and is released is important for devel
 %\vspace{-1em} 
 \section*{Background} 
 The genomic material of SARS-CoV-2 (single-stranded RNA) and Monkeypox (double-stranded DNA) behaves like a polymer. 
+
+Back in the 1960s and '70s, long before computational biology became mainstream, polymer scientists were already developing clever ways to simplify and understand how long-chain molecules behave. They built theoretical models like the freely-jointed chain, worm-like chain, and Gaussian chain—each designed to capture how flexible or stiff a polymer might be, and how it moves in space. These early ideas laid the foundation for what we now call coarse-grained simulations.
+
+Around the same time, the bead-spring model emerged—a simple yet powerful way to represent a polymer as a series of connected beads linked by springs. It proved highly effective for studying how polymers move, tangle, and interact in bulk materials, and remarkably, this basic idea is still widely used today in modern polymer simulations \cite{Kremer1990}.
+
+Polymers are often described as long, flexible chains whose properties scale with their size. The bead-spring model, a type of coarse-grained representation, captures key features such as bonding and excluded volume. However, to understand the detailed behavior of specific polymers, their chemical composition must be considered. While molecular dynamics simulations can offer a high degree of realism, they are computationally demanding and often impractical for simulating the slow dynamics of large systems over long timescales. To overcome this, more efficient coarse-grained (CG) models have been developed to strike a balance between accuracy and computational cost.
 
 \vspace{-1em} 
 \subsection*{I. Polymer}
@@ -209,13 +231,18 @@ DNA and RNA are long chains made up of smaller units called nucleotides. Each nu
 
 
 
+DNA and RNA are made of repeating units called nucleotides, similar to how polymers are made from repeating monomers. These long chains of nucleotides form biopolymers that can bend, twist, coil, and stretch like plastic or rubber polymers. This flexible structure allows DNA and RNA to fold into different shapes and form secondary structures.
+
+Their shape and behavior depend on the nucleotide sequence, chemical interactions, and environmental conditions. They also interact with proteins, which is important for processes like gene expression and viral assembly. Because of these polymer-like properties, scientists often use polymer models to study and simulate how DNA and RNA behave
 
 
-Nucleotides, the building blocks of RNA and DNA, act as repeating units  that form larger macromolecules, similar to how polymers are made from repeating monomers. The polymeric nature allows genomic material to adopt different shapes and configurations. Just as polymers can interact with other compounds, RNA and DNA can form secondary structures and interact with proteins, which is essential for processes like gene expression and viral assembly. Polymers can have various structures—linear, branched, or crosslinked—allowing them to be flexible, adaptable, and capable of forming diverse shapes and configurations.  DNA and RNA are biopolymers, and it means they have a polymeric nature that enables them to fold, coil, and interact with other molecules based on factors like sequence, chemical interactions, and environmental conditions.
 
 
 
-This makes DNA and RNA behave like polymers—long, repeating chains that can twist, bend, and fold. DNA usually forms a double helix, with two strands held together by base pairing (A with T, and G with C), while RNA is usually single-stranded and folds into all kinds of shapes. In science, especially in physics, we can think of DNA and RNA as flexible polymers, which helps us understand how they fold up inside tiny spaces—like the inside of a virus.
+
+
+
+
 
 \begin{figure}[!ht]
   \centering
@@ -357,7 +384,10 @@ This method becomes especially powerful when combined with coarse-grain (CG) mod
 Using MC with CG models is particularly useful for studying large-scale behaviors like polymer folding, self-assembly, phase transitions, or how polymers interact with other surfaces or structures. Since you don’t need to worry about every atomic detail, you can focus on understanding the broader behavior of the material. For instance, in a coarse-grain polymer simulation, MC methods might rotate parts of the polymer chain, stretch or shift segments, or rearrange them—checking each time how these changes affect the system’s overall energy or structure.
 In short, Monte Carlo simulations and coarse-grain modeling work hand in hand. Together, they make it possible to study complex polymer systems more efficiently and gain insights that would be hard to reach using more detailed, atomistic approaches.
 
-\vspace{-1em} 
+
+
+%\vspace{-1em} 
+\begin{comment}
 \subsection*{Assumpations of Monto Carlo simulation}
 
 
@@ -389,6 +419,7 @@ The simulation is only as good as the model it's based on. It assumes the mathem
 
 
 Since we use the Monte Carlo algorithm to simulate realistic physical systems, we need to ensure that our model captures the basic physical principle that two particles cannot occupy the same space simultaneously. If we do not include a repulsive potential between two beads, the simulation might generate unphysical configurations where two beads overlap—something that cannot happen in the real world. Therefore, we incorporate an excluded volume interaction (often modeled as a repulsive potential or hard-sphere constraint) to prevent such overlaps. This ensures that our simulations remain physically meaningful and reflect the correct structural and thermodynamic behavior of the system.
+\end{comment}
 
 \vspace{-1em} 
 \subsection*{Excluded volume}
@@ -905,8 +936,15 @@ Months 4-6: Investigate competition among different membrane shapes.\\
 Months 7-9: Study chain model and crowding effect\\
 Months 10-12:Expand the developed models from 2D to 3D.
 
+
+
 \end{flushleft}
+
+
 \newpage
+
+
+
 \bibliographystyle{unsrt}
 \bibliography {references}  
 
