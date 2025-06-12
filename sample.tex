@@ -800,6 +800,20 @@ E_{\text{Volume}} = \lambda(V - V_0)^2
 \Delta E = (E_{\text{membrane}}^{\text{new}} + E_{\text{polymer}}^{\text{new}}) - (E_{\text{membrane}}^{\text{old}} + E_{\text{polymer}}^{\text{old}})
 \end{equation}
 
+$E_{\text{Volume}}$ is the volume energy\\
+
+$\lambda$ is a parameter/coefficient that controls the strength of the volume constraint\\
+
+$V$ is the current volume\\
+
+$V_0$ is the reference/target volume\\
+
+
+
+
+
+.
+
 
 Metropolis rule:
 
@@ -821,7 +835,12 @@ This is a key expression in the Metropolis-Hastings algorithm, often used in Mon
 
 If $\Delta E \leq 0$ (i.e., the new state has lower or equal energy), then $e^{-\beta \Delta E} \geq 1$. The $\min$ function sets $P = 1$, meaning the move is always accepted. This makes sense because a lower-energy state is more favorable according to the Boltzmann distribution.
 
-
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.25\textwidth,height=4.5cm]{fibonacci.png} }
+  \caption{Sort all the vertices and make a network and identify the neighbors of A and link all the neighbors to A by Hookean spring. Introduce bending energy and curvature to vertice A.
+Choose spring constant and bending energy and (may be) curvature at point A so this point will maintain concave. Meanwhile it can induce shape changes for the membrane}
+\end{figure}
 
 
 \subsection*{Hypothesis}
