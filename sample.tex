@@ -765,11 +765,26 @@ It models the elastic energy of a smooth, flexible surface (like a lipid bilayer
 
 For a Monte Carlo study of a polymer confined inside a flexible membrane, the angle‐based (discrete) form is the most practical choice. The Discrete Bending Energy (Angle-based Form):
 \begin{equation}
-E_{\text{mem}} = \kappa \sum_{\text{edges } e} \left(1 - \cos \theta_e \right)
+E_{\text{bend}} = \kappa \sum_{\langle i,j \rangle} \left(1 - \cos \theta_{ij} \right)
 \end{equation}
 
 
+
 \noindent is a widely used discrete approximation in simulations of triangulated membranes. While it is not directly derived from the Helfrich energy in a specific textbook, it appears in several foundational papers and review articles on triangulated surface models and coarse-grained simulations\cite{gompper1997triangulated}.
+
+$\kappa$ is the bending rigidity,\\
+$\theta_{ij}$ is the angle between adjacent triangles sharing edge $\langle i, j \rangle$.
+
+
+
+
+We can distinguish between spherical and oval (ellipsoidal) shapes using the discrete form of the Helfrich energy
+Discrete model is widely used in simulations (including Monte Carlo and molecular dynamics) precisely because they can capture subtle shape changes, such as the transition from a sphere to an oval.
+
+
+
+
+
 
 
 
@@ -794,19 +809,17 @@ Volume constraint:
 E_{\text{Volume}} = \lambda(V - V_0)^2
 \end{equation}
 
+$E_{\text{Volume}}$ is the volume energy\\
+$\lambda$ is a parameter/coefficient that controls the strength of the volume constraint\\
+$V$ is the current volume\\
+$V_0$ is the reference/target volume\\
+
 
 
 \begin{equation}
 \Delta E = (E_{\text{membrane}}^{\text{new}} + E_{\text{polymer}}^{\text{new}}) - (E_{\text{membrane}}^{\text{old}} + E_{\text{polymer}}^{\text{old}})
 \end{equation}
 
-$E_{\text{Volume}}$ is the volume energy\\
-
-$\lambda$ is a parameter/coefficient that controls the strength of the volume constraint\\
-
-$V$ is the current volume\\
-
-$V_0$ is the reference/target volume\\
 
 
 
@@ -816,21 +829,19 @@ $V_0$ is the reference/target volume\\
 
 
 Metropolis rule:
-
 \begin{equation}
 P = \min\left(1, e^{-\beta \Delta E}\right)
 \end{equation}
-
 This is a key expression in the Metropolis-Hastings algorithm, often used in Monte Carlo simulations, particularly in statistical physics and computational chemistry, to determine the acceptance probability of a proposed move in a system.
 
 
-\noindent $P$: The probability of accepting a proposed change in the system's configuration. In Monte Carlo simulations, we randomly propose changes to the system (e.g., moving a particle) and decide whether to accept or reject them based on this probability. If move is accepted then positions will be updated. If rejected then the move will be reverted.
+ $P$: The probability of accepting a proposed change in the system's configuration. In Monte Carlo simulations, we randomly propose changes to the system (e.g., moving a particle) and decide whether to accept or reject them based on this probability. If move is accepted then positions will be updated. If rejected then the move will be reverted.
 
-\noindent $e^{-\beta \Delta E}$: It is derived from the Boltzmann distribution, which describes the probability of a system being in a particular state based on its energy.
+ $e^{-\beta \Delta E}$: It is derived from the Boltzmann distribution, which describes the probability of a system being in a particular state based on its energy.
 
-\noindent $\beta$: This is defined as $\beta = \frac{1}{k_B T}$, where $k_B$ is the Boltzmann constant and $T$ is the temperature of the system. $\beta$ essentially measures how sensitive the system is to energy changes at a given temperature.
+ $\beta$: This is defined as $\beta = \frac{1}{k_B T}$, where $k_B$ is the Boltzmann constant and $T$ is the temperature of the system. $\beta$ essentially measures how sensitive the system is to energy changes at a given temperature.
 
-\noindent $\Delta E$: This is the change in energy of the system due to the proposed move, calculated as $E_{\text{new}} - E_{\text{old}}$, where $E_{\text{new}}$ is the energy of the system after the proposed change, and $E_{\text{old}}$ is the energy before the change.
+ $\Delta E$: This is the change in energy of the system due to the proposed move, calculated as $E_{\text{new}} - E_{\text{old}}$, where $E_{\text{new}}$ is the energy of the system after the proposed change, and $E_{\text{old}}$ is the energy before the change.
 
 
 If $\Delta E \leq 0$ (i.e., the new state has lower or equal energy), then $e^{-\beta \Delta E} \geq 1$. The $\min$ function sets $P = 1$, meaning the move is always accepted. This makes sense because a lower-energy state is more favorable according to the Boltzmann distribution.
@@ -871,9 +882,16 @@ circular genome leads to a circular shape.}
 \end{figure}
 	
 
-These viral particles can display spherical and oval shapes, indicating different developmental stages: immature virions tend to be spherical, while mature virions adopt an oval shape. This morphological differentiation can be important for recognizing stages in the virus life cycle and understanding how these changes may affect infectivity. The transition from spherical to oval shapes may be linked to the maturation process, influencing the virus's ability to enter host cells and replicate effectively.\\
+These viral membrane can display spherical and oval shapes, indicating different developmental stages: immature virions tend to be spherical, while mature virions adopt an oval shape. This morphological differentiation can be important for recognizing stages in the virus life cycle and understanding how these changes may affect infectivity. The transition from spherical to oval shapes may be linked to the maturation process, influencing the virus's ability to enter host cells and replicate effectively.\\
 
 The shape of viral particles, like those seen in the Monkeypox virus, can reveal a lot about what stage they’re at in their life cycle. In the early phases, the virus forms immature virions that are usually spherical. This round shape isn’t random—it helps the virus begin assembling its genetic material and proteins in a flexible, efficient way. At this point, the virus is just starting to come together, packaging its core components. As it matures, the virus goes through structural changes that shift its shape from spherical to oval. This transformation involves the rearrangement of viral proteins, which makes the particle more stable. The oval shape not only helps the mature virion survive better outside the host but also improves its ability to attach to and enter host cells. This increased stability and better interaction with host cell receptors make the mature, oval-shaped virus more infectious and better equipped to replicate once inside a host.
+
+
+
+We use computational methods to simulate the coupled behavior of the viral genome and membrane, allowing us to observe how changes in membrane shape influence genome configuration. Through these simulations, we can systematically vary parameters such as membrane elasticity, area and volume constraints, and genome length or stiffness to understand their roles in shaping the overall structure. This approach helps identify which physical parameters are most critical in driving morphological transitions during viral maturation. By capturing the mechanical interplay between membrane and genome, our simulations provide a powerful tool for exploring how structural constraints impact viral assembly, stability, and infectivity. Ultimately, this computational framework enhances our ability to interpret experimental observations and guides the design of more targeted experiments or antiviral strategies.\\
+
+
+
 	
 \noindent Hypothesis 3:\\
 The internal pressure that builds up inside a virus’s shell during genome packaging is essential for the virus to inject its DNA or RNA into host cells. By changing the structure or mechanical properties(such as, bending rigidity ($k$)) of the capsid/membrane (such as making it weaker, stronger, or more flexible), we can control this pressure and potentially reduce the virus’s ability to infect cells.
