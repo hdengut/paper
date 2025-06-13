@@ -149,37 +149,33 @@ This pressurization plays a crucial role in the infection process. When a virus 
 
 We plan to study how internal pressure builds up and is released in viruses by focusing on the physical and structural mechanisms that generate and regulate this pressure. Specifically, we aim to investigate how the arrangement of the genome and the properties of the surrounding membrane or capsid contribute to pressurization. Using coarse-grained modeling and Monte Carlo simulations, we will explore how genome packing and membrane deformation interact to generate internal forces. By understanding these mechanisms, our research could help identify potential targets—such as structural components or genome configurations—that can be disrupted to prevent the pressure-driven ejection of the viral genome, offering insights for future antiviral strategies.
 
+\vspace{-1em}
+\subsection*{From Early Polymer Theories to Modern Coarse-Grained Models}
+Back in the 1960s and '70s, long before computational biology became mainstream, polymer scientists were already developing clever ways to simplify and understand how long-chain molecules behave. They built theoretical models like the freely-jointed chain, worm-like chain, and Gaussian chain—each designed to capture how flexible or stiff a polymer might be, and how it moves in space. These early ideas laid the foundation for what we now call coarse-grained simulations.
+
+Building on these foundational models, researchers have developed a wide range of coarse-grained techniques that better balance physical realism with computational efficiency. Polymers are often described as long, flexible chains whose properties scale with their size. Coarse-grained models capture key features such as bonding and excluded volume, allowing large-scale behavior to be studied with reduced complexity. However, to accurately predict the behavior of specific polymers, one must also consider their chemical composition.
+
+While molecular dynamics simulations can offer a high degree of realism, they are computationally demanding and often impractical for simulating the slow dynamics of large systems over long timescales. To address this limitation, more efficient coarse-grained (CG) models have been developed, offering a practical compromise between resolution and performance.
+
+A notable example of such a model is the bead-spring representation, which emerged during the same era as the early theoretical chain models. It represents a polymer as a series of connected beads linked by springs—a simple yet powerful approach. The bead-spring model has proven highly effective for studying how polymers move, tangle, and interact in bulk materials, and remarkably, this basic idea is still widely used today in modern polymer simulations \cite{Kremer1990}.
+	
 
 
-\vspace{-1em}
-\section*{Method} 
-\vspace{-1em}
-\subsection*{1.1 Coase-grain models}
+
+
+
+
+	
+	
+	
+	
 \vspace{-1em} 
-\subsection*{Adveantage of Coase-grain model}
-
-
-
-	Using a coarse-grain model in polymer science is really helpful because it makes things simpler and more efficient, especially when dealing with large and complex systems. One of the biggest reasons to use coarse-graining is that it saves a lot of computational power. Polymers are often made up of thousands or even millions of atoms, so simulating each individual atom takes a huge amount of time and resources. Instead of modeling each atom, a coarse-grain model groups several atoms or monomers into a "bead," which reduces the number of particles in the simulation. This allows researchers to study bigger systems and longer timescales without overwhelming their computers.
-
-	Another advantage is that coarse-graining allows us to focus on the big picture of polymer behavior. At the atomic level, polymers have tons of detailed interactions, but often what we care about are the overall properties, like how the polymer stretches, bends, or reacts to forces. Coarse-graining simplifies this by letting researchers study these larger-scale behaviors without getting caught up in the tiny atomic details, which are often less important for understanding real-world polymer behavior.
-	
-	Coarse-grain models also make it easier to model interactions between polymers. Instead of focusing on each individual monomer, coarse-graining represents groups of monomers as beads. This makes the interactions between polymer chains less complex and easier to study. This is really useful for studying complicated systems like polymer networks, gels, or blends, which would be too difficult to model atom by atom.\\
-	
-	
-	Another reason coarse-grain models are so valuable is that they help rus simulate larger systems over longer periods of time. By reducing the number of particles in the model, simulations can run much faster and allow for studies over longer timescales. Instead of simulating each tiny atom’s movement, which can take a long time, coarse-graining lets researchers study the overall behavior of the polymer chain over much longer periods. This is really useful for looking at things like polymerization processes or phase transitions that occur over time.
-	
-	Coarse-grain models also focuses on the important polymer properties that matter most, like flexibility, shape changes, and how polymers self-assemble. These properties are often determined by the overall structure of the polymer, not by the exact positions of every single atom. So by simplifying the model, researchers can study how polymers fold, how they form membranes, or how they interact with other molecules, without having to get into the atomic-level details.\\
-	
-	Finally, coarse-grain models are essential for designing new materials. When researchers are developing new types of polymers—whether for drug delivery, biodegradable plastics, or high-performance materials, these models help predict how the polymer will behave in different environments. This helps researchers optimize the materials for real-world uses without needing to simulate every tiny detail.
-	In the end, coarse-grain models are incredibly useful in polymer science because they simplify complex systems, making it easier to study their behavior. They save time and computational power while still allowing scientists to focus on the big picture—like how polymers stretch, bend, and interact—helping to design better materials and understand how polymers work in the real world.
-	
-	
-	\vspace{-1em} 
 \section*{Polymer-Like Behavior of Biomolecules} 
 The genomic material of SARS-CoV-2 (single-stranded RNA) and Monkeypox (double-stranded DNA) behaves like a polymer. 
+
+
 \vspace{-1em}
-\subsection*{1. Polymer}
+\subsection*{A. Polymer}
 The polymer is a large molecule composed of identical monomers or different types of monomers linked by covalent bonds\cite {Everaers2020}. 
 
 \begin{comment}
@@ -194,47 +190,14 @@ Both RNA and DNA are composed of long sequences of nucleotides linked together b
 \end{figure}
 
 
-Back in the 1960s and '70s, long before computational biology became mainstream, polymer scientists were already developing clever ways to simplify and understand how long-chain molecules behave. They built theoretical models like the freely-jointed chain, worm-like chain, and Gaussian chain—each designed to capture how flexible or stiff a polymer might be, and how it moves in space. These early ideas laid the foundation for what we now call coarse-grained simulations.
-
-Around the same time, the bead-spring model, a type of coarse-grained representation, emerged—a simple yet powerful way to represent a polymer as a series of connected beads linked by springs. It proved highly effective for studying how polymers move, tangle, and interact in bulk materials, and remarkably, this basic idea is still widely used today in modern polymer simulations \cite{Kremer1990}.
-
-Polymers are often described as long, flexible chains whose properties scale with their size. The bead-spring model captures key features such as bonding and excluded volume. However, to understand the detailed behavior of specific polymers, their chemical composition must be considered. While molecular dynamics simulations can offer a high degree of realism, they are computationally demanding and often impractical for simulating the slow dynamics of large systems over long timescales. To overcome this, more efficient coarse-grained (CG) models have been developed to strike a balance between accuracy and computational cost.
-
-\begin{figure}[!ht]
-  \centering
-  \fbox{\includegraphics[width=0.75\textwidth,height=5cm]{discrete.png} }
-  \caption{Different computational methods developed to study cellular membranes are valid in different length and time scales.\cite{chabanon2017systems}}
-\end{figure}
-
-
-\vspace{-1em} 
-
-
-
-\subsection*{2. Membrane/Phospholipids}
-Phospholipids are the main ingredients of cell and viral membranes, and their structure is actually a lot like a simple polymer. The head is connected to the tails through a small backbone, so the whole molecule looks kind of like a matchstick or a two-tailed kite. Because one part of the molecule wants to be near water and the other part wants to avoid it, phospholipids naturally arrange themselves into layers when they’re in water. These layers form flexible membranes that act a lot like soft polymer sheets—they can bend, move, and even stretch a little. In fact, scientists often use ideas from polymer physics to study how these membranes behave, especially when trying to understand things like how viruses wrap themselves up or how they enter cells.
-\begin{figure}[!ht]
-  \centering
-  \fbox{\includegraphics[width=0.45\textwidth,height=6cm]{membrane.png}}
-  \caption{membrane subunit}
-\end{figure}
-
-
-
-Membranes share several important similarities with polymers that make them comparable in some ways. Both are soft, flexible materials capable of bending, stretching, and fluctuating, which reflects their shared physical nature as entropic, deformable systems. Like polymers, membranes are composed of repeating units—in this case, lipid molecules arranged in a bilayer rather than monomers linked in a chain—giving rise to a collective, cohesive structure. Additionally, membranes exhibit entropic elasticity, meaning they resist stretching and bending because such deformations reduce the number of accessible configurations, similar to how polymers respond to mechanical forces.
-
-
-Despite their similarities, membranes and polymers also exhibit significant differences. A key distinction lies in their dimensionality: a polymer is typically a long, 1-D chain of monomers, while a membrane is a 2-D sheet of molecules organized in a bilayer structure. This bilayer arrangement features a hydrophobic core formed by lipid tails, sandwiched between hydrophilic surfaces of lipid head groups, giving membranes a unique amphiphilic character essential for their stability and biological function. Moreover, membranes serve a fundamentally different purpose than polymers; while polymers can form single chains that fold into complex three-dimensional structures (such as proteins), membranes create continuous, self-sealing barriers that separate and compartmentalize cellular contents, supporting life’s essential processes.
-
-
-Given these differences, especially the two-dimensional fluid nature of membranes and their role in large-scale processes, a continuum model becomes especially valuable for studying membranes. A continuum model is not exactly an extension of a coarse-grained model, but rather a higher-level, more abstract description of the same system (See Figure 5). While coarse-grained models can still capture important molecular details, they often become computationally intensive or overly complex when studying large-scale, collective phenomena. In contrast, continuum models are particularly useful for exploring the large-scale, collective mechanical properties of membranes, including bending rigidity, surface tension, area compressibility, spontaneous curvature, Gaussian modulus, and, in some cases, shear elasticity. These properties describe how membranes deform, flow, and undergo shape transitions — all of which are critical for understanding their biological functions and large-scale dynamics.
-
 
 
 
 
 \vspace{-1em} 
-\subsection*{3. Genome/DNA/RNA}
+
+
+\subsection*{B. Genome/DNA/RNA}
 DNA and RNA are long chains made up of smaller units called nucleotides. Each nucleotide is like a puzzle piece, made of a sugar, a phosphate group, and a nitrogen base. In DNA, the sugar is called deoxyribose, and in RNA, it’s ribose. The bases are the parts that carry genetic 
 
 \begin{figure}[!ht]
@@ -274,7 +237,7 @@ Their shape and behavior depend on the nucleotide sequence, chemical interaction
 
 
 \vspace{-2em} 
-\subsection*{IV. Protein/Amino Acid chain}
+\subsection*{C. Protein/Amino Acid chain}
 Proteins are natural polymers made up of amino acids, which are like the individual links in a chain. Each amino acid has the same basic structure: a central carbon atom (called the alpha carbon) bonded to a hydrogen, an amino group (–NH$_2$), a carboxyl group (–COOH), and a unique side chain, known as the R group. These amino acids connect through peptide bonds, forming a 
 
 \begin{figure}[!ht]
@@ -312,6 +275,59 @@ In studies that explore how genome and membrane shapes influence each other, usi
 	
 	
 \vspace{-1em} 
+
+\subsection*{D. Membrane/Phospholipids}
+Phospholipids are the main ingredients of cell and viral membranes, and their structure is actually a lot like a simple polymer. The head is connected to the tails through a small backbone, so the whole molecule looks kind of like a matchstick or a two-tailed kite. Because one part of the molecule wants to be near water and the other part wants to avoid it, phospholipids naturally arrange themselves into layers when they’re in water. These layers form flexible membranes that act a lot like soft polymer sheets—they can bend, move, and even stretch a little. In fact, scientists often use ideas from polymer physics to study how these membranes behave, especially when trying to understand things like how viruses wrap themselves up or how they enter cells.
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.45\textwidth,height=6cm]{membrane.png}}
+  \caption{membrane subunit}
+\end{figure}
+
+
+
+Membranes share several important similarities with polymers that make them comparable in some ways. Both are soft, flexible materials capable of bending, stretching, and fluctuating, which reflects their shared physical nature as entropic, deformable systems. Like polymers, membranes are composed of repeating units—in this case, lipid molecules arranged in a bilayer rather than monomers linked in a chain—giving rise to a collective, cohesive structure. Additionally, membranes exhibit entropic elasticity, meaning they resist stretching and bending because such deformations reduce the number of accessible configurations, similar to how polymers respond to mechanical forces.
+
+
+Despite their similarities, membranes and polymers also exhibit significant differences. A key distinction lies in their dimensionality: a polymer is typically a long, 1-D chain of monomers, while a membrane is a 2-D sheet of molecules organized in a bilayer structure. This bilayer arrangement features a hydrophobic core formed by lipid tails, sandwiched between hydrophilic surfaces of lipid head groups, giving membranes a unique amphiphilic character essential for their stability and biological function. Moreover, membranes serve a fundamentally different purpose than polymers; while polymers can form single chains that fold into complex three-dimensional structures (such as proteins), membranes create continuous, self-sealing barriers that separate and compartmentalize cellular contents, supporting life’s essential processes.
+
+
+Given these differences, especially the two-dimensional fluid nature of membranes and their role in large-scale processes, a continuum model becomes especially valuable for studying membranes. A continuum model is not exactly an extension of a coarse-grained model, but rather a higher-level, more abstract description of the same system (See Figure 10). While coarse-grained
+
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.75\textwidth,height=5cm]{discrete.png} }
+  \caption{Different computational methods developed to study cellular membranes are valid in different length and time scales.\cite{chabanon2017systems}}
+\end{figure}
+
+
+
+\noindent models can still capture important molecular details, they often become computationally intensive or overly complex when studying large-scale, collective phenomena. In contrast, continuum models are particularly useful for exploring the large-scale, collective mechanical properties of membranes, including bending rigidity, surface tension, area compressibility, spontaneous curvature, Gaussian modulus, and, in some cases, shear elasticity. These properties describe how membranes deform, flow, and undergo shape transitions — all of which are critical for understanding their biological functions and large-scale dynamics.
+
+\vspace{-1em}
+\section*{Method} 
+\vspace{-1em}
+\subsection*{1.1 Coase-grain models}
+\vspace{-1em} 
+\subsection*{Adveantage of Coase-grain model}
+
+
+
+	Using a coarse-grain model in polymer science is really helpful because it makes things simpler and more efficient, especially when dealing with large and complex systems. One of the biggest reasons to use coarse-graining is that it saves a lot of computational power. Polymers are often made up of thousands or even millions of atoms, so simulating each individual atom takes a huge amount of time and resources. Instead of modeling each atom, a coarse-grain model groups several atoms or monomers into a "bead," which reduces the number of particles in the simulation. This allows researchers to study bigger systems and longer timescales without overwhelming their computers.
+
+	Another advantage is that coarse-graining allows us to focus on the big picture of polymer behavior. At the atomic level, polymers have tons of detailed interactions, but often what we care about are the overall properties, like how the polymer stretches, bends, or reacts to forces. Coarse-graining simplifies this by letting researchers study these larger-scale behaviors without getting caught up in the tiny atomic details, which are often less important for understanding real-world polymer behavior.
+	
+	Coarse-grain models also make it easier to model interactions between polymers. Instead of focusing on each individual monomer, coarse-graining represents groups of monomers as beads. This makes the interactions between polymer chains less complex and easier to study. This is really useful for studying complicated systems like polymer networks, gels, or blends, which would be too difficult to model atom by atom.\\
+	
+	
+	Another reason coarse-grain models are so valuable is that they help rus simulate larger systems over longer periods of time. By reducing the number of particles in the model, simulations can run much faster and allow for studies over longer timescales. Instead of simulating each tiny atom’s movement, which can take a long time, coarse-graining lets researchers study the overall behavior of the polymer chain over much longer periods. This is really useful for looking at things like polymerization processes or phase transitions that occur over time.
+	
+	Coarse-grain models also focuses on the important polymer properties that matter most, like flexibility, shape changes, and how polymers self-assemble. These properties are often determined by the overall structure of the polymer, not by the exact positions of every single atom. So by simplifying the model, researchers can study how polymers fold, how they form membranes, or how they interact with other molecules, without having to get into the atomic-level details.\\
+	
+	Finally, coarse-grain models are essential for designing new materials. When researchers are developing new types of polymers—whether for drug delivery, biodegradable plastics, or high-performance materials, these models help predict how the polymer will behave in different environments. This helps researchers optimize the materials for real-world uses without needing to simulate every tiny detail.
+	In the end, coarse-grain models are incredibly useful in polymer science because they simplify complex systems, making it easier to study their behavior. They save time and computational power while still allowing scientists to focus on the big picture—like how polymers stretch, bend, and interact—helping to design better materials and understand how polymers work in the real world.
+	
+
 \begin{comment}
 \subsection*{Assumption of Coarse grain model}
 Coarse grained models come with several assumptions that are critical for their application:\\
@@ -329,7 +345,7 @@ Coarse grained models come with several assumptions that are critical for their 
 	
 	
 	
-%\vspace{-1em} 
+\vspace{-1em} 
 
 \subsection*{1.2 Monto Carlo simulation}
 
