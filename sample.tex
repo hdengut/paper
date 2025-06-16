@@ -908,20 +908,38 @@ Choose spring constant and bending energy and (may be) curvature at point A so t
 
 \subsection*{Hypothesis}
 
-\noindent Hypothesis 1:\\
+\noindent \textbf{Hypothesis 1:}\\
 The shape of a virus forms after its genome architecture stabilizes. First, the genome reaches a steady state, and we then examine how it influences the viral membrane shape. 
 
 \noindent Goal:\\
 	(1)If the genome is 1D rod-like, the viral membrane takes an 2D elliptical shape.\\
 	(2)If the genome is circular, the viral membrane forms a 2D circular shape.
 	
-\noindent Hyperthesis 2:\\
-The genome architecture may develop after the viral membrane shape stabilizes. In this case, the membrane reaches a steady state first, and we then observe how it affects the genome’s geometry. By adjusting the length of 1D rod or the perimeter of the circle of the genome, we try to match the reference.\cite{goldsmith2003monkeypox}\\ 
-\noindent Goal:\\
-	(1)If the viral membrane takes an elliptical shape, the genome geometry is rod-like\cite{harish2021entomopathogenic}.	\\
-	(2)If the viral membrane forms a circular shape, the genome geometry is circular.
-		
+\noindent \textbf{Hyperthesis 2:}\\
+The genome architecture may develop after the viral membrane shape stabilizes. In this case, the membrane reaches a steady state first, and we then observe how it affects the genome’s geometry. By adjusting the length of 1D rod or the perimeter of the circle of the genome, we try to match the reference.\cite{goldsmith2003monkeypox}\\
+ 
+\begin{equation}
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+\end{equation}
 
+\noindent Goal:\\
+	(1)If the viral membrane takes an elliptical shape(a $\neq$ b), the genome geometry is rod-like\cite{harish2021entomopathogenic}.	\\
+	\begin{equation}
+E_{\text{ellipse}} = \int_0^{2\pi} \frac{\kappa}{2} \left( C(\theta) - C_0 \right)^2 \cdot ds(\theta)
+\end{equation}
+	
+	
+	
+	(2)If the viral membrane forms a circular shape(a $=$ b), the genome geometry is circular.
+	
+\begin{equation}
+E_{\text{circle}} = \int_0^{2\pi R} \frac{\kappa}{2} \left( \frac{1}{R} - C_0 \right)^2 \, ds = \kappa \pi R \left( \frac{1}{R} - C_0 \right)^2
+\end{equation}
+
+	
+Comparing both shapes to a preferred curvature, such as the curvature of a circle of radius 4, we have
+\( C_0 = \frac{1}{4} = 0.25 \).
+ 
 	
 \begin{figure}[!ht]
   \centering
@@ -942,10 +960,13 @@ The shape of viral particles, like those seen in the Monkeypox virus, can reveal
 
 We use computational methods to simulate the coupled behavior of the viral genome and membrane, allowing us to observe how changes in membrane shape influence genome configuration. Through these simulations, we can systematically vary parameters such as membrane elasticity, area and volume constraints, and genome length or stiffness to understand their roles in shaping the overall structure. This approach helps identify which physical parameters are most critical in driving morphological transitions during viral maturation. By capturing the mechanical interplay between membrane and genome, our simulations provide a powerful tool for exploring how structural constraints impact viral assembly, stability, and infectivity. Ultimately, this computational framework enhances our ability to interpret experimental observations and guides the design of more targeted experiments or antiviral strategies.\\
 
-
+\noindent \textbf{Hypothesis 3}:\\
+The shape of a virus and its genome architecture form simultaneously.
+The model for this hypothesis allows both genome morphology and membrane shape to undergo simultaneous
+fluctuation until both arrive at a mutual steady state.
 
 	
-\noindent Hypothesis 3:\\
+\noindent \textbf{Hypothesis 4:}\\
 The internal pressure that builds up inside a virus’s shell during genome packaging is essential for the virus to inject its DNA or RNA into host cells. By changing the structure or mechanical properties(such as, bending rigidity ($k$)) of the capsid/membrane (such as making it weaker, stronger, or more flexible), we can control this pressure and potentially reduce the virus’s ability to infect cells.
 
 \noindent Goal:\\
