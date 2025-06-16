@@ -197,49 +197,13 @@ Both RNA and DNA are composed of long sequences of nucleotides linked together b
 \vspace{-1em} 
 
 
-\subsection*{B. Genome/DNA/RNA}
-DNA and RNA are long chains made up of smaller units called nucleotides. Each nucleotide is like a puzzle piece, made of a sugar, a phosphate group, and a nitrogen base. In DNA, the sugar is called deoxyribose, and in RNA, it’s ribose. The bases are the parts that carry genetic 
-
-\begin{figure}[!ht]
-  \centering
-  
-   \fbox{\includegraphics[width=0.35\textwidth,height=8cm]{genome.png}}
-
-  \caption{Nucletide subunits}
-\end{figure}
-
-
-\noindent information—A, T, G, and C in DNA, and A, U, G, and C in RNA (with U replacing T in RNA). These nucleotides link together through bonds between the phosphate of one and the sugar of the next, forming a backbone, kind of like beads on a string. 
-
-
-
-
-
-
-DNA and RNA are made of repeating nucleotides, similar to how polymers are made from repeating monomers. These long chains of nucleotides form biopolymers that can bend, twist, coil, and stretch like plastic or rubber polymers. This flexible structure allows DNA and RNA to fold into different shapes and form secondary structures.\\
-
-Even in their three-dimensional structures, DNA and RNA still retain key polymer-like behaviors. Like synthetic polymers, they adopt a wide range of conformations driven by thermal fluctuations, flexibility, and chain connectivity. Their ability to bend, loop, and coil in 3D is governed by the same physical principles that describe polymer chains in solution. For example, the coiling of single-stranded RNA or the supercoiling of DNA can be explained using models like the worm-like chain or bead-spring representations. Thus, despite their biological complexity, DNA and RNA are fundamentally polymers in both structure and behavior, even in their folded, 3D forms.\\
-
-Their shape and behavior depend on the nucleotide sequence, chemical interactions, and environmental conditions. They also interact with proteins, which is important for processes like gene expression and viral assembly. Because of these polymer-like properties, we can use polymer models to study and simulate how DNA and RNA behave.\\
-
-
-
-
-
-
-
-\begin{figure}[!ht]
-  \centering
-   \fbox{\includegraphics[width=0.45\textwidth,height=4cm]{chromatin.png}}
-  
-  %\includegraphics[width=0.3\textwidth,height=4cm]{protein.png}  % Adjust width or height as needed
-  \caption{DNA, Chromatin and Chromosome\cite{byjus_chromatin}}
-\end{figure}
-
 
 
 \vspace{-2em} 
-\subsection*{C. Protein/Amino Acid chain}
+\subsection*{B. Protein/Amino Acid chain}
+Coarse-grained modeling started making an impact in protein science back in the 1970s, when researchers like Michael Levitt, Ariel Warshel, and Martin Karplus began simplifying protein structures to make them easier to study.
+Biochemists began adopting a more abstract modeling approach, often representing entire amino acids as single "beads." This simplification enabled the simulation of complex processes such as protein folding and molecular motion.
+
 Proteins are natural polymers made up of amino acids, which are like the individual links in a chain. Each amino acid has the same basic structure: a central carbon atom (called the alpha carbon) bonded to a hydrogen, an amino group (–NH$_2$), a carboxyl group (–COOH), and a unique side chain, known as the R group. These amino acids connect through peptide bonds, forming a 
 
 \begin{figure}[!ht]
@@ -278,7 +242,10 @@ In studies that explore how genome and membrane shapes influence each other, usi
 	
 \vspace{-1em} 
 
-\subsection*{D. Membrane/Phospholipids}
+\subsection*{C. Membrane/Phospholipids}
+
+In the 2000s, coarse-grained models found a natural fit in the study of lipid membranes, as researchers began adapting these techniques to simulate the complex behavior of biological membranes.
+
 Phospholipids are the main ingredients of cell and viral membranes, and their structure is actually a lot like a simple polymer. The head is connected to the tails through a small backbone, so the whole molecule looks kind of like a matchstick or a two-tailed kite. Because one part of the molecule wants to be near water and the other part wants to avoid it, phospholipids naturally arrange themselves into layers when they’re in water. These layers form flexible membranes that act a lot like soft polymer sheets—they can bend, move, and even stretch a little. In fact, scientists often use ideas from polymer physics to study how these membranes behave, especially when trying to understand things like how viruses wrap themselves up or how they enter cells.
 \begin{figure}[!ht]
   \centering
@@ -305,6 +272,57 @@ Given these differences, especially the two-dimensional fluid nature of membrane
 
 
 \noindent models can still capture important molecular details, they often become computationally intensive or overly complex when studying large-scale, collective phenomena. In contrast, continuum models are particularly useful for exploring the large-scale, collective mechanical properties of membranes, including bending rigidity, surface tension, area compressibility, spontaneous curvature, Gaussian modulus, and, in some cases, shear elasticity. These properties describe how membranes deform, flow, and undergo shape transitions — all of which are critical for understanding their biological functions and large-scale dynamics.
+
+
+\subsection*{D. Genome/DNA/RNA}
+
+Since the mid-2000s, coarse-grained modeling has become a vital tool for understanding how our genomes are organized and function at a large scale. Instead of simulating every atom in a DNA molecule—a task impossible for chromosomes with millions or billions of base pairs—researchers began simplifying the problem in smart and effective ways.
+
+DNA and RNA are long chains made up of smaller units called nucleotides. Each nucleotide is like a puzzle piece, made of a sugar, a phosphate group, and a nitrogen base. In DNA, the sugar is called deoxyribose, and in RNA, it’s ribose. The bases are the parts that carry genetic 
+
+\begin{figure}[!ht]
+  \centering
+  
+   \fbox{\includegraphics[width=0.35\textwidth,height=8cm]{genome.png}}
+
+  \caption{Nucletide subunits}
+\end{figure}
+
+
+\noindent information—A, T, G, and C in DNA, and A, U, G, and C in RNA (with U replacing T in RNA). These nucleotides link together through bonds between the phosphate of one and the sugar of the next, forming a backbone, kind of like beads on a string. 
+
+
+
+
+
+
+DNA and RNA are made of repeating nucleotides, similar to how polymers are made from repeating monomers. These long chains of nucleotides form biopolymers that can bend, twist, coil, and stretch like plastic or rubber polymers. This flexible structure allows DNA and RNA to fold into different shapes and form secondary structures.\\
+
+Even in their three-dimensional structures, DNA and RNA still retain key polymer-like behaviors. Like synthetic polymers, they adopt a wide range of conformations driven by thermal fluctuations, flexibility, and chain connectivity. Their ability to bend, loop, and coil in 3D is governed by the same physical principles that describe polymer chains in solution. For example, the coiling of single-stranded RNA or the supercoiling of DNA can be explained using models like the worm-like chain or bead-spring representations. Thus, despite their biological complexity, DNA and RNA are fundamentally polymers in both structure and behavior, even in their folded, 3D forms.\\
+
+Their shape and behavior depend on the nucleotide sequence, chemical interactions, and environmental conditions. They also interact with proteins, which is important for processes like gene expression and viral assembly. Because of these polymer-like properties, we can use polymer models to study and simulate how DNA and RNA behave.\\
+
+One popular method is the “bead-on-a-string” model, where each bead represents a segment of DNA or a nucleosome. These models, rooted in polymer physics, let researchers explore how DNA folds, forms loops, and compacts into the crowded space of the nucleus. Over the past decade, such models have helped understand the the folding of genome inside interpahse nulcei \cite{Lizana2024}
+
+
+
+Even in their three-dimensional conformations, DNA and RNA retain the fundamental characteristics of polymers. Like synthetic polymer chains, they exhibit a wide range of configurations driven by thermal fluctuations, chain connectivity, and molecular flexibility. Their ability to bend, coil, loop, and supercoil in 3D can be effectively described using physical models such as the worm-like chain or bead-spring representations. A widely used example is the “bead-on-a-string” model, where each bead represents a segment of DNA or a nucleosome. These models allow researchers to simulate how DNA folds, loops, and compacts within the spatial constraints of the nucleus, and have significantly advanced our understanding of genome organization in interphase nuclei \cite{Lizana2024}.
+
+Despite their biological complexity and sequence-specific interactions, DNA and RNA behave in ways consistent with polymer physics. Their structure and dynamics are influenced by nucleotide sequence, chemical environment, and interactions with proteins—factors crucial to gene regulation, genome packaging, and viral assembly. Because of their polymer-like nature, coarse-grained models rooted in polymer theory provide a powerful framework for studying and simulating DNA and RNA behavior.
+
+
+
+\begin{figure}[!ht]
+  \centering
+   \fbox{\includegraphics[width=0.45\textwidth,height=4cm]{chromatin.png}}
+  
+  %\includegraphics[width=0.3\textwidth,height=4cm]{protein.png}  % Adjust width or height as needed
+  \caption{DNA, Chromatin and Chromosome\cite{byjus_chromatin}}
+\end{figure}
+
+
+
+
 
 \vspace{-1em}
 \section*{Method} 
