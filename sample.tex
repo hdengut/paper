@@ -171,7 +171,7 @@ A notable example of such a model is the bead-spring representation, which emerg
 	
 \vspace{-1em} 
 \section*{Polymer-Like Behavior of Biomolecules} 
-The genomic material of SARS-CoV-2 (single-stranded RNA) and Monkeypox (double-stranded DNA) behaves like a polymer. 
+ The genomic material, protein shell, and membrane of viruses like SARS-CoV-2 (which contains single-stranded RNA) and Monkeypox (which contains double-stranded DNA) all exhibit polymer-like behavior.
 
 
 \vspace{-1em}
@@ -233,7 +233,7 @@ This underlying polymer nature is why coarse-grained (CG) modeling remains effec
 
 
 
-In studies that explore how genome and membrane shapes influence each other, using different modeling approaches for each component is effective. A continuum model fits well for the membrane because it captures large-scale deformations, curvature, and bending behavior without needing to simulate individual lipid molecules. This is important for understanding how the membrane flexes or reshapes in response to internal forces. On the other hand, a coarse-grained model is well-suited for the genome, as it treats the long DNA or RNA strand as a chain of simplified units, preserving essential polymer behavior like folding, looping, and confinement. This balance—continuum for the membrane and coarse-grained for the genome—allows us to efficiently simulate the mechanical interaction between the flexible genome and the deformable membrane, revealing how their shapes affect each other in confined environments.
+
 
 	
 	
@@ -296,19 +296,6 @@ DNA and RNA are long chains made up of smaller units called nucleotides. Each nu
 
 
 
-DNA and RNA are made of repeating nucleotides, similar to how polymers are made from repeating monomers. These long chains of nucleotides form biopolymers that can bend, twist, coil, and stretch like plastic or rubber polymers. This flexible structure allows DNA and RNA to fold into different shapes and form secondary structures.\\
-
-Even in their three-dimensional structures, DNA and RNA still retain key polymer-like behaviors. Like synthetic polymers, they adopt a wide range of conformations driven by thermal fluctuations, flexibility, and chain connectivity. Their ability to bend, loop, and coil in 3D is governed by the same physical principles that describe polymer chains in solution. For example, the coiling of single-stranded RNA or the supercoiling of DNA can be explained using models like the worm-like chain or bead-spring representations. Thus, despite their biological complexity, DNA and RNA are fundamentally polymers in both structure and behavior, even in their folded, 3D forms.\\
-
-Their shape and behavior depend on the nucleotide sequence, chemical interactions, and environmental conditions. They also interact with proteins, which is important for processes like gene expression and viral assembly. Because of these polymer-like properties, we can use polymer models to study and simulate how DNA and RNA behave.\\
-
-One popular method is the “bead-on-a-string” model, where each bead represents a segment of DNA or a nucleosome. These models, rooted in polymer physics, let researchers explore how DNA folds, forms loops, and compacts into the crowded space of the nucleus. Over the past decade, such models have helped understand the the folding of genome inside interpahse nulcei \cite{Lizana2024}
-
-
-
-Even in their three-dimensional conformations, DNA and RNA retain the fundamental characteristics of polymers. Like synthetic polymer chains, they exhibit a wide range of configurations driven by thermal fluctuations, chain connectivity, and molecular flexibility. Their ability to bend, coil, loop, and supercoil in 3D can be effectively described using physical models such as the worm-like chain or bead-spring representations. A widely used example is the “bead-on-a-string” model, where each bead represents a segment of DNA or a nucleosome. These models allow researchers to simulate how DNA folds, loops, and compacts within the spatial constraints of the nucleus, and have significantly advanced our understanding of genome organization in interphase nuclei \cite{Lizana2024}.
-
-Despite their biological complexity and sequence-specific interactions, DNA and RNA behave in ways consistent with polymer physics. Their structure and dynamics are influenced by nucleotide sequence, chemical environment, and interactions with proteins—factors crucial to gene regulation, genome packaging, and viral assembly. Because of their polymer-like nature, coarse-grained models rooted in polymer theory provide a powerful framework for studying and simulating DNA and RNA behavior.
 
 
 
@@ -320,7 +307,17 @@ Despite their biological complexity and sequence-specific interactions, DNA and 
   \caption{DNA, Chromatin and Chromosome\cite{byjus_chromatin}}
 \end{figure}
 
+DNA and RNA are made of repeating nucleotides, similar to how polymers are made from repeating monomers. These long chains of nucleotides form biopolymers that can bend, twist, coil, and stretch like synthetic polymers such as plastic or rubber. This flexibility allows them to fold into diverse shapes and form complex secondary structures.
 
+Even in their three-dimensional conformations, DNA and RNA retain key polymer-like behaviors. Like synthetic polymer chains, they adopt a wide range of configurations driven by thermal fluctuations, chain connectivity, and molecular flexibility. Their ability to bend, coil, loop, and supercoil in 3D can be effectively described using physical models such as the worm-like chain or bead-spring representations.
+
+A widely used example is the “bead-on-a-string” model, where each bead represents a segment of DNA or a nucleosome. These coarse-grained models, grounded in polymer physics, allow researchers to simulate how DNA folds, forms loops, and compacts into the crowded space of the nucleus. Over the past decade, such models have significantly advanced our understanding of genome organization inside interphase nuclei \cite{Lizana2024}.
+
+Despite their biological complexity and sequence-specific interactions, DNA and RNA behave in ways consistent with polymer theory. Their structure and dynamics are influenced by nucleotide sequence, chemical interactions, environmental conditions, and protein binding—factors that are essential for processes like gene regulation, genome packaging, and viral assembly. Because of these polymer-like properties, coarse-grained polymer models provide a powerful framework for studying and simulating the behavior of DNA and RNA.
+
+
+
+In studies that explore how genome and membrane shapes influence each other, using different modeling approaches for each component is effective. A continuum model fits well for the membrane because it captures large-scale deformations, curvature, and bending behavior without needing to simulate individual lipid molecules. This is important for understanding how the membrane flexes or reshapes in response to internal forces. On the other hand, a coarse-grained model is well-suited for the genome, as it treats the long DNA or RNA strand as a chain of simplified units, preserving essential polymer behavior like folding, looping, and confinement. This balance—continuum for the membrane and coarse-grained for the genome—allows us to efficiently simulate the mechanical interaction between the flexible genome and the deformable membrane, revealing how their shapes affect each other in confined environments.
 
 
 
@@ -369,13 +366,13 @@ Coarse grained models come with several assumptions that are critical for their 
 
 \subsection*{1.2 Monto Carlo simulation}
 
-Monte Carlo (MC) simulation is a technique used to explore different configurations of a system by randomly sampling possible states, based on probability rules that often relate to energy. Instead of following every tiny movement of particles over time—like molecular dynamics does—Monte Carlo takes a different approach. It “jumps” from one possible state to another and decides whether to accept or reject each move depending on how favorable it is, typically using criteria like energy minimization.\\
 
-This method becomes especially powerful when combined with coarse-grain (CG) models. Coarse-graining simplifies complex systems by grouping atoms or monomers into larger units, reducing the number of particles and interactions. This makes the system easier and faster to simulate, which is perfect for Monte Carlo techniques. With fewer variables to track, MC simulations can explore a much wider range of configurations in less time.\\
 
-Using MC with CG models is particularly useful for studying large-scale behaviors like polymer folding, self-assembly, phase transitions, or how polymers interact with other surfaces or structures. Since we don’t need to worry about every atomic detail, we can focus on understanding the broader behavior of the material. For instance, in a coarse-grain polymer simulation, MC methods might rotate parts of the polymer chain, stretch or shift segments, or rearrange them—checking each time how these changes affect the system’s overall energy or structure.\\
+Monte Carlo (MC) simulation is a technique used to explore different configurations of a system by randomly sampling possible states based on probability rules, often related to energy. Unlike molecular dynamics, which tracks every small movement over time, MC simulation “jumps” between states and decides whether to accept each move based on criteria like energy minimization.
 
-In short, Monte Carlo simulations and coarse-grain modeling work hand in hand. Together, they make it possible to study complex polymer systems more efficiently and gain insights that would be hard to reach using more detailed, atomistic approaches.
+Monte Carlo (MC) simulations become especially powerful when combined with coarse-grained (CG) models, which simplify complex systems by grouping atoms or monomers into larger units. This reduction in particle number and interactions speeds up computations and allows MC techniques to efficiently explore a broader range of configurations. The combined approach is particularly useful for studying large-scale behaviors such as polymer folding, self-assembly, phase transitions, and interactions with other structures. In coarse-grained polymer simulations, for instance, MC methods can rotate or shift segments of the chain and evaluate how these changes impact the system’s overall energy or structure. Together, MC simulations and CG modeling provide an efficient and effective framework for investigating complex polymer systems—yielding insights that would be difficult to obtain with fully atomistic methods.
+
+
 
 
 
