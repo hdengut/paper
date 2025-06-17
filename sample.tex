@@ -725,7 +725,12 @@ The Helfrich-Canham model, a specific type of continuum model, focuses on the me
 
 Continuum models are a powerful framework used to describe and simulate the large-scale, smooth behavior of biological membranes (and other materials) without tracking individual atoms or molecules. Instead of focusing on discrete particles like in molecular dynamics, continuum models treat the membrane as a continuous surface or material with defined physical properties.
 
-
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.25\textwidth,height=4.5cm]{fibonacci.png} }
+  \caption{Sort all the vertices and make a network and identify the neighbors of A and link all the neighbors to A by Hookean spring. Introduce bending energy and curvature to vertice A.
+Choose spring constant and bending energy and (may be) curvature at point A so this point will maintain concave. Meanwhile it can induce shape changes for the membrane}
+\end{figure}
 
  
 
@@ -892,18 +897,15 @@ This is a key expression in the Metropolis-Hastings algorithm, often used in Mon
  $e^{-\beta \Delta E}$: It is derived from the Boltzmann distribution, which describes the probability of a system being in a particular state based on its energy.
 
  $\beta$: This is defined as $\beta = \frac{1}{k_B T}$, where $k_B$ is the Boltzmann constant and $T$ is the temperature of the system. $\beta$ essentially measures how sensitive the system is to energy changes at a given temperature.
+ 
+
 
  $\Delta E$: This is the change in energy of the system due to the proposed move, calculated as $E_{\text{new}} - E_{\text{old}}$, where $E_{\text{new}}$ is the energy of the system after the proposed change, and $E_{\text{old}}$ is the energy before the change.
 
 
 If $\Delta E \leq 0$ (i.e., the new state has lower or equal energy), then $e^{-\beta \Delta E} \geq 1$. The $\min$ function sets $P = 1$, meaning the move is always accepted. This makes sense because a lower-energy state is more favorable according to the Boltzmann distribution.
 
-\begin{figure}[!ht]
-  \centering
-  \fbox{\includegraphics[width=0.25\textwidth,height=4.5cm]{fibonacci.png} }
-  \caption{Sort all the vertices and make a network and identify the neighbors of A and link all the neighbors to A by Hookean spring. Introduce bending energy and curvature to vertice A.
-Choose spring constant and bending energy and (may be) curvature at point A so this point will maintain concave. Meanwhile it can induce shape changes for the membrane}
-\end{figure}
+
 
 
 \subsection*{Hypothesis}
@@ -914,6 +916,17 @@ The shape of a virus forms after its genome architecture stabilizes. First, the 
 \noindent Goal:\\
 	(1)If the genome is 1D rod-like, the viral membrane takes an 2D elliptical shape.\\
 	(2)If the genome is circular, the viral membrane forms a 2D circular shape.
+	
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.5\textwidth,height=3.7cm]{monkeypox.png}}  % Adjust width or height as needed
+  \caption{Preliminary 2D model studies to
+investigate the effect of the geometry of a
+genome on the shape of a virus. A rod-like
+genome induces an elliptic shape whereas a
+circular genome leads to a circular shape.}
+\end{figure}
+	
 	
 \noindent \textbf{Hyperthesis 2:}\\
 The genome architecture may develop after the viral membrane shape stabilizes. In this case, the membrane reaches a steady state first, and we then observe how it affects the genome’s geometry. By adjusting the length of 1D rod or the perimeter of the circle of the genome, we try to match the reference.\cite{goldsmith2003monkeypox}\\
@@ -941,15 +954,7 @@ Comparing both shapes to a preferred curvature, such as the curvature of a circl
 \( C_0 = \frac{1}{4} = 0.25 \).
  
 	
-\begin{figure}[!ht]
-  \centering
-  \fbox{\includegraphics[width=0.5\textwidth,height=3.7cm]{monkeypox.png}}  % Adjust width or height as needed
-  \caption{Preliminary 2D model studies to
-investigate the effect of the geometry of a
-genome on the shape of a virus. A rod-like
-genome induces an elliptic shape whereas a
-circular genome leads to a circular shape.}
-\end{figure}
+
 	
 
 These viral membrane can display spherical and oval shapes, indicating different developmental stages: immature virions tend to be spherical, while mature virions adopt an oval shape. This morphological differentiation can be important for recognizing stages in the virus life cycle and understanding how these changes may affect infectivity. The transition from spherical to oval shapes may be linked to the maturation process, influencing the virus's ability to enter host cells and replicate effectively.\\
