@@ -85,7 +85,6 @@ Building on this foundation, we have successfully simulated the membrane along w
 
 
 
-\vspace{-1em} 
 
 \section*{Introduction}
 
@@ -126,6 +125,7 @@ RNA among known corona viruses, consisting of a single
 ~30 kb strand of RNA with a contour length at about
 1,400 nm \cite{baron2020sars}\cite{Wu2022}.
 
+
 SARS-CoV-2 enters a host cell by first using its spike (S) protein to bind to a specific receptor on the surface of human cells called ACE2 (angiotensin-converting enzyme 2). This spike protein acts like a key, allowing the virus to attach tightly to the host cell. After attachment, the virus enters the cell either through direct fusion with the cell membrane or via endocytosis. 
 When a virus infects a host, it deliberately breaks this symmetry. Doing so creates weaker areas on the surface of the capsid, which then open up to allow the virus to inject its genetic material (RNA or DNA) into the host cell. In this way, breaking symmetry is an essential part of the infection mechanism.\\
 
@@ -149,7 +149,7 @@ This pressurization plays a crucial role in the infection process. When a virus 
 
 We plan to study how internal pressure builds up and is released in viruses by focusing on the physical and structural mechanisms that generate and regulate this pressure. Specifically, we aim to investigate how the arrangement of the genome and the properties of the surrounding membrane or capsid contribute to pressurization. Using coarse-grained modeling and Monte Carlo simulations, we will explore how genome packing and membrane deformation interact to generate internal forces. By understanding these mechanisms, our research could help identify potential targets—such as structural components or genome configurations—that can be disrupted to prevent the pressure-driven ejection of the viral genome, offering insights for future antiviral strategies.
 
-\vspace{-1em}
+
 \subsection*{From Early Polymer Theories to Modern Coarse-Grained Models}
 Back in the 1960s and '70s, long before computational biology became mainstream, polymer scientists were already developing clever ways to simplify and understand how long-chain molecules behave. They built theoretical models like the freely-jointed chain, worm-like chain, and Gaussian chain—each designed to capture how flexible or stiff a polymer might be, and how it moves in space. These early ideas laid the foundation for what we now call coarse-grained simulations.
 
@@ -368,10 +368,11 @@ Coarse grained models come with several assumptions that are critical for their 
 
 
 
-Monte Carlo (MC) simulation is a technique used to explore different configurations of a system by randomly sampling possible states based on probability rules, often related to energy. Unlike molecular dynamics, which tracks every small movement over time, MC simulation “jumps” between states and decides whether to accept each move based on criteria like energy minimization.
+Monte Carlo (MC) simulation is a technique used to explore different configurations of a system by randomly sampling possible states based on probability rules related to energy. Unlike molecular dynamics, which tracks every small movement over time, MC simulation decides whether to accept each move based on energy criteria.
 
-Monte Carlo (MC) simulations become especially powerful when combined with coarse-grained (CG) models, which simplify complex systems by grouping atoms or monomers into larger units. This reduction in particle number and interactions speeds up computations and allows MC techniques to efficiently explore a broader range of configurations. The combined approach is particularly useful for studying large-scale behaviors such as polymer folding, self-assembly, phase transitions, and interactions with other structures. In coarse-grained polymer simulations, for instance, MC methods can rotate or shift segments of the chain and evaluate how these changes impact the system’s overall energy or structure. Together, MC simulations and CG modeling provide an efficient and effective framework for investigating complex polymer systems—yielding insights that would be difficult to obtain with fully atomistic methods.
+This approach becomes especially powerful when combined with coarse-grained (CG) models, which simplify complex systems by grouping atoms or monomers into larger units. By reducing the number of particles and interactions, CG models significantly speed up computations, allowing MC techniques to efficiently explore a broader range of configurations. This combined method is particularly useful for studying large-scale behaviors such as polymer folding, self-assembly, phase transitions, and interactions with other structures. In coarse-grained polymer simulations, for example, MC methods can rotate or shift chain segments and evaluate how these changes affect the system’s overall energy or structure.
 
+Together, MC simulation and CG modeling provide an efficient and effective framework for investigating complex polymer systems—yielding insights that would be difficult to obtain using fully atomistic methods.
 
 
 
@@ -954,16 +955,10 @@ Comparing both shapes to a preferred curvature, such as the curvature of a circl
 \( C_0 = \frac{1}{4} = 0.25 \).
  
 	
+The shape of viral particles—such as those seen in the Monkeypox virus—can reveal important details about their developmental stage. Immature virions typically appear spherical, a form that facilitates the early assembly of genetic material and proteins in a flexible, efficient manner. As the virus matures, it undergoes structural rearrangements that reshape it into an oval form. This morphological transition enhances the particle’s stability and improves its ability to interact with host cell receptors, thereby increasing infectivity and replication efficiency.
 
+To investigate the mechanisms behind these shape transitions, we use computational simulations to model the coupled behavior of the viral genome and membrane. By systematically varying parameters such as membrane elasticity, area and volume constraints, and genome length or stiffness, we can explore how physical factors drive morphological changes during maturation. These simulations reveal how membrane shape influences genome configuration, highlighting the mechanical interplay between structural components. This approach not only deepens our understanding of viral assembly and stability but also informs experimental design and the development of targeted antiviral strategies.
 	
-
-These viral membrane can display spherical and oval shapes, indicating different developmental stages: immature virions tend to be spherical, while mature virions adopt an oval shape. This morphological differentiation can be important for recognizing stages in the virus life cycle and understanding how these changes may affect infectivity. The transition from spherical to oval shapes may be linked to the maturation process, influencing the virus's ability to enter host cells and replicate effectively.\\
-
-The shape of viral particles, like those seen in the Monkeypox virus, can reveal a lot about what stage they’re at in their life cycle. In the early phases, the virus forms immature virions that are usually spherical. This round shape isn’t random—it helps the virus begin assembling its genetic material and proteins in a flexible, efficient way. At this point, the virus is just starting to come together, packaging its core components. As it matures, the virus goes through structural changes that shift its shape from spherical to oval. This transformation involves the rearrangement of viral proteins, which makes the particle more stable. The oval shape not only helps the mature virion survive better outside the host but also improves its ability to attach to and enter host cells. This increased stability and better interaction with host cell receptors make the mature, oval-shaped virus more infectious and better equipped to replicate once inside a host.
-
-
-
-We use computational methods to simulate the coupled behavior of the viral genome and membrane, allowing us to observe how changes in membrane shape influence genome configuration. Through these simulations, we can systematically vary parameters such as membrane elasticity, area and volume constraints, and genome length or stiffness to understand their roles in shaping the overall structure. This approach helps identify which physical parameters are most critical in driving morphological transitions during viral maturation. By capturing the mechanical interplay between membrane and genome, our simulations provide a powerful tool for exploring how structural constraints impact viral assembly, stability, and infectivity. Ultimately, this computational framework enhances our ability to interpret experimental observations and guides the design of more targeted experiments or antiviral strategies.\\
 
 \noindent \textbf{Hypothesis 3}:\\
 The shape of a virus and its genome architecture form simultaneously.
@@ -972,14 +967,41 @@ fluctuation until both arrive at a mutual steady state.
 
 	
 \noindent \textbf{Hypothesis 4:}\\
-The internal pressure that builds up inside a virus’s shell during genome packaging is essential for the virus to inject its DNA or RNA into host cells. By changing the structure or mechanical properties(such as, bending rigidity ($k$)) of the capsid/membrane (such as making it weaker, stronger, or more flexible), we can control this pressure and potentially reduce the virus’s ability to infect cells.
+The internal pressure \( P \) generated during viral genome packaging is governed by the thermal energy \( k_B T \), the DNA persistence length \( \xi \), and the radial distribution of DNA loops \( N(r) \). Modulating the structural or mechanical properties of the packaged genome—such as altering its stiffness (\( \xi \)) or spatial distribution (\( N(r) \))—can significantly influence the magnitude of this internal pressure. Therefore, by controlling these parameters, it is possible to reduce the pressure required for genome ejection and thereby affect the virus’s ability to infect host cells.
 
+The prior studies that define the packaging energy based on the DNA length inside the capsid, the capsid as a sphere and the genome as an extended semiflexible rod\cite{Grayson2006}. We depict the membrane as a sphere and RNA as an extended semiflexible rod. The pressure of the packaged RNA in confined membrane is then estimated as RNA bending energy devided by volume of membrane:
+
+\begin{equation}
+P= \frac{\sqrt{3} k_B T \xi^2}{ R^3} \int_{R_{\text{in}}}^{R_{\text{out}}} \frac{N(r)}{r} \, dr 
+\end{equation}
+
+Boltzmann's constant is denoted by \( k_B \); at \( 37\,^\circ\mathrm{C} \), the Boltzmann factor \( k_B T \) is approximately equal to \( 4.28\, \mathrm{pN} \cdot \mathrm{nm} \).\\
+R is the radius of capsid/membrane
+
+\(\xi\) is the persistence length of DNA\\
+\(N(r)\) is the number of loops of DNA at a distance \(r\) from the spool axis\\
+r is the radial distance from the central axis of the spool.The spool axis is the straight line going through the center.r measures how far a particular loop of DNA is from this central axis.
+
+
+\noindent \textbf{Goal 1. Quantify the Relationship Between Genome Structure and Internal Pressure} \\
+To determine how variations in RNA persistence length \( \xi \) and the radial loop distribution \( N(r) \) affect the internal pressure \( P \) generated during genome packaging, as described by the pressure equation.
+\[
+P = \frac{\sqrt{3} k_B T \, \xi^2}{R^3} \int_{R_\text{in}}^{R_\text{out}} \frac{N(r)}{r} \, dr
+\]
+
+
+
+
+\begin{comment}
 \noindent Goal:\\
 \noindent To investigate the role of internal pressure in viral genome injection and infection efficiency by:
 
 \noindent (1) Understanding how changes in the capsid/membrane's shape and mechanical properties(bending rigidity ($k$)) affect the amount of pressure that builds up inside the virus and how easily the DNA or RNA gets out.\\
 
 \noindent (2)Understanding which parts of the capsid/membrane are most responsible for building up and releasing pressure that helps the virus inject its DNA or RNA into host cells.\\
+\end{comment}
+
+
 
 \begin{comment}
 The genome of the Monkeypox virus is a double-stranded DNA, approximately 190 kb (kilobases) in length, which equals about 95 kbp (kilobase pairs). This genomic length corresponds to a substantial contour length of approximately 3000 nm. This indicates that the genetic material is significantly longer than the physical dimensions of the virus itself, which measures around 250 nm long. 	
@@ -992,17 +1014,24 @@ The genome of the Monkeypox virus is a double-stranded DNA, approximately 190 kb
 
 
 
-We begin by modeling the phage DNA as a fine-grained polymer, such as a worm-like chain, which accurately represents the stiffness and bending behavior of real double-stranded DNA. This model is placed within a confined volume that mimics the $60\,\text{nm} \times 150\,\text{nm}$ prolate icosahedral capsid of phage $\lambda$.
+We begin by modeling RNA as a fine-grained polymer, such as a worm-like chain, which accurately represents the stiffness and bending behavior of RNA. This model is placed within a confined volume that mimics the $60\,\text{nm} \times 150\,\text{nm}$ membrane\cite{Grayson2006}.
+
+\begin{comment}
+prolate icosahedral capsid of phage $\lambda$.
+\end{comment}
  
+Next, we insert small segments of RNA into the membrane step by step and calculate the energy needed to overcome internal forces such as  bending stress. This process allows us to track the buildup of internal pressure during packaging.
 
 
-Next, we simulate stepwise DNA packaging by applying a force from a virtual packaging motor that mimics the biological motor’s function. At each step, a small segment of DNA is inserted into the capsid, and we calculate the energy required to overcome internal forces such as electrostatic repulsion and bending stress. This allows us to track the buildup of internal pressure as the capsid fills, which can then be directly compared to experimentally measured force-extension (packing) curves from optical tweezer studies.
 
-Once the genome is fully packaged, we simulate ejection dynamics by triggering a release mechanism, such as opening a virtual portal in the capsid. The DNA is then allowed to eject, and we record the ejection speed, force, and time as the internal pressure drives the genome out. These simulation results can be compared to experimental data from ejection assays and osmotic suppression experiments, where external osmotic agents slow or block ejection and allow researchers to measure the pressure driving it.
+Once the genome is fully packaged, we simulate ejection dynamics by triggering a release mechanism, such as opening a virtual portal in the membrane. The RNA is then allowed to eject, and we record the ejection speed, force, and time as the internal pressure drives the genome out.
+
+\begin{comment}
+These simulation results can be compared to experimental data from ejection assays and osmotic suppression experiments, where external osmotic agents slow or block ejection and allow researchers to measure the pressure driving it.
 
 
-By tuning simulation parameters (e.g., DNA stiffness, packing force, ionic strength) and validating against high-quality experimental datasets from phage $\lambda$, we ensure that our model reproduces the biological and physical behavior observed in the lab. In bacteriophages, the DNA experiences strong forces—up to around 60 picoNewtons—during the packaging and ejection process. These forces mainly come from the bending stiffness of the DNA and the repulsion between tightly packed strands. Experiments using osmotic suppression have shown that it's possible to stop DNA ejection by applying external PEG solutions that create about 20 to 40 atmospheres of pressure\cite{Grayson2006}.
-
+By tuning simulation parameters (e.g., DNA stiffness, packing force, ionic strength) and validating against high-quality experimental datasets from phage $\lambda$, we ensure that our model reproduces the biological and physical behavior observed in the lab. In bacteriophages, the DNA experiences strong forces—up to around 60 picoNewtons—during the packaging and ejection process. These forces mainly come from the bending stiffness of the DNA and the repulsion between tightly packed strands. Experiments using osmotic suppression have shown that it's possible to stop DNA ejection by applying external PEG solutions that create about 20 to 40 atmospheres of pressure.
+\end{comment}
 
 
 
@@ -1011,11 +1040,11 @@ By tuning simulation parameters (e.g., DNA stiffness, packing force, ionic stren
 
 Simulating realistic physical conditions, since many experiments happen at constant pressure (example:1 atm) and temperature  (example: 298 K).
 
-\noindent NPT Ensemble (Isothermal–Isobaric Ensemble)
+  \noindent\textbf{Goal 2. NPT Ensemble (Isothermal–Isobaric Ensemble)}
 
 NPT stands for:
 
-    N = Number of particles (constant)
+    N = Number of beads (constant)
 
     P = Pressure (constant)
 
@@ -1025,11 +1054,11 @@ NPT stands for:
 
 In another approach, the parameters a, b, and c are allowed to fluctuate during the simulation. This means the membrane can expand, shrink, or reshape dynamically in response to internal forces exerted by the genome. Such flexibility promotes more realistic interactions between the genome and the membrane — for example, the genome may push outward and deform the membrane, while changes in membrane tension or curvature can influence how the genome is organized. Using NPT conditions in this way provides a natural and dynamic view of the interplay between membranes and genomes in biological systems.
 
-\noindent NVT Ensemble (Canonical Ensemble)
+\noindent \textbf{Goal 3. NVT Ensemble (Canonical Ensemble)}
 
 NVT stands for:
 
-    N = Number of particles (constant)
+    N = Number of beads (constant)
 
     V = Volume (constant)
 
@@ -1043,12 +1072,32 @@ In another approach, even though the overall volume remains fixed under NVT, sma
 Months 0-3: Fine-tune the continuum membrane model.\\
 Months 4-6: Investigate competition among different membrane shapes.\\
 Months 7-9: Study chain model and crowding effect\\
-Months 10-12:Expand the developed models from 2D to 3D.
+Months 10-12:Expand the developed models from 2D to 3D.\\
 
 
+
+
+
+\newpage
+\subsection*{Extra}
+The prior studies that define the packaging energy based on the DNA length inside the capsid. We depict the membrane as a sphere and the genome as an extended semiflexible rod. The total energy of the packaged DNA is then estimated as the sum of interaxial repulsion energy and DNA bending energy.\cite{Grayson2006}:
+\begin{equation}
+E_{\text{Packaged DNA}} = E_{\text{interaction}} + E_{\text{bend}} = \sqrt{3} F_0 L (c^2 + c d_s) \exp(-d_s / c)
++ \frac{2 \pi k_B T \xi^2}{\sqrt{3} \cdot d_s} \int_{R_{\text{in}}}^{R_{\text{out}}} \frac{N(r)}{r} \, dr
+\end{equation}
 
 \end{flushleft}
 
+
+
+We depict the membrane as a sphere and the genome RNA as an extended semiflexible rod. The total energy of the packaged RNA is RNA bending energy.
+\begin{equation}
+E_{\text{Packaged RNA}} =  E_{\text{bend}} = \frac{2 \pi k_B T \xi^2}{\sqrt{3} \cdot d_s} \int_{R_{\text{in}}}^{R_{\text{out}}} \frac{N(r)}{r} \, dr
+\end{equation}
+
+\begin{equation}
+P= \frac{\sqrt{3} k_B T \xi^2}{ r^3} \int_{R_{\text{in}}}^{R_{\text{out}}} \frac{N(r)}{r} \, dr
+\end{equation}
 
 \newpage
 
