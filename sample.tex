@@ -18,7 +18,8 @@
 \usepackage{esint}
 \usepackage{wrapfig}
 \usepackage{lipsum}
-
+\usepackage{subcaption}
+\usepackage{caption}
 
 \begin{document}
 
@@ -57,7 +58,6 @@ In previous study, we developed a simple yet insightful model to investigate how
   \caption{Left image: Simulation of the SARS-CoV-2 spike protein on a spherical surface, illustrating the progression from randomly distributed monomers (left) to trimer (center) and tetramer (right) formations. Right image: SARS-CoV-2 for Covid-19 schematic image ( CDC Public
 Health Image Library) \cite{cdc-covid}}
 \end{figure}
-
 
 Beyond virus-related modeling, the researchers also explored how rod-like molecules
 behave inside confined spaces, such as droplets or cavities, under molecular crowding. Our simulations showed that shorter rods tend to accumulate near the boundary, while longer rods align toward the center, consistent with experimental observations. These results emphasize
@@ -123,11 +123,34 @@ RNA viruses as common corona flu viruses. Unlike
 seasonal flu viruses, the Covid-19 virus has the longest
 RNA among known corona viruses, consisting of a single
 ~30 kb strand of RNA with a contour length at about
-1,400 nm \cite{baron2020sars}\cite{Wu2022}.
+1,400 nm. \cite{baron2020sars}\cite{Wu2022}
 
 
-SARS-CoV-2 enters a host cell by first using its spike (S) protein to bind to a specific receptor on the surface of human cells called ACE2 (angiotensin-converting enzyme 2). This spike protein acts like a key, allowing the virus to attach tightly to the host cell. After attachment, the virus enters the cell either through direct fusion with the cell membrane or via endocytosis. 
-When a virus infects a host, it deliberately breaks this symmetry. Doing so creates weaker areas on the surface of the capsid, which then open up to allow the virus to inject its genetic material (RNA or DNA) into the host cell. In this way, breaking symmetry is an essential part of the infection mechanism.\\
+SARS-CoV-2 enters a host cell by first using its spike (S) protein to bind to a specific receptor on the surface of human cells called ACE2 (angiotensin-converting enzyme 2). This spike protein acts like a key, allowing the virus to attach tightly to the host cell. After attachment, the virus enters the cell either through direct fusion with the cell membrane or via endocytosis.\cite{Barrow2013}\cite{payne2022viruses} When a virus infects a host, it deliberately breaks this symmetry. Doing so creates weaker areas on the surface of the capsid, which then open up to allow the virus to inject its genetic material (RNA or DNA) into the host cell. In this way, breaking symmetry is an essential part of the infection mechanism.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \vtop{\null
+      \hbox{\fbox{\includegraphics[width=\linewidth,height=4.5cm]{endocytosis.png}}}
+      \caption{Illustration of the steps of virus entry via clathrin-mediated endocytosis. (A) Virus approaches the cell surface. (B) Biochemical interactions between ligands and receptors attract virus to the cell surface. (C) Virus attaches to the cell surface and signals the cell. (D) A clathrin-coated pit is formed around the bound virus. (E) A clathrin-coated vesicle is formed, and the dynamin at the neck region facilitates vesicle scission. (F) The vesicle travels to the cell interior \cite{Barrow2013}.}
+      \label{fig:endocytosis}
+    }
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \vtop{\null
+      \hbox{\fbox{\includegraphics[width=\linewidth,height=4.5cm]{fusion.png}}}
+      \caption{Membrane fusion. Many viruses, both enveloped and unenveloped, are brought into cells by endocytosis. The low pH environment in the endosome triggers molecular rearrangements of capsid or envelope proteins. In this example, an enveloped virus is fusing with an endosomal membrane to release the capsid into the cytosol \cite{payne2022viruses}.}
+      \label{fig:fusion}
+    }
+  \end{subfigure}
+
+  \caption{Comparison of virus entry mechanisms: (a) Clathrin-mediated endocytosis, and (b) Membrane fusion.}
+  \label{fig:sidebyside}
+\end{figure}
 
 
 Once inside, the viral envelope is removed (a process called uncoating), releasing its positive-sense single-stranded RNA genome into the host cell’s cytoplasm. This viral positive-sense single-stranded RNA acts directly as messenger RNA (mRNA) and is translated by the host's ribosomes to produce viral proteins, including more spike proteins, structural proteins, and enzymes necessary for viral replication. The viral genome is also copied to make more RNA strands. These components are then assembled into new viral particles. Finally, the new viruses are released from the cell by budding, often taking a piece of the host’s membrane with embedded spike proteins, allowing them to infect new cells. The spike protein is essential for both the entry of the virus and for determining which cells it can infect.
@@ -1098,6 +1121,33 @@ E_{\text{Packaged RNA}} =  E_{\text{bend}} = \frac{2 \pi k_B T \xi^2}{\sqrt{3} \
 \begin{equation}
 P= \frac{\sqrt{3} k_B T \xi^2}{ r^3} \int_{R_{\text{in}}}^{R_{\text{out}}} \frac{N(r)}{r} \, dr
 \end{equation}
+
+\begin{comment}
+\begin{figure}[!ht]
+  \centering  
+  \fbox{\includegraphics[width=0.4\textwidth,height=4.5cm]{endocytosis.png}}
+  \caption{Illustration of the steps of virus entry via clathrin-mediated endocytosis. (A) Virus approaches the cell surface. (B) Biochemical interactions between ligands and receptors attract virus to the cell surface. (C) Virus attaches to the cell surface and signals the cell. (D) A clathrin-coated pit is formed around the bound virus. (E) A clathrin-coated vesicle is formed, and the dynamin at the neck region facilitate vesicle scission. (F) The vesicle travels to cell interior\cite{Barrow2013}.}
+\end{figure}
+
+
+
+\begin{figure}[!ht]
+  \centering  
+  \fbox{\includegraphics[width=0.4\textwidth,height=4.5cm]{fusion.png}}
+  \caption{Membrane fusion. Many viruses, both enveloped and unenveloped, are
+brought into cells by endocytosis. The low pH environment in the
+endosome triggers molecular rearrangements of capsid or envelope
+proteins. In this example an enveloped virus is fusing with an endo-
+somal membrane to release the capsid into the cytoso\cite{payne2022viruses}.}
+\end{figure}
+\end{comment}
+
+
+
+
+
+
+
 
 \newpage
 
