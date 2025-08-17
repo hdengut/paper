@@ -33,9 +33,6 @@
 \end{center}
 
 
-
-
-
 \begin{flushleft}
 \setlength{\parindent}{30pt}
 \section*{Specific aim}
@@ -59,7 +56,7 @@ Building on the foundation of our previous studies, we intend to develop a simpl
 Health Image Library) \cite{cdc-covid}}
 \end{figure}
 
-\vspace{-1em} 
+%\vspace{-1em} 
 \section*{Background and Significance}
 
 
@@ -76,9 +73,6 @@ Monkeypox virus particles. Oval-shaped
 virus particles are mature, and spherical
 particles are immature virions \cite{goldsmith2003monkeypox}}
 \end{figure}
-
-
-
 
 \noindent double-stranded DNA genome ($\sim3000$ nm contour length), much larger than the $\sim250$ nm virus particle \cite{erez2019diagnosis}\cite{parker2007human}. As shown in Figure 2, immature viruses are spherical, while mature forms appear oval.
 
@@ -123,8 +117,7 @@ In contrast, SARS-CoV-2 particles are smaller (~80–120 nm) and spherical, with
 
 After entering the host cell, the viral envelope is removed, releasing its  RNA genome into the cytoplasm. This RNA acts as mRNA, directing the host’s ribosomes to produce viral proteins, including spike proteins, structural proteins, and enzymes for replication. The genome is also copied to make new RNA strands. These components assemble into new viruses, which exit the cell by budding, acquiring a portion of the host membrane with spike proteins. 
  
-Unlike Monkeypox virus, which changes from spherical to oval shapes, SARS-CoV-2 stays spherical throughout its life cycle. This study uses coarse-grained models and Monte Carlo simulations, adjusting genome length and membrane size to SARS-CoV-2 dimensions, to investigate how genome compaction and arrangement affect membrane deformation. The goal is to reveal general physical constraints on genome–membrane interactions influencing viral assembly and stability across viruses
-
+Unlike Monkeypox virus, which changes from spherical to oval shapes, SARS-CoV-2 stays spherical throughout its life cycle. This study uses coarse-grained models and Monte Carlo simulations, adjusting genome length and membrane size to SARS-CoV-2 dimensions, to investigate how genome compaction and arrangement affect membrane deformation. The goal is to reveal general physical constraints on genome–membrane interactions influencing viral assembly and stability across viruses from thermodynamic standpoints.
 %------------------------------------------------------------------------------------------------------------------
 
 A key question is how viruses generate and release internal pressure to inject their genomes into host cells. During assembly, ATP-powered motors tightly pack DNA or RNA into capsids or membranes, creating high pressure—often tens of atmospheres. This pressure arises from electrostatic repulsion between negatively charged nucleic acids and bending strain from compressing a long, rigid molecule into a confined space\cite{BrandarizNunez2019}. Viral pressurization drives rapid genome ejection for fast infection. Using coarse-grained models and Monte Carlo simulations, we will study how genome packing and membrane or capsid deformation generate these forces. This may identify antiviral targets to block pressure-driven ejection and prevent infection.
@@ -146,13 +139,15 @@ A key question is how viruses generate and release internal pressure to inject t
   \caption{Different computational methods developed to study cellular membranes are valid in different length and time scales.\cite{chabanon2017systems}}
 \end{figure}
 
-It simplifies complex systems by grouping atoms or molecules into larger particles called beads. This enables large-scale simulations with reduced computational cost.
+It simplifies complex systems by grouping atoms or molecules into larger particles called beads. This enables large-scale simulations with reduced computational cost and identifying minimal-parameter models.
+
+
 
 \vspace{-1em}
 \subsection* {\indent {2. Continuum models}}
 
 
-The continuum model excludes molecular details like lipid composition, phase transitions, and specific interactions, and cannot capture small-scale fluctuations. However, it efficiently studies large-scale membrane shapes and mechanics, capturing bending and tension without high computational cost.
+Besides treating solvents as dielectric continuum, the continuum model excludes molecular details like lipid composition, phase transitions, and specific atomistic interactions, and cannot capture small atomic-scale fluctuations. However, it efficiently studies large-scale membrane shapes and mechanics, capturing bending and tension without high computational cost. (Note that phase transitions have been argued as a possible driving force to induce cellular self-organization.)
 
 
 
@@ -266,6 +261,9 @@ Excluded volume is essential in coarse-grained modeling to prevent particle over
 (1) NVT (Canonical Ensemble): 
 
 In an NVT simulation, the number of beads, the volume, and the temperature are kept constant throughout the simulation.  As the simulation progresses, the beads move and interact according to physical forces, leading to fluctuations in pressure and energy, even though the temperature remains stable. 
+\begin{equation}
+P_{\text{accept}} = \min \left( 1, \exp\left[-\frac{\Delta E}{k_B T}\right] \right)
+\end{equation}
 
 In an NVT simulation, pressure fluctuates as beads move and interact. Plotting pressure versus Monte Carlo steps shows these changes. Total energy also fluctuates but remains near an average value. Plotting total energy over time helps check if the system is equilibrated.
    
@@ -286,7 +284,6 @@ After obtaining simulation data, volume fluctuations at fixed pressures and temp
 Previous studies, such as Grayson et al.\cite{Grayson2006}, modeled DNA packaging energy by representing the capsid as a sphere and the genome as an extended semiflexible rod. Similarly, we model the membrane as a spherical enclosure and the RNA as an extended semiflexible rod.
 
 Our goal is to quantify how the structure of the genome influences the internal pressure within the membrane. Specifically, we aim to understand how changes in the RNA persistence length  \(\xi\)\ and the radial loop distribution \(N(r)\) affect the pressure \(P\).  To estimate it, we divide the total bending energy of the RNA by the volume of the membrane.  
-
 
 
 
