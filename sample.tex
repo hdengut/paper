@@ -1,7 +1,7 @@
 %option->configure texmaker->edit-> lato medium 16
 \documentclass[12pt]{article}
 \usepackage{amsmath}
-
+\usepackage{xcolor}
 \usepackage{indentfirst}
 \usepackage[font=scriptsize]{caption}
 %\usepackage[font=small]{caption}10
@@ -49,14 +49,18 @@ Previously, we investigated how spherical monomers self-organize into dimers, tr
 
 Building on the foundation of our previous studies, we intend to develop a simple coarse-grained model with minimal parameters to elucidate how the interplay between the membrane and the enclosed genome regulates the shape of enveloped viruses. The goal of this approach is to provide deeper thermodynamic insights into viral interior organization above molecular length scales, the mutual influence between the membrane and genome, and the internal pressure created by viral genetic materials —knowledge that could inform the development of new antiviral strategies.
 
+
+
+
+
+
 \begin{figure}[!ht]
-  \centering
-  \includegraphics[width=0.8\textwidth,height=4cm]{spike.trimer.png}
-  \caption{Left image: Simulation of the SARS-CoV-2 spike protein on a spherical surface, illustrating the progression from randomly distributed monomers (left) to trimer (center) and tetramer (right) formations. Right image: SARS-CoV-2 for Covid-19 schematic image ( CDC Public
-Health Image Library) \cite{cdc-covid}}
+  \centering  
+  \includegraphics[width=0.60\textwidth,height=4cm]{spike.trimer.png}
+  \caption{1 Left image: Simulation of the SARS-CoV-2 spike protein on a spherical surface, illustrating the progression from randomly distributed monomers (Left) to trimer (Right) formations. Right image: SARS-CoV-2 for Covid-19 schematic image (CDC Public Health Image Library) \cite{goldsmith2003monkeypox}\cite{Vora2015}}
 \end{figure}
 
-%\vspace{-1em} 
+\vspace{-2em} 
 \section*{Background and Significance}
 
 
@@ -71,7 +75,7 @@ The shape of enveloped viruses is influenced by their genomes. Monkeypox virus h
   \caption{Electron microscopic (EM) image for
 Monkeypox virus particles. Oval-shaped
 virus particles are mature, and spherical
-particles are immature virions \cite{goldsmith2003monkeypox}}
+particles are immature virions \cite{goldsmith2003monkeypox} \cite{}}
 \end{figure}
 
 \noindent double-stranded DNA genome ($\sim3000$ nm contour length), much larger than the $\sim250$ nm virus particle \cite{erez2019diagnosis}\cite{parker2007human}. As shown in Figure 2, immature viruses are spherical, while mature forms appear oval.
@@ -122,7 +126,10 @@ Unlike Monkeypox virus, which changes from spherical to oval shapes, SARS-CoV-2 
 
 A key question is how viruses generate and release internal pressure to inject their genomes into host cells. During assembly, ATP-powered motors tightly pack DNA or RNA into capsids or membranes, creating high pressure—often tens of atmospheres. This pressure arises from electrostatic repulsion between negatively charged nucleic acids and bending strain from compressing a long, rigid molecule into a confined space\cite{BrandarizNunez2019}. Viral pressurization drives rapid genome ejection for fast infection. Using coarse-grained models and Monte Carlo simulations, we will study how genome packing and membrane or capsid deformation generate these forces. This may identify antiviral targets to block pressure-driven ejection and prevent infection.
 
-%\vspace{-5em} 
+The antiviral targets identified in this dissertation prevent infection by disrupting the physical mechanisms that enable viruses to deliver their genomes into host cells. Viral infection relies on the buildup of internal pressure during genome packaging and the controlled release of this pressure to drive genome uncoating or ejection. By targeting factors that regulate genome compaction, electrostatic interactions, or membrane and capsid mechanical properties, these interventions reduce internal pressure or increase the energy barrier for genome release. Consequently, the viral genome cannot be efficiently released into the host cell, blocking downstream replication and assembly processes and thereby preventing productive infection.
+
+
+\vspace{-1em} 
 \section*{Research Plan}
 %\vspace{-1em}
 \subsection*{I. Techniques}
@@ -199,9 +206,8 @@ E_{\text{bend}} = \kappa \sum_{\langle i,j \rangle} \left(1 - \cos \theta_{ij} \
 \end{equation}
 
  \subsection*{\indent{ 2. Kremer–Grest Bead-Spring Model for genome}}
-
        
-
+\begin{comment}
        \indent \indent (1) FENE potential for bonded interactions. Finitely Extensible Nonlinear 
 Elastic spring 
 \indent \indent keeps beads connected but prevents them from stretching too far 
@@ -210,10 +216,9 @@ Elastic spring
 \begin{equation}
 U_{\text{FENE}}(r) = -\frac{1}{2} k R_0^2 \ln \left[ 1 - \left( \frac{r}{R_0} \right)^2 \right]
 \end{equation}
+\end{comment}
 
-
-          \indent\indent   (2) WCA potential, a purely repulsive form of the Lennard-Jones (LJ) potential 
-          \indent \indent for excluded volume (non-bonded interactions).
+          \indent\indent  WCA potential, a purely repulsive form of the Lennard-Jones (LJ) potential for excluded volume (non-bonded interactions).
           
 \begin{equation}
 U_{\text{WCA}}(r) = 
@@ -254,7 +259,39 @@ E = E_{\text{mem-bend}}+\sum_{\text{DNA-bonds}} U_{\mathrm{FENE}} + \sum_{\text{
 \end{equation} 
 
   \subsection*{\indent{4. Excluded Volume Implementation}}
-Excluded volume is essential in coarse-grained modeling to prevent particle overlap and ensure physical realism. This is enforced using repulsive potentials, such as the Lennard-Jones potential, with carefully chosen bead size ($\sigma$) and interaction strength ($\varepsilon$). Energy minimization and equilibration are performed before simulations to remove overlaps and stabilize the system. Proper excluded volume enforcement is critical for maintaining structural integrity and accurate thermodynamics in biomolecular and polymer simulations.
+Excluded volume is essential in coarse-grained modeling to prevent particle overlap and maintain physical realism. It enforces the constraint that two particles cannot occupy the same space; without it, particles may overlap, interpenetrate one another, or unrealistically penetrate the membrane. To ensure that any two particles 
+i and j do not overlap, we compute the squared center-to-center distance
+
+\begin{equation}
+d_{ij}^2 = (x_i - x_j)^2 + (y_i - y_j)^2 + (z_i - z_j)^2.
+\end{equation}
+For monodisperse particles of diameter $\sigma$, overlap is rejected by imposing the condition
+
+\begin{equation}
+d_{ij}^2 < \sigma^2
+\end{equation}
+
+ 
+\begin{comment}
+the assumption is that all particles have the same size, which is not true in reality. r_ij^2 + 1e-6 < 1 is a confusion statement. Since all particles have the same size in the simulation r_ij^2 < sigma where sigma is the diameter of a particle and is the length unit of the simulation. 1-e6 is for numerical purpose and should not be in Eq. 7
+\end{comment}
+
+ 
+To prevent particles from penetrating the membrane walls, the center of each particle is constrained to remain at least a distance 
+a (the particle radius) away from each face of a cubic simulation box of side length L, centered at the origin. This constraint is enforced by requiring
+\begin{equation}
+\begin{aligned}
+-\frac{L}{2}+r &\le x \le \frac{L}{2}-r,\\
+-\frac{L}{2}+r &\le y \le \frac{L}{2}-r,\\
+-\frac{L}{2}+r &\le z \le \frac{L}{2}-r.
+\end{aligned}
+\end{equation}
+
+
+
+\begin{comment}
+\textcolor{red}{\textbf{Here, the assumption is that all particles have the same size, which is not true in reality. less than 1 is a confusion statement. Since all particles have the same size in the simulation sigma where sigma is the diameter of a particle and is the length unit of the simulation. 1-e6 is for numerical purpose and should not be in Eq7}}
+\end{comment}
 
 \subsection*{\indent{5. Ensemble Settings}}
 
@@ -279,6 +316,7 @@ P_{\text{accept}} = \min \left( 1, \exp \left[ - \frac{\Delta E + p \Delta V - N
  
 After obtaining simulation data, volume fluctuations at fixed pressures and temperatures will be analyzed. Average volume will be calculated and plotted against pressure. Additionally, volume and energy fluctuations over time will be examined to assess stability and equilibration, providing insight into the membrane’s pressure response. 
 
+\begin{comment}
 \subsection*{\indent{6. Pressure Calculation by Theoretical Model}}
 
 Previous studies, such as Grayson et al.\cite{Grayson2006}, modeled DNA packaging energy by representing the capsid as a sphere and the genome as an extended semiflexible rod. Similarly, we model the membrane as a spherical enclosure and the RNA as an extended semiflexible rod.
@@ -294,14 +332,13 @@ Our goal is to quantify how the structure of the genome influences the internal 
 P = \frac{\sqrt{3} k_B T \, \xi^2}{R^3} \int_{R_\text{in}}^{R_\text{out}} \frac{N(r)}{r} \, dr
 \end{equation}
 
-\begin{comment}
+
 \subsection*{Simulation Procedures}
 (1)Initialization of DNA chains and crowders.
 
 (2) Energy calculation (FENE + WCA/LJ).
 
 (3) Repeated Monte Carlo updates to reach equilibrium.
-\end{comment}
 
 
 
@@ -317,7 +354,6 @@ In our research, the genome chain, represented as a series of beads connected by
 \end{equation}
 
 
-\begin{comment}
 \subsection*{Simulation Procedures}
 
 (1)Genome modeled as hard spheres (Primitive Model).
@@ -328,10 +364,14 @@ In our research, the genome chain, represented as a series of beads connected by
 
 (4)Measure bead density at wall contact.
 
-(5)Compute pressure using contact theorem
+(5)Compute 
+
+ using contact theorem
+
+
 \end{comment}
 
-
+\vspace{-1em}
 \subsection*{III. Hypothesis}
 \begin{comment}
 \noindent \textbf{Hypothesis 1:}\\
@@ -350,7 +390,9 @@ fluctuation until both arrive at a mutual steady state.
 Virus shape and genome structure develop through interactions where either the genome or membrane stabilizes first, or both stabilize together. Changing genome length or shape lets the model reproduce these behaviors and match experiments.
 	
 \noindent \textbf{Hypothesis 2:}\\
-In simulations of genome translocation through a narrow membrane slit, the pressure normal to the slit walls calculated using the contact theorem in the Primitive Model—based on the bead density at the slit surface—will agree with the pressure predicted by the Theoretical Model.
+If a genome-like rod and crowder particles are confined inside an initially cubic, flexible membrane/box, then after equilibrating the internal packing in NVT and subsequently allowing box-shape fluctuations in NPT, the system will spontaneously break cubic symmetry and evolve toward an elongated cuboid (rectangular-prism) equilibrium shape.
+
+\vspace{-1em}
 
 \subsection*{IV.Expected outcomes} 
 %\subsection*{IV.Possible pitfalls} 
@@ -358,7 +400,7 @@ In simulations of genome translocation through a narrow membrane slit, the press
 	
 \begin{figure}[!ht]
   \centering
-  \fbox{\includegraphics[width=0.5\textwidth,height=3.7cm]{monkeypox.png}}  % Adjust width or height as needed
+  \fbox{\includegraphics[width=0.45\textwidth,height=3.7cm]{monkeypox.png}}  % Adjust width or height as needed
   \caption{Preliminary 2D model studies to
 investigate the effect of the geometry of a
 genome on the shape of a virus. A rod-like
@@ -366,18 +408,43 @@ genome induces an elliptic shape whereas a
 circular genome leads to a circular shape\cite{goldsmith2003monkeypox}.}
 \end{figure}
 
-(2)The expectation that different methods for calculating the pressure in a Monte Carlo simulation of a system, such as the primitive model (PM) of genome in slit-like pores should yield consistent values for the pressure normal to the walls of membrane, assuming the methods are correctly implemented and the system is properly equilibrated.
+(2)
+\begin{figure}[!ht]
+  \centering
+  \fbox{\includegraphics[width=0.44\textwidth,height=3.7cm]{NVT.NPT.png}}  % Adjust width or height as needed
+  \caption{Initial cubic configuration (left) and final elongated cuboid configuration (right) obtained after sequential NVT equilibration followed by NPT simulation, consistent with the morphology of Monkeypox (Orthopoxvirus) particles.}
+\end{figure}
 
+\vspace{-2em} 
 \subsection*{V.Projected timeline}
 
-Months 0-3: Fine-tune the continuum membrane model.\\
-Months 4-6: Investigate competition among different membrane shapes.\\
-Months 7-9: Study chain model and crowding effect\\
-Months 10-12:Expand the developed models from 2D to 3D.\\
 
+
+\noindent Work 1: Genome Geometry–Driven Membrane Deformation. Establish how genome length, stiffness, and geometry control membrane shape under confinement.
+ 
+(1)Develop a coarse-grained bead–spring genome model confined within a flexible Helfrich–Canham membrane.
+
+(2)Systematically vary:
+
+\indent\indent (i)genome length (short RNA vs long DNA)
+
+\indent\indent (ii)genome stiffness (flexible vs rod-like)
+
+\indent\indent (iii)membrane size and bending rigidity
+
+\noindent Work 2: This work will examine how internal pressure affects the size and geometry of a virus, and how weak attractions between the genome and the surrounding cellular environment influence host cell membrane after host-cell entry. A simple coarse-grained model with Lennard-Jones attractions will be used, in which genome length, stiffness, and interaction strength are varied to observe how virus shape and genome position respond.
+
+\noindent Work 3: Shape Symmetry Breaking Explain why some viruses (e.g., Monkeypox) transition from spherical to elongated shapes,
+
+
+
+\begin{comment}
+\textcolor{red}{\textbf{You may need to remove project timeline and add the specific 3 pieces work you plan to do. Each one will eventually lead to a publication and should be very brief.}}
+\end{comment}
 
 \newpage
 
+\begin{comment}
 \subsection*{Extra source}
 Rod Bent Into a Circle:
 \begin{equation}
@@ -426,7 +493,7 @@ e^{-\Delta E / (k_B T)} & \text{if } \Delta E > 0
 (3)  Use MC sampling to generate states distributed by Boltzmann probabilities instead of summing all states.
 (4)	Use acceptance probabilities (e.g., Metropolis) to decide if a proposed move is accepted, based on energy difference and temperature.
 (5)	Implement moves and acceptance rules consistent with desired thermodynamic ensemble (NVT, NPT, etc.).
-
+\end{comment}
 
 
 \end{flushleft}
