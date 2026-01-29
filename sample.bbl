@@ -70,18 +70,6 @@ A.~Brandariz-Nuñez, T.~Liu, T.~Du, and A.~Evilevitch.
   mechanism leading to herpes infection.
 \newblock {\em eLife}, 8:e47212, 2019.
 
-\bibitem{Kremer1990}
-Kurt Kremer and Gary~S. Grest.
-\newblock Dynamics of entangled linear polymer melts: A molecular-dynamics
-  simulation.
-\newblock {\em The Journal of Chemical Physics}, 92(8):5057--5086, 1990.
-
-\bibitem{Everaers2020}
-Ralf Everaers, Ali Karimi, Frank Fleck, Nils Hojdis, and Carsten Svaneborg.
-\newblock Kremer–grest models for commodity polymer melts: Linking theory,
-  experiment, and simulation at the kuhn scale.
-\newblock {\em Macromolecules}, 53, 2020.
-
 \bibitem{chabanon2017systems}
 Morgan Chabanon, Jeanne~C. Stachowiak, and Padmini Rangamani.
 \newblock Systems biology of cellular membranes: a convergence with biophysics.
@@ -89,42 +77,17 @@ Morgan Chabanon, Jeanne~C. Stachowiak, and Padmini Rangamani.
   9(5), sep 2017.
 \newblock Epub 2017 May 5.
 
-\bibitem{byjus_chromatin}
-{BYJU'S}.
-\newblock Chromatin.
-\newblock \url{https://byjus.com/biology/chromatin/}, n.d.
-\newblock Accessed: 2025-05-14.
-
-\bibitem{Lizana2024}
-Ludvig Lizana and Yuri~B. Schwartz.
-\newblock The scales, mechanisms, and dynamics of the genome architecture.
-\newblock {\em Science Advances}, 10(15):eadm8167, April 2024.
-\newblock Epub 2024 Apr 10.
-
-\bibitem{Bassereau2014}
-Patricia Bassereau, Benjamin Sorre, and Anne L{\'e}vy.
-\newblock Bending lipid membranes: Experiments after w. helfrich's model.
-\newblock {\em Advances in Colloid and Interface Science}, 208:47--57, June
-  2014.
-\newblock Epub 2014 Feb 11.
-
-\bibitem{gompper1997triangulated}
-Gerhard Gompper and D~M Kroll.
-\newblock Triangulated-surface models of fluctuating membranes.
-\newblock {\em Journal of Physics: Condensed Matter}, 9(42):8795--8834, 1997.
-
-\bibitem{harish2021entomopathogenic}
-S.~Harish, M.~Murugan, M.~Kannan, S.~Parthasarathy, S.R. Prabhukarthikeyan, and
-  K.~Elango.
-\newblock Entomopathogenic viruses.
-\newblock In {\em Microbial Approaches for Insect Pest Management}, pages
-  1--57. Springer, 2021.
-
 \bibitem{Grayson2006}
 Paul Grayson, Alex Evilevitch, Mandar~M. Inamdar, Prashant~K. Purohit,
   William~M. Gelbart, Charles~M. Knobler, and Rob Phillips.
 \newblock The effect of genome length on ejection forces in bacteriophage
   lambda.
 \newblock {\em Virology}, 348(2):430--436, 2006.
+
+\bibitem{Voertler1997}
+Horst~L. Vörtler and Matthias Kettler.
+\newblock Monte carlo simulation of pore systems: primitive model of water in
+  slit-like pores.
+\newblock {\em Chemical Physics Letters}, 266(3–4):368--374, 1997.
 
 \end{thebibliography}
