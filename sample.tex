@@ -4,10 +4,11 @@
 \usepackage{xcolor}
 \usepackage{indentfirst}
 \usepackage[font=scriptsize]{caption}
+\usepackage{array} 
 %\usepackage[font=small]{caption}10
 %\usepackage[font=footnotesize]{caption}%9
 %\usepackage[font=scriptsize]{caption}%8
-
+\usepackage{cancel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{hyperref}
@@ -38,27 +39,39 @@
 \section*{Specific aim}
 
 
-First, our goal is to develop models and simulations combining polymer and liquid-state physics to study how viral genome properties—shape, length, and flexibility—influence membrane morphology. By simulating genome behavior in confined spaces, we intend to uncover key principles of viral assembly and stability, informing strategies to prevent and treat infections like Monkeypox and SARS-CoV-2.
 
-Second, understanding internal pressure in viruses uncovers how they inject their genomes into host cells. Packaging builds up pressure that drives rapid genome release. Studying this process may lead to antiviral strategies targeting genome packaging, inspire virus-like drug delivery systems, improve vaccine design, and deepen our understanding of nucleic acids under extreme confinement.
+
+First, we develop models and simulations that combine polymer and liquid-state physics to study how viral genome properties—such as shape, length, and flexibility—affect membrane morphology. 
+By simulating genome behavior in confined spaces, we identify key physical principles governing viral assembly and stability.
+
+Second, we study how internal pressure generated during genome packaging drives genome release into host cells. 
+Understanding this process may reveal mechanisms of viral infection and inform the development of antiviral strategies, virus-inspired drug delivery systems, and improved vaccine design.
+
 \vspace{-1em} 
 \section*{Motivation}
 
-Previously, we investigated how spherical monomers self-organize into dimers, trimers, and tetramers on spherical surfaces, inspired by the trimeric spike proteins found in COVID-19 viruses. Using Monte Carlo simulations with an anistropic attraction and excluded volume repulsion between monomers, we identified the conditions that trimer formation becomes a favorable process. Both interaction energy form and interaction strength are crucial to surpass the entropically favorable dimers.  By adjusting the angular part of the anistropic interaction, tetramers become the major specie. The simulated trimers are consistent with structural observations from cryo-electron microscopy studies of SARS-CoV-2 spike proteins\cite{Ke2020}. 
-
-
-Building on the foundation of our previous studies, we intend to develop a simple coarse-grained model with minimal parameters to elucidate how the interplay between the membrane and the enclosed genome regulates the shape of enveloped viruses. The goal of this approach is to provide deeper thermodynamic insights into viral interior organization above molecular length scales, the mutual influence between the membrane and genome, and the internal pressure created by viral genetic materials —knowledge that could inform the development of new antiviral strategies.
-
-
-
-
-
-
+In our previous work, we studied how spherical monomers assemble into dimers, trimers, and tetramers on curved surfaces, motivated by the trimeric spike proteins of SARS-CoV-2. 
+Using Monte Carlo simulations with simple attractive and repulsive interactions, we identified conditions under which trimer formation is favored, and showed that changing the angular dependence of the interaction can shift the dominant assembly from trimers to tetramers. 
+The simulated trimers are consistent with cryo-electron microscopy observations of SARS-CoV-2 spike proteins \cite{Ke2020}.
 \begin{figure}[!ht]
   \centering  
   \includegraphics[width=0.60\textwidth,height=4cm]{spike.trimer.png}
   \caption{1 Left image: Simulation of the SARS-CoV-2 spike protein on a spherical surface, illustrating the progression from randomly distributed monomers (Left) to trimer (Right) formations. Right image: SARS-CoV-2 for Covid-19 schematic image (CDC Public Health Image Library) \cite{goldsmith2003monkeypox}\cite{Vora2015}}
 \end{figure}
+
+Building on this work, we will develop a minimal coarse-grained model to study how interactions between the membrane and the enclosed genome control the shape and internal organization of enveloped viruses. 
+Our goal is to understand how membrane–genome coupling and genome confinement generate internal pressure and influence viral shape and stability, providing physical insight relevant to antiviral strategies.
+
+
+\begin{comment}
+
+Previously, we investigated how spherical monomers self-organize into dimers, trimers, and tetramers on spherical surfaces, inspired by the trimeric spike proteins found in COVID-19 viruses. Using Monte Carlo simulations with an anistropic attraction and excluded volume repulsion between monomers, we identified the conditions that trimer formation becomes a favorable process. Both interaction energy form and interaction strength are crucial to surpass the entropically favorable dimers.  By adjusting the angular part of the anistropic interaction, tetramers become the major specie. The simulated trimers are consistent with structural observations from cryo-electron microscopy studies of SARS-CoV-2 spike proteins\cite{Ke2020}. 
+
+
+Building on the foundation of our previous studies, we intend to develop a simple coarse-grained model with minimal parameters to elucidate how the interplay between the membrane and the enclosed genome regulates the shape of enveloped viruses. The goal of this approach is to provide deeper thermodynamic insights into viral interior organization above molecular length scales, the mutual influence between the membrane and genome, and the internal pressure created by viral genetic materials —knowledge that could inform the development of new antiviral strategies.
+\end{comment}
+
+
 
 \vspace{-2em} 
 \section*{Background and Significance}
@@ -66,29 +79,26 @@ Building on the foundation of our previous studies, we intend to develop a simpl
 
 Viral infections significantly impact global health, driving pandemics and outbreaks. Enveloped viruses like Monkeypox and COVID-19 are surrounded by lipid membranes that protect their genomes and enable infection by interacting with host cell receptors. Understanding these mechanisms is key to developing effective treatments.
 
+
+
 Virions are acellular particles lacking cellular structures such as organelles or membranes.
 The shape of enveloped viruses is influenced by their genomes. Monkeypox virus has a $\sim190$ kb 
+
 
 \begin{figure}[!ht]
   \centering  
   \fbox{\includegraphics[width=0.4\textwidth,height=4cm]{electron.monkeypox.png}}
   \caption{Electron microscopic (EM) image for
-Monkeypox virus particles. Oval-shaped
-virus particles are mature, and spherical
-particles are immature virions \cite{goldsmith2003monkeypox} \cite{}}
+Monkeypox virus particles. Oval-shaped virus particles are mature, and spherical particles are immature virions \cite{goldsmith2003monkeypox} \cite{}}
 \end{figure}
+
 
 \noindent double-stranded DNA genome ($\sim3000$ nm contour length), much larger than the $\sim250$ nm virus particle \cite{erez2019diagnosis}\cite{parker2007human}. As shown in Figure 2, immature viruses are spherical, while mature forms appear oval.
 
 
+
+
 This study investigates how genome shape influences membrane morphology in virus particles, focusing on the transition from spherical (immature) to oval (mature) forms. Using a coarse-grained model and Monte Carlo simulations, we will examine how genome compaction, fluctuations, and spatial arrangement drive membrane deformation during virus maturation.
-
-
-
-
-
-
-
 
 
 In contrast, SARS-CoV-2 particles are smaller (~80–120 nm) and spherical, with a single $\sim30$ kb RNA genome ($\sim1,400$ nm contour length) \cite{baron2020sars}\cite{Wu2022}. SARS-CoV-2 infects host cells by binding its spike (S) protein to the ACE2 receptor, facilitating entry through membrane fusion or endocytosis \cite{Barrow2013}\cite{payne2022viruses}.
@@ -118,7 +128,7 @@ In contrast, SARS-CoV-2 particles are smaller (~80–120 nm) and spherical, with
 \end{figure}
 
 
-
+\begin{comment}
 After entering the host cell, the viral envelope is removed, releasing its  RNA genome into the cytoplasm. This RNA acts as mRNA, directing the host’s ribosomes to produce viral proteins, including spike proteins, structural proteins, and enzymes for replication. The genome is also copied to make new RNA strands. These components assemble into new viruses, which exit the cell by budding, acquiring a portion of the host membrane with spike proteins. 
  
 Unlike Monkeypox virus, which changes from spherical to oval shapes, SARS-CoV-2 stays spherical throughout its life cycle. This study uses coarse-grained models and Monte Carlo simulations, adjusting genome length and membrane size to SARS-CoV-2 dimensions, to investigate how genome compaction and arrangement affect membrane deformation. The goal is to reveal general physical constraints on genome–membrane interactions influencing viral assembly and stability across viruses from thermodynamic standpoints.
@@ -127,6 +137,17 @@ Unlike Monkeypox virus, which changes from spherical to oval shapes, SARS-CoV-2 
 A key question is how viruses generate and release internal pressure to inject their genomes into host cells. During assembly, ATP-powered motors tightly pack DNA or RNA into capsids or membranes, creating high pressure—often tens of atmospheres. This pressure arises from electrostatic repulsion between negatively charged nucleic acids and bending strain from compressing a long, rigid molecule into a confined space\cite{BrandarizNunez2019}. Viral pressurization drives rapid genome ejection for fast infection. Using coarse-grained models and Monte Carlo simulations, we will study how genome packing and membrane or capsid deformation generate these forces. This may identify antiviral targets to block pressure-driven ejection and prevent infection.
 
 The antiviral targets identified in this dissertation prevent infection by disrupting the physical mechanisms that enable viruses to deliver their genomes into host cells. Viral infection relies on the buildup of internal pressure during genome packaging and the controlled release of this pressure to drive genome uncoating or ejection. By targeting factors that regulate genome compaction, electrostatic interactions, or membrane and capsid mechanical properties, these interventions reduce internal pressure or increase the energy barrier for genome release. Consequently, the viral genome cannot be efficiently released into the host cell, blocking downstream replication and assembly processes and thereby preventing productive infection.
+\end{comment}
+
+
+After entering a host cell, the virus releases its genome, which directs the production of viral proteins. 
+These components assemble into new virus particles that leave the cell by budding and acquire part of the host membrane.
+
+Unlike Monkeypox virus, which changes shape during maturation, SARS-CoV-2 remains spherical throughout its life cycle. 
+In this work, coarse-grained models and Monte Carlo simulations are used to study how genome confinement and organization affect membrane deformation and internal pressure.
+
+The goal is to identify basic physical mechanisms that control viral assembly, stability, and genome release, and to provide insight into possible antiviral strategies.
+
 
 
 \vspace{-1em} 
@@ -149,20 +170,15 @@ The antiviral targets identified in this dissertation prevent infection by disru
 It simplifies complex systems by grouping atoms or molecules into larger particles called beads. This enables large-scale simulations with reduced computational cost and identifying minimal-parameter models.
 
 
-
+\begin{comment}
 \vspace{-1em}
 \subsection* {\indent {2. Continuum models}}
 
 
 Besides treating solvents as dielectric continuum, the continuum model excludes molecular details like lipid composition, phase transitions, and specific atomistic interactions, and cannot capture small atomic-scale fluctuations. However, it efficiently studies large-scale membrane shapes and mechanics, capturing bending and tension without high computational cost. (Note that phase transitions have been argued as a possible driving force to induce cellular self-organization.)
-
-
-
-\subsection*{\indent{3. Monte Carlo Simulation (MC)}}
-
-
-
-
+\end{comment}
+\vspace{-1em} 
+\subsection*{\indent{2. Monte Carlo Simulation (MC)}}
 
 Metropolis rule:
 \begin{equation}
@@ -174,15 +190,29 @@ $\Delta E$: Energy change from the move ($E_{\text{new}} - E_{\text{old}}$).
 $\beta$: Inverse temperature factor, $\beta = 1 / (k_B T)$, from the Boltzmann distribution. 
 If $\Delta E \leq 0$, the move is always accepted ($P = 1$) since it leads to a lower-energy, more favorable state.
  
-
+\vspace{-1em} 
 \subsection*{II. Procedure and Methods} 
 
 
 These are the specific models and procedures implemented using the above techniques.\\
 
- 
+\vspace{-1em} 
 
   \subsection*{\indent{1. Helfrich–Canham Membrane Model}}
+\begin{comment}
+  The Helfrich--Canham model describes how a membrane resists bending by assigning an energy cost when the membrane shape deviates from a preferred curvature. The bending rigidity $\kappa$ determines how stiff the membrane is, while the spontaneous curvature $C_0(\mathbf{r})$ represents local tendencies of the membrane to bend, for example due to asymmetry or protein binding. The Gaussian curvature term, with coefficient $\bar{\kappa}$, remains constant as long as the membrane is closed and its topology does not change.
+
+To maintain a physically realistic membrane, constraints on the total surface area and the enclosed volume are imposed using the parameters $\lambda$ and $p$. These constraints prevent unphysical stretching or compression of the membrane and allow control of the internal pressure, which is important for modeling a genome confined within a membrane.
+\end{comment}
+
+The Helfrich--Canham model describes how a membrane resists bending. 
+The bending rigidity $\kappa$ controls how stiff the membrane is, and the spontaneous curvature $C_0(\mathbf{r})$ describes where the membrane prefers to bend due to asymmetry or protein binding. 
+The Gaussian curvature term remains constant as long as the membrane is closed.
+
+To keep the membrane physically realistic, constraints on the total surface area and enclosed volume are imposed. 
+These constraints prevent unrealistic stretching or shrinking of the membrane and allow control of internal pressure, which is important for modeling a genome confined inside a membrane.
+
+
 
   	 \indent\indent(1)Describes membrane bending energy:
 
@@ -201,64 +231,45 @@ F_\text{full mem} = \int_S \Bigg[
 
 \indent\indent (2)Discrete angle-based version used for simulations.
 
+For simulations, the bending energy from the continuum membrane theory is rewritten in a more practical, discrete form using a triangulated surface. In this approach, the membrane is represented by connected triangular facets, and the local curvature is approximated by the dihedral angles between neighboring faces. This angle-based formulation is well suited for numerical implementation and enables efficient evaluation of membrane bending energy in Monte Carlo simulations, while still preserving the essential elastic behavior of the theoretical Helfrich–Canham model.
+
 \begin{equation}
 E_{\text{bend}} = \kappa \sum_{\langle i,j \rangle} \left(1 - \cos \theta_{ij} \right)+\lambda A+p V
 \end{equation}
 
- \subsection*{\indent{ 2. Kremer–Grest Bead-Spring Model for genome}}
+ \subsection*{\indent{ 2. Attration Force from Lennard–Jones potential}}
        
-\begin{comment}
-       \indent \indent (1) FENE potential for bonded interactions. Finitely Extensible Nonlinear 
-Elastic spring 
-\indent \indent keeps beads connected but prevents them from stretching too far 
- or breaking
 
-\begin{equation}
-U_{\text{FENE}}(r) = -\frac{1}{2} k R_0^2 \ln \left[ 1 - \left( \frac{r}{R_0} \right)^2 \right]
-\end{equation}
-\end{comment}
 
-          \indent\indent  WCA potential, a purely repulsive form of the Lennard-Jones (LJ) potential for excluded volume (non-bonded interactions).
-          
+          \indent The coarse-grained model employs an effective interaction described by the Lennard–Jones potential. This potential incorporates a strong short-range repulsive term to prevent particle overlap and a weaker long-range attractive term that drives compaction and cohesive behavior.
+ \begin{comment}    
+    
 \begin{equation}
-U_{\text{WCA}}(r) = 
+U_{\text{LJ}}(r) = 
 \begin{cases}
-4\varepsilon \left[ \left( \dfrac{\sigma}{r} \right)^{12} - \left( \dfrac{\sigma}{r} \right)^6 \right] + \varepsilon, & \text{if } r \leq 2^{1/6} \sigma \\
+4\varepsilon \left[ \left( \dfrac{\sigma}{r} \right)^{12} - \left( \dfrac{\sigma}{r} \right)^6 \right], & \text{if } r \leq 2^{1/6} \sigma \\
 0, & \text{if } r > 2^{1/6} \sigma
 \end{cases}
 \end{equation}
-\begin{comment}
-\subsection*{\indent{3. Monte Carlo Move Set}}
 
-    \indent\indent(1)Randomly displace particles (DNA beads, crowders, or membrane vertices).
 
-   \indent\indent(2) Accept/reject moves using: Metropolis criterion
-\end{comment}
-
-\begin{comment}
-%\setlength{\parindent}{0pt}
 \begin{equation}
-P_{\text{accept}} = \min \left(1, e^{-\beta \Delta E}\right)
+U_{LJ}(r) = 4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12}
+- \left( \frac{\sigma}{r} \right)^{6} \right],  r > 2^{1/6} \sigma
 \end{equation}
 \end{comment}
+
+\begin{equation}
+U_{LJ}(r) = 4\varepsilon \left[ \cancel{\left( \frac{\sigma}{r} \right)^{12}}
+- \left( \frac{\sigma}{r} \right)^{6} \right], \quad r \ge 2^{1/6}\sigma
+\end{equation}
     
 
+$\sigma$ is the distance at which the Lennard--Jones potential crosses zero, $U_{LJ}(r=\sigma)=0$.
 
-\subsection*{\indent{3. Simple Liquid Models}}
 
-       
-Simple liquid models that help understand the structure and behavior of polymer in crowded environments. Specifically, the simple liquid models referenced include Hard Sphere Model and Lennard-Jones Model. 
 
-Hard sphere model is used to understand the behavior of particles in crowded environments, where the excluded volume effect becomes important. 
-
-The Lennard-Jones model accounts for both attractive and repulsive forces between particles, which is important in understanding the interactions within fluids and condensed matter. It helps model the behavior of molecules, especially in non-ideal conditions like those found in crowded environments.
-\begin{equation}
-E = E_{\text{mem-bend}}+\sum_{\text{DNA-bonds}} U_{\mathrm{FENE}} + \sum_{\text{DNA-nonbonded}} U_{\mathrm{WCA}} 
-+ \sum_{\text{DNA-crowder}} U_{\mathrm{LJ}} 
-+ \sum_{\text{crowder-crowder}} U_{\mathrm{LJ}}
-\end{equation} 
-
-  \subsection*{\indent{4. Excluded Volume Implementation}}
+  \subsection*{\indent{3. Excluded Volume Implementation}}
 Excluded volume is essential in coarse-grained modeling to prevent particle overlap and maintain physical realism. It enforces the constraint that two particles cannot occupy the same space; without it, particles may overlap, interpenetrate one another, or unrealistically penetrate the membrane. To ensure that any two particles 
 i and j do not overlap, we compute the squared center-to-center distance
 
@@ -268,13 +279,10 @@ d_{ij}^2 = (x_i - x_j)^2 + (y_i - y_j)^2 + (z_i - z_j)^2.
 For monodisperse particles of diameter $\sigma$, overlap is rejected by imposing the condition
 
 \begin{equation}
-d_{ij}^2 < \sigma^2
+d_{ij}< \sigma
 \end{equation}
 
  
-\begin{comment}
-the assumption is that all particles have the same size, which is not true in reality. r_ij^2 + 1e-6 < 1 is a confusion statement. Since all particles have the same size in the simulation r_ij^2 < sigma where sigma is the diameter of a particle and is the length unit of the simulation. 1-e6 is for numerical purpose and should not be in Eq. 7
-\end{comment}
 
  
 To prevent particles from penetrating the membrane walls, the center of each particle is constrained to remain at least a distance 
@@ -289,11 +297,116 @@ a (the particle radius) away from each face of a cubic simulation box of side le
 
 
 
-\begin{comment}
-\textcolor{red}{\textbf{Here, the assumption is that all particles have the same size, which is not true in reality. less than 1 is a confusion statement. Since all particles have the same size in the simulation sigma where sigma is the diameter of a particle and is the length unit of the simulation. 1-e6 is for numerical purpose and should not be in Eq7}}
-\end{comment}
 
-\subsection*{\indent{5. Ensemble Settings}}
+
+
+\subsection*{\indent{4. Simple Liquid Models}}
+
+
+
+A simple liquid model describes a many-particle system by adding together simple pairwise interaction potentials between particles. Each potential represents a basic physical effect, such as excluded volume or attraction. The total energy is obtained by summing all these contributions, while detailed chemical interactions are ignored.
+
+
+\begin{equation}
+E = E_{\text{mem-bend}}+\sum_{\text{DNA-bonds}} U_{\mathrm{LJ}} + \sum_{\text{DNA-mem}} U_{\mathrm{LJ}} 
++ \sum_{\text{DNA-crowder}} U_{\mathrm{LJ}} 
++ \sum_{\text{crowder-crowder}} U_{\mathrm{LJ}}
+\end{equation} 
+
+\subsection*{\indent{5. Superellipoid Model}}
+
+
+
+A super-ellipsoid is a smooth 3D shape defined by the equation
+\begin{equation}
+\left( \frac{x}{a} \right)^n+\left( \frac{y}{b} \right)^n+\left( \frac{z}{c} \right)^n= 1
+\end{equation}
+
+\indent We use the superellipsoid model because it provides a smooth and flexible description of virus geometry. The parameters $a$, $b$, and $c$ determine the overall size and aspect ratios along the three principal axes, allowing the shape to be elongated, flattened, or brick-like. The shape parameter $n$ controls the degree of surface roundness, tuning the transition from smoothly curved geometries to more box-like shapes with sharper edges (See Table 1). Together, these parameters enable realistic virus morphologies while maintaining well-defined curvature, which is essential for accurate calculation of membrane bending energy.\\
+
+\begin{table}[h!]
+\centering
+\caption{Effect of the shape parameter \(n\) on superellipsoid geometry}
+\label{tab:superellipsoid_n}
+\begin{tabular}{c l}
+\hline
+\(n\) value & Shape behavior \\
+\hline
+\(n = 2\) 
+& Ellipsoid (sphere if \(a = b = c\)) \\
+
+\(n > 2\) 
+& Rounded rectangular or brick-like shape \\
+
+\(n \rightarrow \infty\) 
+& Approaches a rectangular prism \\
+
+\(n < 2\) 
+& More pointed, diamond-like shape \\
+\hline
+\end{tabular}
+\end{table}
+
+The superellipsoid model provides a more physically realistic description of virus shape than a simple cubic model. Its smooth surface allows curvature to be well defined and enables continuous shape changes, which are essential for modeling membrane mechanics and shape evolution. A brief comparison between the cubic and superellipsoid shape models is summarized in Table~2.
+
+
+
+
+\begin{table}[h!]
+\centering
+\caption{Comparison of Rectangular Prism and Superellipsoid Shape Models}
+\label{tab:prism_vs_superellipsoid}
+%\small
+\footnotesize%\begin{tabular}{p2cm} p{3.{5.8cm}p{5.8cm}}
+
+
+\begin{tabular}{
+>{\raggedright\arraybackslash}p{3.2cm}
+>{\raggedright\arraybackslash}p{5.8cm}
+>{\raggedright\arraybackslash}p{5.8cm}
+}
+
+
+
+\hline
+Feature & Rectangular Prism Model & Superellipsoid Model \\
+\hline
+Realism 
+& Sharp edges, less realistic 
+& Smooth edges similar to real orthopox viruses \\
+
+Curvature 
+& No curvature; bending energy cannot be computed 
+& Curvature varies spatially \\
+
+Surface Area 
+& Easy to compute analytically 
+& Requires numerical integration \\
+
+Shape Flexibility 
+& Only cuboid shapes possible 
+& Can smoothly interpolate between sphere, ellipsoid, and rounded rectangular shapes \\
+
+Shape Transitions 
+& It can only study cube to rectangle transition
+& Allows gradual and continuous shape transitions \\
+
+Cost 
+& Low computational cost
+& Higher  computational cost \\
+
+Overall Suitability 
+& Less realistic virus modeling 
+& More realistic and flexible for virus shape modeling \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\vspace{-1em} 
+\subsection*{\indent{6. Ensemble Settings}}
 
 (1) NVT (Canonical Ensemble): 
 
@@ -316,82 +429,18 @@ P_{\text{accept}} = \min \left( 1, \exp \left[ - \frac{\Delta E + p \Delta V - N
  
 After obtaining simulation data, volume fluctuations at fixed pressures and temperatures will be analyzed. Average volume will be calculated and plotted against pressure. Additionally, volume and energy fluctuations over time will be examined to assess stability and equilibration, providing insight into the membrane’s pressure response. 
 
-\begin{comment}
-\subsection*{\indent{6. Pressure Calculation by Theoretical Model}}
 
-Previous studies, such as Grayson et al.\cite{Grayson2006}, modeled DNA packaging energy by representing the capsid as a sphere and the genome as an extended semiflexible rod. Similarly, we model the membrane as a spherical enclosure and the RNA as an extended semiflexible rod.
-
-Our goal is to quantify how the structure of the genome influences the internal pressure within the membrane. Specifically, we aim to understand how changes in the RNA persistence length  \(\xi\)\ and the radial loop distribution \(N(r)\) affect the pressure \(P\).  To estimate it, we divide the total bending energy of the RNA by the volume of the membrane.  
-
-
-
-
-
-
-\begin{equation}
-P = \frac{\sqrt{3} k_B T \, \xi^2}{R^3} \int_{R_\text{in}}^{R_\text{out}} \frac{N(r)}{r} \, dr
-\end{equation}
-
-
-\subsection*{Simulation Procedures}
-(1)Initialization of DNA chains and crowders.
-
-(2) Energy calculation (FENE + WCA/LJ).
-
-(3) Repeated Monte Carlo updates to reach equilibrium.
-
-
-
-\subsection*{\indent{7. Pressure Calculation by Primitive Model}}
-We use the Primitive Model (PM) to simulate the pressure exerted by the genome as it passes through a narrow slit in the membrane. Primitive Model (PM)	is a specific type of coarse-grained model that uses minimal physics (e.g., hard spheres + short-range bonding) to capture essential behavior.
-
- 
-In our research, the genome chain, represented as a series of beads connected by covalent bonds, translocates through a small slit in the membrane, and each bead is treated as a rigid, impenetrable sphere with a diameter $ \sigma $. The contact theorem\cite{Voertler1997} applies by relating the pressure normal to the slit walls, $ p_w $, to the one-particle density of these beads at the contact distance $ z = \sigma/2 $, expressed as 
-
-
-\begin{equation}
-{p_w}= \rho(z) *kT \quad \text{for} \quad z \to \frac{L - \sigma}{2}
-\end{equation}
-
-
-\subsection*{Simulation Procedures}
-
-(1)Genome modeled as hard spheres (Primitive Model).
-
-(2)Confined in a slit geometry.
-
-(3)Simulate genome movement and collisions.
-
-(4)Measure bead density at wall contact.
-
-(5)Compute 
-
- using contact theorem
-
-
-\end{comment}
 
 \vspace{-1em}
 \subsection*{III. Hypothesis}
-\begin{comment}
-\noindent \textbf{Hypothesis 1:}\\
-The shape of a virus forms after its genome architecture stabilizes. First, the genome reaches a steady state, and we then examine how it influences the viral membrane shape. 
 
-\noindent \textbf{Hypothesis 2:}\\
-The genome architecture may develop after the viral membrane shape stabilizes. In this case, the membrane reaches a steady state first, and we then observe how it affects the genome’s geometry. By adjusting the length of 1D rod or the perimeter of the circle of the genome, we try to match the reference.\cite{goldsmith2003monkeypox}\\
-
-\noindent \textbf{Hypothesis 3}:\\
-The shape of a virus and its genome architecture form simultaneously.
-The model for this hypothesis allows both genome morphology and membrane shape to undergo simultaneous
-fluctuation until both arrive at a mutual steady state.
-\end{comment}
 
 \noindent \textbf{Hypothesis 1}:\\
-Virus shape and genome structure develop through interactions where either the genome or membrane stabilizes first, or both stabilize together. Changing genome length or shape lets the model reproduce these behaviors and match experiments.
-	
-\noindent \textbf{Hypothesis 2:}\\
-If a genome-like rod and crowder particles are confined inside an initially cubic, flexible membrane/box, then after equilibrating the internal packing in NVT and subsequently allowing box-shape fluctuations in NPT, the system will spontaneously break cubic symmetry and evolve toward an elongated cuboid (rectangular-prism) equilibrium shape.
 
+The shape of a virus is strongly influenced by the shape and arrangement of its genome. Interactions between the genome, the materials inside the virus, and the membrane work together to determine the final virus shape.\\
+
+\noindent \textbf{Hypothesis 2:}\\
+Changes in the structure of the genome during maturation create higher internal pressure that reshapes the virus from a spherical form into an elongated form.
 \vspace{-1em}
 
 \subsection*{IV.Expected outcomes} 
@@ -408,7 +457,8 @@ genome induces an elliptic shape whereas a
 circular genome leads to a circular shape\cite{goldsmith2003monkeypox}.}
 \end{figure}
 
-(2)
+(2)Starting from a cubic geometry, internal pressure from genome confinement combined with genome–crowder attraction breaks symmetry and drives elongation into an anisotropic shape.
+\newpage
 \begin{figure}[!ht]
   \centering
   \fbox{\includegraphics[width=0.44\textwidth,height=3.7cm]{NVT.NPT.png}}  % Adjust width or height as needed
@@ -418,82 +468,60 @@ circular genome leads to a circular shape\cite{goldsmith2003monkeypox}.}
 \vspace{-2em} 
 \subsection*{V.Projected timeline}
 
+\textbf{Goal 1: Build a Simple Virus Model}
 
+Build a simple model of a genome inside a soft membrane.\\
+\vspace{-1em} 
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+  \item Model the genome as connected beads.
+  \item Model the membrane as a flexible surface.
+  \item Include basic pushing (repulsion) and weak attraction.
+  \item Study how the genome pushes on and deforms the membrane.
+\end{itemize}
 
-\noindent Work 1: Genome Geometry–Driven Membrane Deformation. Establish how genome length, stiffness, and geometry control membrane shape under confinement.
- 
-(1)Develop a coarse-grained bead–spring genome model confined within a flexible Helfrich–Canham membrane.
+\textbf{Goal 2: Study What Controls Virus Shape}
 
-(2)Systematically vary:
+Use the model to test what physical factors change virus shape.\\
+\vspace{-1em}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\item Change genome length (short vs long).
+\item Change genome stiffness (soft vs stiff).
+\item Change membrane size and flexibility.
+\item Measure changes in shape, pressure, and genome position.
+\end{itemize}
 
-\indent\indent (i)genome length (short RNA vs long DNA)
+\textbf{Goal 3: Explain Shape Changes in Real Viruses}
 
-\indent\indent (ii)genome stiffness (flexible vs rod-like)
+Use the model to explain experimental observations.\\
+\vspace{-1em}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\item Explain why COVID-19 particles stay mostly spherical.
+\item Explain why Monkeypox particles are elongated.
+\item Explain the change from spherical immature particles to elongated mature particles.
+\end{itemize}
 
-\indent\indent (iii)membrane size and bending rigidity
-
-\noindent Work 2: This work will examine how internal pressure affects the size and geometry of a virus, and how weak attractions between the genome and the surrounding cellular environment influence host cell membrane after host-cell entry. A simple coarse-grained model with Lennard-Jones attractions will be used, in which genome length, stiffness, and interaction strength are varied to observe how virus shape and genome position respond.
-
-\noindent Work 3: Shape Symmetry Breaking Explain why some viruses (e.g., Monkeypox) transition from spherical to elongated shapes,
-
-
-
-\begin{comment}
-\textcolor{red}{\textbf{You may need to remove project timeline and add the specific 3 pieces work you plan to do. Each one will eventually lead to a publication and should be very brief.}}
-\end{comment}
-
-\newpage
-
-\begin{comment}
-\subsection*{Extra source}
-Rod Bent Into a Circle:
-\begin{equation}
-E = \frac{\kappa_r}{2} \int_0^L \left(C(s) - C_0 \right)^2 ds = \frac{\kappa_r L}{2} \left(\frac{1}{R} - C_0 \right)^2
-\end{equation}
-
-Rod Bent Into an Oval(Continuous Expression):
-\begin{equation}
-E = \frac{\kappa_r}{2} \int_0^L \left( C(s) - C_0 \right)^2 ds
-\end{equation}
-
-
-\begin{equation}
-C(s) = \frac{ab}{\left(b^2 \cos^2 \phi(s) + a^2 \sin^2 \phi(s) \right)^{3/2}}
-\end{equation}
-
-\begin{equation}
-s(\phi) = \int_0^\phi \sqrt{a^2 \sin^2 \varphi + b^2 \cos^2 \varphi} \, d\varphi
-\end{equation}
-
-
-
-Rod Bent Into an Oval:(Discretized Expression)
-\begin{equation}
-E \approx \frac{\kappa_r}{2} \sum_{i=1}^{N-1} (C_i - C_0)^2 \Delta s_i
-\end{equation}
-
-\begin{equation}
-C_i = \frac{a b}{\left( b^2 \cos^2 \phi_i + a^2 \sin^2 \phi_i \right)^{3/2}}
-\end{equation}
-
-$C_i$ is a single number (curvature value) at point $i$.
-
-The Metropolis acceptance probability P is defined as:
-\begin{equation}
-P = \begin{cases}
-1 & \text{if } \Delta E \leq 0 \\
-e^{-\Delta E / (k_B T)} & \text{if } \Delta E > 0
-\end{cases}
-\end{equation}
 
 \newpage
 
 
 
-(3)  Use MC sampling to generate states distributed by Boltzmann probabilities instead of summing all states.
-(4)	Use acceptance probabilities (e.g., Metropolis) to decide if a proposed move is accepted, based on energy difference and temperature.
-(5)	Implement moves and acceptance rules consistent with desired thermodynamic ensemble (NVT, NPT, etc.).
-\end{comment}
+
+
+
+
+
+
+
+
 
 
 \end{flushleft}
